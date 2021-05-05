@@ -14,6 +14,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     SidebarComponent
   ],
+  exports:[
+    HeaderComponent,
+    BreadcrumbComponent,
+    FooterComponent,
+    SidebarComponent
+  ],
   imports: [
     CommonModule
   ]
