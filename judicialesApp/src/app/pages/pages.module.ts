@@ -15,7 +15,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EditarComponent,
     AgregarComponent,
     ListarComponent,
-    //NopagefoundComponent,
     PagesComponent,
     DashboardComponent
 
