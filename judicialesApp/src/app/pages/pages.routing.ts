@@ -8,7 +8,7 @@ import { ListarComponent } from './listar/listar.component';
 const routes: Routes = [
     {path: 'dashboard',
         component: PagesComponent,
-            children: [
+        children: [
             {path:'agregar', component: AgregarComponent},
             {path:'editar', component: EditarComponent},
             {path:'listar', component: ListarComponent}
