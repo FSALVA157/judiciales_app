@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { PagesModule } from './pages/pages.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 
@@ -19,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AuthModule
   

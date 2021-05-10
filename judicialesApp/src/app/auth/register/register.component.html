@@ -8,9 +8,19 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Registrar un nuevo Usuario</p>
 
-                <form action="../../index.html" method="post">
+                <form autocomplete="off" (ngSubmit)="crearUsuario()" [formGroup]="formData">
+
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Full name">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="correo">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="DNI" formControlName="dni">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -18,15 +28,23 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -34,7 +52,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Retype password">
+                        <input type="password" class="form-control" placeholder="Repetir password" formControlName="password2">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
