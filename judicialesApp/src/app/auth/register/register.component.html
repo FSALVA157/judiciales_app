@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="clave">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -59,6 +59,29 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-12 text-danger">
+                            <p *ngIf="campoNoValido('correo')">El Correo es obligatorio y debe ser valido</p>
+                        </div>
+                        <div class="col-12 text-danger">
+                            <p *ngIf="campoNoValido('dni')">El DNI es obligatorio y debe ser valido</p>
+                        </div>
+                        <div class="col-12 text-danger">
+                            <p *ngIf="campoNoValido('nombre')">El Nombre es obligatorio y debe ser valido</p>
+                        </div>
+                        <div class="col-12 text-danger">
+                            <p *ngIf="campoNoValido('apellido')">El Apellido es obligatorio y debe ser valido</p>
+                        </div>
+                        <div class="col-12 text-danger">
+                            <p *ngIf="!contraseniaValida()">Las contraseñas deben coincidir</p>
+                        </div>
+
+                    </div>
+
+
+
+
                     <div class="row">
                         <div class="col-6">
                             <div class="icheck-primary">
