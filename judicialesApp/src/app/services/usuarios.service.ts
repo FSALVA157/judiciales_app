@@ -13,7 +13,7 @@ export class UsuariosService {
     private readonly http: HttpClient
   ) { }
   
-
+  //crear usuario
   crearUsuario(data: any){
     delete data.password2;
     const obj: UsuarioModel = {
@@ -27,6 +27,16 @@ export class UsuariosService {
     return this.http.post(`${environment.BASE_URL}/usuario`,obj);
     
   }
-
+  //fin crear usuario
   
+  login(data: any){
+    delete data.recuerdame;
+    const dataLogin = {
+      'email': data.correo,
+      'clave': data.clave
+    };
+    console.log('DATA ARMADA', dataLogin);
+    return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
+
+  }
 }
