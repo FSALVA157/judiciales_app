@@ -28,8 +28,8 @@ export class RegisterComponent {
     password2: ['123456',[Validators.required, Validators.minLength(6)]]
   });
 
+  //CREAR USAURIO
   crearUsuario(){
-
     this.submitted=true;
     if(this.formData.invalid){
      
@@ -49,7 +49,8 @@ export class RegisterComponent {
                        
                        });
   }
-
+  //FIN CREAR USAURIO
+  
   campoNoValido(campo:string):boolean{
     if(this.formData.get(campo)?.invalid && this.submitted){
       return true;

@@ -29,14 +29,16 @@ export class UsuariosService {
   }
   //fin crear usuario
   
+  //LOGIN
   login(data: any){
-    delete data.recuerdame;
+    //delete data.recuerdame;
     const dataLogin = {
       'email': data.correo,
       'clave': data.clave
     };
-    console.log('DATA ARMADA', dataLogin);
+    
     return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
 
   }
+  //FIN LOGIN
 }

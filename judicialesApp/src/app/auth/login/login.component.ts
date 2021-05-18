@@ -19,13 +19,12 @@ export class LoginComponent {
   ) { }
 
   public formLogin = this.fb.group({
-    correo: ['test15@gmail.com', [Validators.required, Validators.email]],
-    clave: ['123456',[Validators.required]],
+    correo: [localStorage.getItem("email") || "", [Validators.required, Validators.email]],
+    clave: ['',[Validators.required]],
     recuerdame: [false]
   });
   
-  loginUsuario(){
-    
+  loginUsuario(){    
     const usuario= this.usuarioService.login(this.formLogin.value)
       .subscribe(
         respuesta => {
@@ -36,6 +35,14 @@ export class LoginComponent {
             
           });
           this.router.navigateByUrl("dashboard");
+
+          if(this.formLogin.get("recuerdame")?.value){
+            localStorage.setItem("email",this.formLogin.get("correo")?.value);
+          }
+          else{
+            localStorage.removeItem("email");
+          }
+          
         },
         err => {
           Swal.fire({
@@ -44,8 +51,7 @@ export class LoginComponent {
             icon: 'warning',
             
           })
-        })
-      
+        })     
     
   }
   
