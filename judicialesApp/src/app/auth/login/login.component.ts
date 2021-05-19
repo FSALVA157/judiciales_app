@@ -18,12 +18,16 @@ export class LoginComponent {
     private router:Router
   ) { }
 
+  //DEFINICION DE MODELO FORMULARIO QUE SE VINCULA AL FORMULARIO HTML
+  //localStorage permite obtener el contenido guardado en el navegador
   public formLogin = this.fb.group({
     correo: [localStorage.getItem("email") || "", [Validators.required, Validators.email]],
     clave: ['',[Validators.required]],
     recuerdame: [false]
   });
+  //FIN DEFINICION DE MODELO FORMULARIO QUE SE VINCULA AL FORMULARIO HTML
   
+  //LOGIN USUARIO
   loginUsuario(){    
     const usuario= this.usuarioService.login(this.formLogin.value)
       .subscribe(
@@ -35,14 +39,18 @@ export class LoginComponent {
             
           });
           this.router.navigateByUrl("dashboard");
-
+          
+          //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
+          //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"
           if(this.formLogin.get("recuerdame")?.value){
             localStorage.setItem("email",this.formLogin.get("correo")?.value);
           }
           else{
+            //borra el "correo" que esta guardado en el navegador con el nombre "email"
             localStorage.removeItem("email");
           }
-          
+          //FIN RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
+
         },
         err => {
           Swal.fire({
@@ -51,9 +59,8 @@ export class LoginComponent {
             icon: 'warning',
             
           })
-        })     
-    
+        })         
   }
-  
+  //FIN LOGIN USUARIO
 
 }

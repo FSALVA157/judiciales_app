@@ -13,7 +13,7 @@ export class UsuariosService {
     private readonly http: HttpClient
   ) { }
   
-  //crear usuario
+  //CREAR USUARIO
   crearUsuario(data: any){
     delete data.password2;
     const obj: UsuarioModel = {
@@ -24,10 +24,9 @@ export class UsuariosService {
       dni: parseInt(data.dni)
     };
     
-    return this.http.post(`${environment.BASE_URL}/usuario`,obj);
-    
+    return this.http.post(`${environment.BASE_URL}/usuario`,obj);    
   }
-  //fin crear usuario
+  //fin CREAR USUARIO
   
   //LOGIN
   login(data: any){
@@ -38,7 +37,7 @@ export class UsuariosService {
     };
     
     return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
-
   }
   //FIN LOGIN
+
 }
