@@ -38,6 +38,10 @@ export class LoginComponent {
             icon: 'info',
             
           });
+          //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
+          localStorage.setItem('validado', "true");
+          
+          //DIRECCIONAMIENTO
           this.router.navigateByUrl("dashboard");
           
           //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
@@ -59,6 +63,7 @@ export class LoginComponent {
             icon: 'warning',
             
           })
+          localStorage.setItem('validado', "false");
         })         
   }
   //FIN LOGIN USUARIO
