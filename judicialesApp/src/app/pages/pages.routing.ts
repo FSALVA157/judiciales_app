@@ -13,10 +13,8 @@ const routes: Routes = [
         children: [
             {path:'agregar', component: AgregarComponent},
             {path:'editar', component: EditarComponent},
-            {path:'listar', component: ListarComponent}
-        
-        ]    
-    
+            {path:'listar', component: ListarComponent}        
+        ]        
     },
 
 ];

@@ -40,7 +40,7 @@ export class LoginComponent {
           });
           //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
           localStorage.setItem('validado', "true");
-          
+          console.log("usuario",usuario); 
           //DIRECCIONAMIENTO
           this.router.navigateByUrl("dashboard");
           
@@ -64,7 +64,8 @@ export class LoginComponent {
             
           })
           localStorage.setItem('validado', "false");
-        })         
+        })   
+         
   }
   //FIN LOGIN USUARIO
 
