@@ -3,6 +3,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UsuarioModel } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,17 @@ export class LoginComponent {
   });
   //FIN DEFINICION DE MODELO FORMULARIO QUE SE VINCULA AL FORMULARIO HTML
   
+
+  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  extraerDataUsuario(data: any) {
+    //voy a desestructurar respuesta
+     const {apellido, correo, dni, foto, nombre} = data;
+     const user: UsuarioModel = new UsuarioModel(correo,"", dni,nombre,apellido,foto);
+     console.log("usuario extraido", user);
+     const img = user.foto || "";
+     localStorage.setItem('img', img);
+  }
+  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   //LOGIN USUARIO
   loginUsuario(){    
     const usuario= this.usuarioService.login(this.formLogin.value)
@@ -40,7 +52,11 @@ export class LoginComponent {
           });
           //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
           localStorage.setItem('validado', "true");
-          console.log("usuario",usuario); 
+          console.log("usuario",respuesta); 
+          //IMAGEN EN LOCAL STORAGE
+          this.extraerDataUsuario(respuesta);
+                    
+          
           //DIRECCIONAMIENTO
           this.router.navigateByUrl("dashboard");
           

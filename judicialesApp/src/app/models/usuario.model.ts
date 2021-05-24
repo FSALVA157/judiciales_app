@@ -1,7 +1,7 @@
 
 export class UsuarioModel{
 
-
+    
     constructor(
         public correo:string,
         public clave:string,
