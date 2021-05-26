@@ -15,7 +15,7 @@
                 <div class="btn navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <a class="navbar-link">
                         <img [src]="imagenUrl" class="img-circle elevation-2" style="vertical-align: middle;">
-                        <span>&nbsp;&nbsp;Alexander Pierce del valle valle</span>
+                        <span>&nbsp;&nbsp;{{nombreUsuario}}</span>
                     </a>
                 </div>
 
@@ -58,31 +58,34 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                <li *ngFor="let item_menu of menu" class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon" class={{item_menu.icono}}></i>
-                        <p>
-                            {{item_menu.titulo}}
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li *ngFor="let item of item_menu.submenu" class="nav-item">
-                            <a [routerLink]="item.url" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>{{item.titulo}}</p>
-                            </a>
-                        </li>
+            <!-- ELEMENTOS DEL MENU -->
+            <nav>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                    </ul>
-
-                </li>
-
-            </ul>
-
+                    <!-- ITEMS -->
+                    <li *ngFor="let item_menu of menu" class="nav-item">
+                        <a href="" class="nav-link">
+                            <i class="nav-icon" class={{item_menu.icono}}></i>
+                            <p>
+                                {{item_menu.titulo}}
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <!-- SUBITEMS -->
+                        <ul class="nav nav-treeview">
+                            <li *ngFor="let item of item_menu.submenu" class="nav-item">
+                                <a [routerLink]="item.url" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>{{item.titulo}}</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- FIN SUBITEMS -->
+                    </li>
+                    <!-- FIN ITEMS -->
+                </ul>
+            </nav>
+            <!-- FIN ELEMENTOS DEL MENU -->
         </nav>
         <!-- /.sidebar-menu -->
 

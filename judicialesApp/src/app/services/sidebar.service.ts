@@ -22,9 +22,9 @@ export class SidebarService {
       titulo:"Expedientes",
       icono: "fas fa-folder",
       submenu: [
-        {titulo: "Agregar", url: "agregar"},
-        {titulo: "Editar", url: "editar"},
-        {titulo: "Listar", url: "listar"}
+        {titulo: "Agregarx", url: "agregar"},
+        {titulo: "Editarx", url: "editar"},
+        {titulo: "Listarx", url: "listar"}
       ]
     }
     

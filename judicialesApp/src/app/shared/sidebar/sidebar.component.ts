@@ -10,9 +10,9 @@ import { environment} from '../../../environments/environment'
 })
 export class SidebarComponent  {
   
-  menu: any[] = [];
-  
+  menu: any[] = [];  
   imagenUrl: string ="";
+  nombreUsuario: string="";
 
   constructor(
     private sidebarService: SidebarService
@@ -23,6 +23,12 @@ export class SidebarComponent  {
     }
     else{
       this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=no-image.jpg`;
+    }
+    if(localStorage.getItem('nombreUsuario')){
+      this.nombreUsuario = localStorage.getItem('nombreUsuario') || "";
+    }
+    else{
+      this.nombreUsuario = "Sin nombre"
     }
     
   }
