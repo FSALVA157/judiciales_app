@@ -43,49 +43,48 @@ export class LoginComponent {
   //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   //LOGIN USUARIO
   loginUsuario(){    
-    // const usuario= this.usuarioService.login(this.formLogin.value)
-    //   .subscribe(
-    //     respuesta => {
-    //       Swal.fire({
-    //         title: 'Login correcto',
-    //         text: "Ha ingresado a la aplicacion",
-    //         icon: 'info',
+    const usuario= this.usuarioService.login(this.formLogin.value)
+      .subscribe(
+        respuesta => {
+          Swal.fire({
+            title: 'Login correcto',
+            text: "Ha ingresado a la aplicacion",
+            icon: 'info',
             
-    //       });
-    //       //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
-    //       localStorage.setItem('validado', "true");
-    //       console.log("usuario",respuesta); 
+          });
+          //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
+          localStorage.setItem('validado', "true");
+          console.log("usuario",respuesta); 
 
-    //       //DATOS DE USUARIO EN LOCAL STORAGE
-    //       this.extraerDataUsuario(respuesta);
+          //DATOS DE USUARIO EN LOCAL STORAGE
+          this.extraerDataUsuario(respuesta);
                    
-    //       //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
-    //       //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"
-    //       if(this.formLogin.get("recuerdame")?.value){
-    //         localStorage.setItem("email",this.formLogin.get("correo")?.value);
-    //       }
-    //       else{
-    //         //borra el "correo" que esta guardado en el navegador con el nombre "email"
-    //         localStorage.removeItem("email");
-    //       }
-    //       //FIN RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
+          //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
+          //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"
+          if(this.formLogin.get("recuerdame")?.value){
+            localStorage.setItem("email",this.formLogin.get("correo")?.value);
+          }
+          else{
+            //borra el "correo" que esta guardado en el navegador con el nombre "email"
+            localStorage.removeItem("email");
+          }
+          //FIN RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
 
-    //       //DIRECCIONAMIENTO
-    //       this.router.navigateByUrl("dashboard");
+          //DIRECCIONAMIENTO
+          this.router.navigateByUrl("dashboard");
 
-    //     },
-    //     err => {
-    //       Swal.fire({
-    //         title: 'Error de login',
-    //         text: err.error.message,
-    //         icon: 'warning',
+        },
+        err => {
+          Swal.fire({
+            title: 'Error de login',
+            text: err.error.message,
+            icon: 'warning',
             
-    //       })
-    //       localStorage.setItem('validado', "false");
-    //     }
-    //   );   
-    //DIRECCIONAMIENTO
-    this.router.navigateByUrl("/dashboard");
+          })
+          localStorage.setItem('validado', "false");
+        }
+      );   
+    
   }
   //FIN LOGIN USUARIO
 
