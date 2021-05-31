@@ -16,15 +16,16 @@ export class UsuariosService {
   //CREAR USUARIO
   crearUsuario(data: any){
     delete data.password2;
-    const obj: UsuarioModel = {
-      correo: data.correo,
-      nombre: data.nombre,
-      apellido: data.apellido,
-      clave: data.clave,
-      dni: parseInt(data.dni)
-    };
+    // const obj: UsuarioModel = {
+    //   correo: data.correo,
+    //   nombre: data.nombre,
+    //   apellido: data.apellido,
+    //   clave: data.clave,
+    //   dni: parseInt(data.dni),
+    //   fotoUrl: data.
+    // };
     
-    return this.http.post(`${environment.BASE_URL}/usuario`,obj);    
+    return this.http.post(`${environment.BASE_URL}/usuario`,data);    
   }
   //fin CREAR USUARIO
   

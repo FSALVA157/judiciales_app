@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { globalConstants } from '../common/global-constants';
 
 
 
@@ -19,7 +20,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   canActivate(): boolean {
 
-    let validado: boolean = (localStorage.getItem('validado')==='true')?true: false;
+    let validado: boolean = (globalConstants.validado)?true: false;
 
     if(validado){
       return true;

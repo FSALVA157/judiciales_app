@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
-import { environment} from '../../../environments/environment'
+import { environment} from '../../../environments/environment';
+import { globalConstants } from '../../common/global-constants';
+declare var $: any;
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +10,7 @@ import { environment} from '../../../environments/environment'
   styles: [
   ]
 })
-export class SidebarComponent  {
+export class SidebarComponent  implements OnInit {
   
   menu: any[] = [];  
   imagenUrl: string ="";
@@ -18,21 +20,27 @@ export class SidebarComponent  {
     private sidebarService: SidebarService
   ) { 
     this.menu = this.sidebarService.menu;
-    if(localStorage.getItem('img')){
-      this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=${localStorage.getItem('img')}`;
-    }
-    else{
-      this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=no-image.jpg`;
-    }
-    if(localStorage.getItem('nombreUsuario')){
-      this.nombreUsuario = localStorage.getItem('nombreUsuario') || "";
+    this.imagenUrl = globalConstants.urlImagen;
+    // if(globalConstants.urlImagen){
+    //   //this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=${globalConstants.urlImagen}`;
+    //   this.imagenUrl = globalConstants.urlImagen;
+    // }
+    // else{
+    //   this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=no-image.jpg`;
+    // }
+    if(globalConstants.nombreUsuario){
+      this.nombreUsuario = globalConstants.nombreUsuario || "";
     }
     else{
       this.nombreUsuario = "Sin nombre"
     }
+   
     
   }
 
-  
+  ngOnInit(): void {
+    $('[data-widget="treeview"]').Treeview('init');
+
+  }
 
 }

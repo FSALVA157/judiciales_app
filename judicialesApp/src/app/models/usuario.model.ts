@@ -1,3 +1,7 @@
+import { environment } from "src/environments/environment";
+
+const base_url = environment.BASE_URL;
+
 
 export class UsuarioModel{
 
@@ -10,9 +14,16 @@ export class UsuarioModel{
         public apellido: string,
         public foto?:string
 
-    ){
+    ){}
 
+    get fotoUrl(){
+        if(this.foto){
+            return `${base_url}/usuario/foto?foto_nombre=${this.foto}`;
+        }else{
+            return `${base_url}/usuario/foto?foto_nombre=no-image.jpg`;
+        }
     }
+    
 
 
 

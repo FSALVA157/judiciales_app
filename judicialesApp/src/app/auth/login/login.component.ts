@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioModel } from '../../models/usuario.model';
+import { globalConstants } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-login',
@@ -34,11 +35,9 @@ export class LoginComponent {
     //voy a desestructurar respuesta
      const {apellido, correo, dni, foto, nombre} = data;
      const user: UsuarioModel = new UsuarioModel(correo,"", dni,nombre,apellido,foto);
-     console.log("usuario extraido", user);
-     const img = user.foto || "";
-     const nombreCompleto = apellido +" "+ nombre;
-     localStorage.setItem('img', img);
-     localStorage.setItem('nombreUsuario', nombreCompleto);
+     globalConstants.urlImagen = user.fotoUrl;                                   
+     globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
+     globalConstants.emailUsuario = user.correo;
   }
   //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   //LOGIN USUARIO
@@ -52,13 +51,15 @@ export class LoginComponent {
             icon: 'info',
             
           });
-          //VARIABLE PARA CONTROLAR SI ESTA VALIDADO
-          localStorage.setItem('validado', "true");
+          //VARIABLE PARA CONTROLAR SI ESTA VALIDADO          
           console.log("usuario",respuesta); 
+          globalConstants.validado = true;
 
           //DATOS DE USUARIO EN LOCAL STORAGE
           this.extraerDataUsuario(respuesta);
                    
+          console.log("globales", globalConstants.urlImagen);
+
           //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
           //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"
           if(this.formLogin.get("recuerdame")?.value){
@@ -81,7 +82,7 @@ export class LoginComponent {
             icon: 'warning',
             
           })
-          localStorage.setItem('validado', "false");
+          globalConstants.validado = false;
         }
       );   
     
