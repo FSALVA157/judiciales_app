@@ -5,6 +5,7 @@ import { AgregarComponent } from './agregar/agregar.component';
 import { EditarComponent } from './editar/editar.component';
 import { ListarComponent } from './listar/listar.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 const routes: Routes = [
     {path: 'dashboard',
@@ -13,7 +14,9 @@ const routes: Routes = [
         children: [
             {path:'agregar', component: AgregarComponent},
             {path:'editar', component: EditarComponent},
-            {path:'listar', component: ListarComponent}        
+            {path:'listar', component: ListarComponent},
+            {path:'usuarios', component: UsuariosComponent}  
+                
         ]        
     },
 

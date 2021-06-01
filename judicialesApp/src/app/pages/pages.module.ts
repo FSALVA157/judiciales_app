@@ -7,6 +7,7 @@ import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 
 
@@ -16,7 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AgregarComponent,
     ListarComponent,
     PagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuariosComponent
 
   ],
   exports: [

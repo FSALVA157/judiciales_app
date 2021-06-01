@@ -10,6 +10,14 @@ export class SidebarService {
 
   menu: any = [
     {
+      titulo:"Usuarios",
+      icono: "fas fa-user-friends",
+      submenu: [
+        {titulo: "Mantenimiento", url: "/dashboard/usuarios"},
+        
+      ]
+    },
+    {
       titulo:"Internos",
       icono: "fas fa-user-friends",
       submenu: [
