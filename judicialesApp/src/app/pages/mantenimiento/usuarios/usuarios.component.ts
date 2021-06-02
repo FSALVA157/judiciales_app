@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare const botones : any;
 
 @Component({
   selector: 'app-usuarios',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
+
+
+
 export class UsuariosComponent implements OnInit {
 
   constructor() { }
@@ -13,4 +17,7 @@ export class UsuariosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    botones();
+   }
 }
