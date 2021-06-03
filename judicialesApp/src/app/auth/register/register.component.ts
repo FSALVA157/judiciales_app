@@ -36,18 +36,18 @@ export class RegisterComponent {
       return;
     }
     this.usuariosService.crearUsuario(this.formData.value)    
-                          .subscribe(respuesta => {
-                            console.log(respuesta);
-                       }, (err) => {
-                        Swal.fire({
-                          title: 'Error al crear usuario',
-                          text: err.error.message,
-                          icon: 'warning',
-                          
-                        })
-                              
-                       
-                       });
+                          .subscribe(
+                            respuesta => {
+                              console.log(respuesta);
+                            }, 
+                            (err) => {
+                              Swal.fire({
+                                title: 'Error al crear usuario',
+                                text: err.error.message,
+                                icon: 'warning',                              
+                              })   
+                            }
+                          );
   }
   //FIN CREAR USAURIO
   

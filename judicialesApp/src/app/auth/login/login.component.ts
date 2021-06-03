@@ -39,7 +39,8 @@ export class LoginComponent {
      globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
      globalConstants.emailUsuario = user.correo;
   }
-  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  
   //LOGIN USUARIO
   loginUsuario(){    
     const usuario= this.usuarioService.login(this.formLogin.value)

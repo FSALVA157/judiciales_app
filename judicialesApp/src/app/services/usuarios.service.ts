@@ -41,4 +41,10 @@ export class UsuariosService {
   }
   //FIN LOGIN
 
+  //RETORNAR USUARIOS POR UNIDAD
+  getListaUsuariosXUnidad(id_unidad: number){
+    
+    return this.http.get<UsuarioModel[]>(`${environment.BASE_URL}/usuariobuscar-por-unidad?id_unidad=${id_unidad}`);
+  }
+
 }
