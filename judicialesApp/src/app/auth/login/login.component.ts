@@ -33,11 +33,12 @@ export class LoginComponent {
   //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   extraerDataUsuario(data: any) {
     //voy a desestructurar respuesta
-     const {apellido, correo, dni, foto, nombre} = data;
-     const user: UsuarioModel = new UsuarioModel(correo,"", dni,nombre,apellido,foto);
+     const {apellido, correo, dni, foto, nombre, unidad_id} = data;
+     const user: UsuarioModel = new UsuarioModel(correo,"", dni,nombre,apellido,unidad_id,foto);
      globalConstants.urlImagen = user.fotoUrl;                                   
      globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
      globalConstants.emailUsuario = user.correo;
+     globalConstants.unidad = unidad_id;
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   
@@ -53,13 +54,13 @@ export class LoginComponent {
             
           });
           //VARIABLE PARA CONTROLAR SI ESTA VALIDADO          
-          console.log("usuario",respuesta); 
+          console.log("usuario login comp ts",respuesta); 
           globalConstants.validado = true;
 
           //DATOS DE USUARIO EN LOCAL STORAGE
           this.extraerDataUsuario(respuesta);
                    
-          console.log("globales", globalConstants.urlImagen);
+          console.log("imagen globales", globalConstants.urlImagen);
 
           //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
           //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"

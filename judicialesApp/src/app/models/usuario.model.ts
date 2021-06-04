@@ -12,12 +12,15 @@ export class UsuarioModel{
         public dni:number,
         public nombre: string,
         public apellido: string,
-        public foto?:string
+        //public unidad: number,
+        public unidad_id: number,
+        public foto?:string        
 
     ){}
 
     get fotoUrl(){
         if(this.foto){
+            
             return `${base_url}/usuario/foto?foto_nombre=${this.foto}`;
         }else{
             return `${base_url}/usuario/foto?foto_nombre=no-image.jpg`;

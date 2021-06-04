@@ -19,6 +19,7 @@ export class UsuariosComponent implements OnInit {
   constructor(private usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
+    this.listaUsuarios();
   }
 
   ngAfterViewInit(): void {
@@ -27,13 +28,12 @@ export class UsuariosComponent implements OnInit {
 
    //LISTADO COMPLETO DE USUARIOS POR UNIDAD
   listaUsuarios() {
-    const id_unidad:number = globalConstants.unidad;
-    this.usuariosService.getListaUsuariosXUnidad(id_unidad)
+    const unidad: number = globalConstants.unidad;
+    console.log("unidad del usuario", unidad);
+    this.usuariosService.getListaUsuariosXUnidad(unidad)
       .subscribe(
-        data => {          
-          
-          this.lista_usuarios = data;
-          
+        data => {                    
+          this.lista_usuarios = data;          
         },
         err => {
           console.log(err);

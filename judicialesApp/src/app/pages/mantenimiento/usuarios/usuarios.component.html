@@ -8,21 +8,20 @@
                 <table id="usuarios-table" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>id_usuario</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>Rendering engine</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>DNI</th>
+                            <th>Unidad</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let usuario of lista_usuarios">
-                        <tr>
-                            <td>{{usuario.}</td>
-                            <td>Internet Explorer 4.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
+                    <tbody>
+                        <tr *ngFor="let usuario of lista_usuarios">
+                            <td>{{usuario.correo}}</td>
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.apellido}}</td>
+                            <td>{{usuario.dni}}</td>
+                            <td>{{usuario.unidad_id}}</td>
                         </tr>
 
                     </tbody>

@@ -36,7 +36,7 @@ export class UsuariosService {
       'email': data.correo,
       'clave': data.clave
     };
-    console.log("usuario en servicio", this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin));
+    console.log("usuario logueado en servicio", this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin));
     return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
   }
   //FIN LOGIN
@@ -44,7 +44,7 @@ export class UsuariosService {
   //RETORNAR USUARIOS POR UNIDAD
   getListaUsuariosXUnidad(id_unidad: number){
     
-    return this.http.get<UsuarioModel[]>(`${environment.BASE_URL}/usuariobuscar-por-unidad?id_unidad=${id_unidad}`);
+    return this.http.get<UsuarioModel[]>(`${environment.BASE_URL}/usuario/buscar-por-unidad?id_unidad=${id_unidad}`);
   }
 
 }
