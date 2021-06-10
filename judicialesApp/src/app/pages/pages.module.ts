@@ -9,6 +9,9 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
+import {TableModule} from 'primeng/table';
+
+
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    TableModule
   ]
 })
 export class PagesModule { }
