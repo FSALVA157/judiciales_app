@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 import {TableModule} from 'primeng/table';
-
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -35,7 +35,8 @@ import {TableModule} from 'primeng/table';
     CommonModule,
     SharedModule,
     RouterModule,
-    TableModule
+    TableModule,
+    ButtonModule
   ]
 })
 export class PagesModule { }
