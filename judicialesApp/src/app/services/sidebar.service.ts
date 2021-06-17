@@ -27,6 +27,14 @@ export class SidebarService {
       ]
     },
     {
+      titulo:"Internos Internos",
+      icono: "fas fa-user-friends",
+      submenu: [
+        {titulo: "Agregar", url: "/dashboard/agregar-interno"},
+        {titulo: "Listar", url: "/dashboard/listar-internos"}
+      ]
+    },
+    {
       titulo:"Expedientes",
       icono: "fas fa-folder",
       submenu: [

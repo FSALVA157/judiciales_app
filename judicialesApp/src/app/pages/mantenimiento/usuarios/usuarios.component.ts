@@ -4,14 +4,8 @@ import { globalConstants } from 'src/app/common/global-constants';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuariosService } from '../../../services/usuarios.service';
 
-import jsPDF from 'jspdf';
-//declare let jsPDF: any;
-//import 'jspdf-autotable';
-import autoTable from 'jspdf-autotable';
-//import html2canvas from 'html2canvas';
-//nombre de la funcion para mostrar los botones
-declare const botones : any;
-
+import jsPDF from 'jspdf';//importacion para pdf
+import autoTable from 'jspdf-autotable';//importacion para pdf
 
 @Component({
   selector: 'app-usuarios',
@@ -22,50 +16,28 @@ declare const botones : any;
 export class UsuariosComponent implements OnInit {
  
   //array que se utiliza en el ngfor en el html
-  lista_usuarios: UsuarioModel[] = [];
-  cols: any[]=[];
+  lista_usuarios: UsuarioModel[] = []; //array con los objetos usuarios  
+  cols: any[]=[]; //array de columnas de la tabla  
+  lista_usuarios_pdf: any[]=[]; //array que copia la lista de usuarios para crear el pdf
+  exportColumns: any[] = []; //array de columnas para crear el pdf
   
-  columns: any[]=[];
-  sales: any[] = [];
-
-  exportColumns: any[] = [];
-
 
   constructor(private usuariosService: UsuariosService) { }
-
-  
 
   ngOnInit(): void {
     this.listaUsuarios();
     
-    this.sales = [
-      { brand: 'Apple', lastYearSale: '51%', thisYearSale: '40%', lastYearProfit: '$54,406.00', thisYearProfit: '$43,342' },
-      { brand: 'Samsung', lastYearSale: '83%', thisYearSale: '96%', lastYearProfit: '$423,132', thisYearProfit: '$312,122' },
-      { brand: 'Microsoft', lastYearSale: '38%', thisYearSale: '5%', lastYearProfit: '$12,321', thisYearProfit: '$8,500' },
-      { brand: 'Philips', lastYearSale: '49%', thisYearSale: '22%', lastYearProfit: '$745,232', thisYearProfit: '$650,323,' },
-      { brand: 'Song', lastYearSale: '17%', thisYearSale: '79%', lastYearProfit: '$643,242', thisYearProfit: '500,332' },
-      { brand: 'LG', lastYearSale: '52%', thisYearSale: ' 65%', lastYearProfit: '$421,132', thisYearProfit: '$150,005' },
-      { brand: 'Sharp', lastYearSale: '82%', thisYearSale: '12%', lastYearProfit: '$131,211', thisYearProfit: '$100,214' },
-      { brand: 'Panasonic', lastYearSale: '44%', thisYearSale: '45%', lastYearProfit: '$66,442', thisYearProfit: '$53,322' },
-      { brand: 'HTC', lastYearSale: '90%', thisYearSale: '56%', lastYearProfit: '$765,442', thisYearProfit: '$296,232' },
-      { brand: 'Toshiba', lastYearSale: '75%', thisYearSale: '54%', lastYearProfit: '$21,212', thisYearProfit: '$12,533' }
-    ];
-    
-    this.columns = [
-      { title: "Brands", dataKey: "brand" },
-      { title: "Last Year Sale", dataKey: "lastYearSale" },
-      { title: "This Year Sale", dataKey: "thisYearSale" },
-      { title: "Last Year Profit", dataKey: "lastYearProfit" }
-    ];
-    
+    //inicializacion de cabeceras de columnas
     this.cols = [      
       { field: 'correo', header: 'Correo' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'apellido', header: 'Apellido' },
       { field: 'unidad_id', header: 'Unidad' }
     ];
-
-    this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));
+    //FIN inicializacion de cabeceras de columnas
+    
+    //armado de columnas para exportar el pdf
+    this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));    
     
   }
 
@@ -75,7 +47,7 @@ export class UsuariosComponent implements OnInit {
     
   }
 
-   //LISTADO COMPLETO DE USUARIOS POR UNIDAD
+  //LISTADO COMPLETO DE USUARIOS POR UNIDAD
   listaUsuarios() {
     const unidad: number = globalConstants.unidad;
     console.log("unidad del usuario", unidad);
@@ -83,7 +55,8 @@ export class UsuariosComponent implements OnInit {
       .subscribe(
         data => {                    
           this.lista_usuarios = data; 
-          console.log("lista de usuarios", this.lista_usuarios);       
+          //armado de array de usuarios para exportar el pdf
+          this.lista_usuarios_pdf = this.lista_usuarios;
         },
         err => {
           console.log(err);
@@ -95,37 +68,16 @@ export class UsuariosComponent implements OnInit {
   //EXPORTAR TABLA A PDF
   exportPdf() {
     const doc = new jsPDF('p','pt');
-          
-    // autoTable(doc, {
-    //   columns: this.exportColumns,
-    //   body: this.lista_usuarios,
-    //   didDrawPage: (dataArg) => { 
-    //     doc.text('Usuario Sistema Judiciales', dataArg.settings.margin.left, 10);
-    //   }
-    // }); 
-    
-    //doc.autoTable(this.exportColumns, this.lista_usuarios);
-    
+      
+    autoTable(doc, {
+      columns: this.exportColumns,
+      body: this.lista_usuarios_pdf,
+      didDrawPage: (dataArg) => { 
+        doc.text('Usuarios del Sistema Judiciales del S.P.P.S.', dataArg.settings.margin.left, 10);
+      }
+    });     
     doc.save('Usuarios.pdf');
 
-
-    // const doc = new jsPDF();
-    // doc.text("Hello world!", 10, 10);
-    // doc.save('usuarios.pdf');
-
-
-
-    // import("jspdf").then(jsPDF => {
-    //     import("jspdf-autotable").then(x => {
-    //         const doc = new jsPDF.default("p","cm");
-    //         doc.autoTable(this.exportColumns, this.lista_usuarios);
-    //         doc.save('products.pdf');
-    //     })
-    // })    
-    // const doc = new jsPDF();
-    // doc.autoTable({ html: 'tabla-usuarios' })
-    
-    //doc.save("tabla usuarios.pdf");
   }
   //FIN EXPORTAR TABLA A PDF
 }

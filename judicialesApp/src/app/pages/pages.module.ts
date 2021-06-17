@@ -11,6 +11,10 @@ import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
+import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
+import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
+import { InternosListarComponent } from './internos/listar/internos-listar.component';
+import { InternosAgregarComponent } from './internos/agregar/internos-agregar.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import {ButtonModule} from 'primeng/button';
     ListarComponent,
     PagesComponent,
     DashboardComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UsuariosAgregarComponent,
+    UsuariosListarComponent,
+    InternosListarComponent,
+    InternosAgregarComponent
 
   ],
   exports: [
@@ -28,7 +36,12 @@ import {ButtonModule} from 'primeng/button';
     AgregarComponent,
     ListarComponent,
     PagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuariosComponent,
+    UsuariosAgregarComponent,
+    UsuariosListarComponent,
+    InternosListarComponent,
+    InternosAgregarComponent
   ],
   imports: [
     CommonModule,
