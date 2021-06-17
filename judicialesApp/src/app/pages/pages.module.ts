@@ -13,7 +13,6 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 
 
-
 @NgModule({
   declarations: [
     EditarComponent,
