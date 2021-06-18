@@ -5,10 +5,10 @@ import { AgregarComponent } from './agregar/agregar.component';
 import { ListarComponent } from './listar/listar.component';
 import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
-
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
@@ -47,6 +47,8 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
     CommonModule,
     SharedModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     TableModule,
     ButtonModule
   ]

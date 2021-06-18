@@ -8,6 +8,8 @@ import { AuthGuard } from '../guards/auth.guard';
 import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
 import { InternosAgregarComponent } from './internos/agregar/internos-agregar.component';
 import { InternosListarComponent } from './internos/listar/internos-listar.component';
+import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
+import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
 
 const routes: Routes = [
     {path: 'dashboard',
@@ -19,7 +21,9 @@ const routes: Routes = [
             {path:'listar', component: ListarComponent},
             {path:'usuarios', component: UsuariosComponent},
             {path:'agregar-interno', component: InternosAgregarComponent},
-            {path:'listar-internos', component: InternosListarComponent} 
+            {path:'listar-internos', component: InternosListarComponent},
+            {path:'agregar-usuario', component: UsuariosAgregarComponent},
+            {path:'listar-usuarios', component: UsuariosListarComponent}  
 
         ]        
     }

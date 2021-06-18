@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { globalConstants } from 'src/app/common/global-constants';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuariosService } from '../../../services/usuarios.service';

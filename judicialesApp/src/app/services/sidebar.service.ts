@@ -9,26 +9,35 @@ export class SidebarService {
   constructor() { }
 
   menu: any = [
+    // {
+    //   titulo:"Usuarios",
+    //   icono: "fas fa-user-friends",
+    //   submenu: [
+    //     {titulo: "Mantenimiento", url: "/dashboard/usuarios"},
+        
+    //   ]
+    // },
     {
-      titulo:"Usuarios",
+      titulo:"Usuarios2",
       icono: "fas fa-user-friends",
       submenu: [
-        {titulo: "Mantenimiento", url: "/dashboard/usuarios"},
+        {titulo: "Agregar", url: "/dashboard/agregar-usuario"},
+        {titulo: "Listar", url: "/dashboard/listar-usuarios"}
         
       ]
     },
+    // {
+    //   titulo:"Internos",
+    //   icono: "fas fa-user-lock",
+    //   submenu: [
+    //     {titulo: "Agregar", url: "/dashboard/agregar"},
+    //     {titulo: "Editar", url: "/dashboard/editar"},
+    //     {titulo: "Listar", url: "/dashboard/listar"}
+    //   ]
+    // },
     {
       titulo:"Internos",
-      icono: "fas fa-user-friends",
-      submenu: [
-        {titulo: "Agregar", url: "/dashboard/agregar"},
-        {titulo: "Editar", url: "/dashboard/editar"},
-        {titulo: "Listar", url: "/dashboard/listar"}
-      ]
-    },
-    {
-      titulo:"Internos Internos",
-      icono: "fas fa-user-friends",
+      icono: "fas fa-user-lock",
       submenu: [
         {titulo: "Agregar", url: "/dashboard/agregar-interno"},
         {titulo: "Listar", url: "/dashboard/listar-internos"}
