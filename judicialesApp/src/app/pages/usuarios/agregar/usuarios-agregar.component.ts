@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 
@@ -15,7 +16,8 @@ export class UsuariosAgregarComponent {
 
   constructor(
     private fb: FormBuilder,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private router:Router
   ) { }
 
   public formData = this.fb.group({
@@ -37,6 +39,14 @@ export class UsuariosAgregarComponent {
     this.usuariosService.crearUsuario(this.formData.value)    
                           .subscribe(
                             respuesta => {
+                              Swal.fire({
+                                title: 'Crear Usuario',
+                                text: "Usuario creado correctamente",
+                                icon: 'info',
+                                
+                              });
+                              //DIRECCIONAMIENTO
+                              this.router.navigateByUrl("dashboard/listar-usuarios");
                               console.log(respuesta);
                             }, 
                             (err) => {

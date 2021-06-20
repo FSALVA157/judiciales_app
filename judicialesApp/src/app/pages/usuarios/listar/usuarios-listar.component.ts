@@ -5,6 +5,7 @@ import { UsuariosService } from '../../../services/usuarios.service';
 
 import jsPDF from 'jspdf';//importacion para pdf
 import autoTable from 'jspdf-autotable';//importacion para pdf
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-usuarios-listar',
@@ -31,7 +32,7 @@ export class UsuariosListarComponent implements OnInit {
       { field: 'correo', header: 'Correo' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'apellido', header: 'Apellido' },
-      { field: 'unidad_id', header: 'Unidad' }
+      { field: 'unidad', header: 'Unidad' }
     ];
     //FIN inicializacion de cabeceras de columnas
     
@@ -53,9 +54,11 @@ export class UsuariosListarComponent implements OnInit {
     this.usuariosService.getListaUsuariosXUnidad(unidad)
       .subscribe(
         data => {                    
-          this.lista_usuarios = data; 
+          this.lista_usuarios = data;
           //armado de array de usuarios para exportar el pdf
           this.lista_usuarios_pdf = this.lista_usuarios;
+          console.log("columnas lista creada para pdf", this.exportColumns);
+          console.log("lista creada para pdf", this.lista_usuarios_pdf);
         },
         err => {
           console.log(err);
@@ -79,4 +82,31 @@ export class UsuariosListarComponent implements OnInit {
 
   }
   //FIN EXPORTAR TABLA A PDF
+
+  exportPdf_2() {
+    const DATA:any = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
+    });
+  }
+
+  
 }

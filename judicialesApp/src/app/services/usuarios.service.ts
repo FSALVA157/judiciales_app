@@ -17,14 +17,13 @@ export class UsuariosService {
   crearUsuario(data: any){
     console.log("datos de formulario", data);
     delete data.password2;
-    const obj: UsuarioModel = {
+    const obj: any = {
       correo: data.correo,
       nombre: data.nombre,
       apellido: data.apellido,
       clave: data.clave,
       dni: parseInt(data.dni),
-      unidad_id: 1,
-      fotoUrl: data.foto
+      unidad_id: 1
     };
     
     return this.http.post(`${environment.BASE_URL}/usuario`,obj);    
