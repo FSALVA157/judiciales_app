@@ -29,6 +29,7 @@ export class UsuariosListarComponent implements OnInit {
     
     //inicializacion de cabeceras de columnas
     this.cols = [      
+      { field: 'id_usuario', header: 'Id' },
       { field: 'correo', header: 'Correo' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'apellido', header: 'Apellido' },

@@ -10,6 +10,7 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
 import { InternosListarComponent } from './internos/listar/internos-listar.component';
 import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
 import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
+import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.component';
 
 const routes: Routes = [
     {path: 'dashboard',
@@ -23,7 +24,9 @@ const routes: Routes = [
             {path:'agregar-interno', component: InternosAgregarComponent},
             {path:'listar-internos', component: InternosListarComponent},
             {path:'agregar-usuario', component: UsuariosAgregarComponent},
-            {path:'listar-usuarios', component: UsuariosListarComponent}  
+            {path:'editar-usuario/:id', component: UsuariosEditarComponent},  
+            {path:'listar-usuarios', component: UsuariosListarComponent}
+            
 
         ]        
     }

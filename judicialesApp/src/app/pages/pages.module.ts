@@ -15,6 +15,8 @@ import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.co
 import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
 import { InternosListarComponent } from './internos/listar/internos-listar.component';
 import { InternosAgregarComponent } from './internos/agregar/internos-agregar.component';
+import { InternosEditarComponent } from './internos/editar/internos-editar.component';
+import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
     UsuariosAgregarComponent,
     UsuariosListarComponent,
     InternosListarComponent,
-    InternosAgregarComponent
+    InternosAgregarComponent,
+    InternosEditarComponent,
+    UsuariosEditarComponent
 
   ],
   exports: [
@@ -39,6 +43,7 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
     DashboardComponent,
     UsuariosComponent,
     UsuariosAgregarComponent,
+    UsuariosEditarComponent,
     UsuariosListarComponent,
     InternosListarComponent,
     InternosAgregarComponent

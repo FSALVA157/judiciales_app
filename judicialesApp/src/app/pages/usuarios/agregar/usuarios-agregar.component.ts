@@ -47,7 +47,6 @@ export class UsuariosAgregarComponent {
                               });
                               //DIRECCIONAMIENTO
                               this.router.navigateByUrl("dashboard/listar-usuarios");
-                              console.log(respuesta);
                             }, 
                             (err) => {
                               Swal.fire({

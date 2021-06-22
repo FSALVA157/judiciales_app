@@ -6,6 +6,7 @@ const base_url = environment.BASE_URL;
 export class UsuarioModel{
     
     constructor(
+        public id_usuario:number,
         public correo:string,
         public clave:string,
         public dni:number,

@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="register-box mx-auto">
+
+            <div class="card ">
+                <div class="card-body register-card-body">
+                    <p class="login-box-msg">Editar datos de un Usuario</p>
+
+                    <form autocomplete="off" (ngSubmit)="actualizarUsuario()" [formGroup]="formData">
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" formControlName="correo">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="DNI" formControlName="dni">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-address-card"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password" formControlName="clave">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Repetir password" formControlName="password2">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-danger">
+                                <p *ngIf="campoNoValido('correo')">El Correo es obligatorio y debe ser valido</p>
+                            </div>
+                            <div class="col-12 text-danger">
+                                <p *ngIf="campoNoValido('dni')">El DNI es obligatorio y debe ser valido</p>
+                            </div>
+                            <div class="col-12 text-danger">
+                                <p *ngIf="campoNoValido('nombre')">El Nombre es obligatorio y debe ser valido</p>
+                            </div>
+                            <div class="col-12 text-danger">
+                                <p *ngIf="campoNoValido('apellido')">El Apellido es obligatorio y debe ser valido</p>
+                            </div>
+                            <div class="col-12 text-danger">
+                                <p *ngIf="!contraseniaValida()">Las contraseñas deben coincidir</p>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                    <label for="agreeTerms">
+                                    Aceptos los <a href="#">terminos</a>
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <!-- /.col -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <button pButton type="button" style="width: 100%" class="p-button-danger" routerLink="/dashboard/listar-usuarios" label="Cancelar"></button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+                </div>
+                <!-- /.form-box -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.register-box -->
+    </div>
+    <!-- /fin columna principal -->
+</div>
+<!-- /fin fila principal -->
