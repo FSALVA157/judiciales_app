@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { globalConstants } from 'src/app/common/global-constants';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuariosService } from '../../../services/usuarios.service';
+import * as FileSaver from 'file-saver';
 
 import jsPDF from 'jspdf';//importacion para pdf
 import autoTable from 'jspdf-autotable';//importacion para pdf
@@ -20,8 +21,10 @@ export class UsuariosListarComponent implements OnInit {
   cols: any[]=[]; //array de columnas de la tabla  
   lista_usuarios_pdf: any[]=[]; //array que copia la lista de usuarios para crear el pdf
   exportColumns: any[] = []; //array de columnas para crear el pdf
+  head: any[]=[];
+  data: any[]=[];
+  selectedUsuarios: UsuarioModel[] = [];
   
-
   constructor(private usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
@@ -33,12 +36,23 @@ export class UsuariosListarComponent implements OnInit {
       { field: 'correo', header: 'Correo' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'apellido', header: 'Apellido' },
-      { field: 'unidad', header: 'Unidad' }
+      { field: 'unidad_id', header: 'Unidad' }
     ];
     //FIN inicializacion de cabeceras de columnas
     
     //armado de columnas para exportar el pdf
     this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));    
+
+    this.head = ['ID', 'NAME', 'DESIGNATION', 'DEPARTMENT'];
+
+  this.data = [
+    [1, 'ROBERT', 'SOFTWARE DEVELOPER', 'ENGINEERING'],
+    [2, 'CRISTINAO','QA', 'TESTING'],
+    [3, 'KROOS','MANAGER', 'MANAGEMENT'],
+    [4, 'XYZ','DEVELOPER', 'DEVLOPEMENT'],
+    [5, 'ABC','CONSULTANT', 'HR'],
+    [73, 'QWE','VICE PRESIDENT', 'MANAGEMENT'],
+  ];
     
   }
 
@@ -73,8 +87,8 @@ export class UsuariosListarComponent implements OnInit {
     const doc = new jsPDF('p','pt');
       
     autoTable(doc, {
-      columns: this.exportColumns,
-      body: this.lista_usuarios_pdf,
+      columns: this.head,
+      body: this.data,
       didDrawPage: (dataArg) => { 
         doc.text('Usuarios del Sistema Judiciales del S.P.P.S.', dataArg.settings.margin.left, 10);
       }

@@ -36,12 +36,12 @@
                     </ng-template>
                 </p-table> -->
 
-                <p-table id="htmlData" [value]="lista_usuarios" [columns]="cols" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+                <p-table id="htmlData" #dt [value]="lista_usuarios" [columns]="cols" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" selectionMode="multiple" [(selection)]="selectedUsuarios">
                     <ng-template pTemplate="caption">
                         <div class="p-d-flex">
-                            <button type="button" pButton pRipple icon="pi pi-file-o" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
                             <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
-                            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf_2()" class="p-button-secondary p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-secondary p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
                             <button type="button" pButton pRipple icon="pi pi-filter" class="p-button-info p-ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
 
                         </div>

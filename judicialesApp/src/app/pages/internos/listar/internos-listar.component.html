@@ -1,1 +1,46 @@
-<p>internos-listar works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Lista de Internos</h3>
+            </div>
+            <div class="card-body">
+
+                <p-table id="htmlData" #dt [value]="lista_internos" [columns]="cols" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" selectionMode="multiple">
+                    <ng-template pTemplate="caption">
+                        <div class="p-d-flex">
+                            <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-pdf" class="p-button-secondary p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-filter" class="p-button-info p-ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
+
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th style="width: 10%">prontuario</th>
+                            <th style="width: 30%">apellido </th>
+                            <th style="width: 20%">Nombre </th>
+                            <th style="width: 20%">Domicilio</th>
+                            <th style="width: 10%">Unidad</th>
+                            <th style="width: 10%">Accion</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-interno>
+                        <tr>
+                            <td>{{interno.prontuario}}</td>
+                            <td>{{interno.apellido_1}}</td>
+                            <td>{{interno.nombre_1}}</td>
+                            <td>{{interno.domicilio}}</td>
+                            <td>{{interno.unidad.unidad}}</td>
+                            <td>
+                                <button pButton type="button" routerLink="/dashboard/editar-usuario/{{interno.prontuario}}" label="Editar"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+        </div>
+    </div>
+</div>
