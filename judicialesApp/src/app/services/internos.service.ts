@@ -24,4 +24,21 @@ export class InternosService {
     return this.http.get<[internos: InternoModel[], total: number]>(`${environment.BASE_URL}/interno`);
   }
   //FIN RETORNAR USUARIOS POR UNIDAD
+
+  //CREAR INTERNO
+  crearInterno(data: any){
+    console.log("datos de formulario", data);
+    // delete data.password2;
+    // const interno: InternoModel = {
+    //   prontuario: data.prontuario,
+    //   nombre: data.nombre,
+    //   apellido: data.apellido,
+    //   clave: data.clave,
+    //   dni: parseInt(data.dni),
+    //   unidad_id: globalConstants.unidad
+    //};
+    
+    return this.http.post(`${environment.BASE_URL}/usuario`,data);    
+  }
+  //fin CREAR INTERNO
 }

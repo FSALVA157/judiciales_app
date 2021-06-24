@@ -39,6 +39,8 @@ export class LoginComponent {
      globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
      globalConstants.emailUsuario = user.correo;
      globalConstants.unidad = unidad_id;
+     let unidad= data.unidad.unidad;
+     console.log("unidad en extraer", unidad); 
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   
@@ -57,7 +59,7 @@ export class LoginComponent {
           console.log("usuario login comp ts",respuesta); 
           globalConstants.validado = true;
 
-          //DATOS DE USUARIO EN LOCAL STORAGE
+          //METODO LOCAL PARA COLOCAR DATOS DE USUARIO EN VARIABLES GLOBALES
           this.extraerDataUsuario(respuesta);
                    
           console.log("imagen globales", globalConstants.urlImagen);
@@ -75,6 +77,7 @@ export class LoginComponent {
 
           //DIRECCIONAMIENTO
           this.router.navigateByUrl("dashboard");
+          globalConstants.menu_en_uso = "INICIO";
 
         },
         err => {

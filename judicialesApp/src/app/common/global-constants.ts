@@ -4,4 +4,5 @@ export class globalConstants {
     public static nombreUsuario: string = "";
     public static emailUsuario: string = "";
     public static unidad: number;
+    public static menu_en_uso: string;
 }

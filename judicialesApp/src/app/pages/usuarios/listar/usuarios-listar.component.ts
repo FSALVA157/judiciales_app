@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { globalConstants } from 'src/app/common/global-constants';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuariosService } from '../../../services/usuarios.service';
-import * as FileSaver from 'file-saver';
+//import * as FileSaver from 'file-saver';
 
 import jsPDF from 'jspdf';//importacion para pdf
 import autoTable from 'jspdf-autotable';//importacion para pdf

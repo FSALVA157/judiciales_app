@@ -55,7 +55,6 @@ export class UsuariosService {
       'email': data.correo,
       'clave': data.clave
     };
-    console.log("usuario logueado en servicio", this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin));
     return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
   }
   //FIN LOGIN
