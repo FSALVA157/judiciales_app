@@ -39,8 +39,7 @@ export class LoginComponent {
      globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
      globalConstants.emailUsuario = user.correo;
      globalConstants.unidad = unidad_id;
-     let unidad= data.unidad.unidad;
-     console.log("unidad en extraer", unidad); 
+     globalConstants.unidad_nombre= data.unidad.unidad;
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   

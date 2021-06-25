@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { globalConstants } from '../common/global-constants';
 
 
 @Component({
@@ -8,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PagesComponent implements OnInit {
-
+  unidad_nombre: string = "";
   constructor() { }
 
   ngOnInit(): void {
+    this.unidad_nombre = globalConstants.unidad_nombre;
   }
 
 }
