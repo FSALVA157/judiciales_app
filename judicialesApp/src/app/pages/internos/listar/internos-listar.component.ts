@@ -22,9 +22,10 @@ export class InternosListarComponent implements OnInit {
 
   ngOnInit(): void {
     this.listaInternos();
+
   }
 
-  //LISTADO COMPLETO DE USUARIOS POR UNIDAD
+  //LISTADO COMPLETO DE INTERNOS POR UNIDAD
   listaInternos() {
     //const unidad: number = globalConstants.unidad;
     //console.log("unidad del usuario", unidad);

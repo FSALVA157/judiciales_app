@@ -6,89 +6,89 @@
                 <div class="card-body register-card-body">
                     <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO</p>
 
-                    <form autocomplete="off" (ngSubmit)="crearInterno()" [formGroup]="formData">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="input-group mb-3">
-                                    <input type="email" class="form-control" placeholder="Prontuario" formControlName="prontuario">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <form class="p-fluid" autocomplete="off" (ngSubmit)="crearInterno()" [formGroup]="formData">
+                        <!-- FILA 1-->
+                        <div class="row mt-2">
                             <div class="col-5">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Apellido 1" formControlName="apellido_1">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-address-card"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <span class="p-float-label">
+                                    <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
+                                    <p-inputNumber id="prontuario-input" formControlName="prontuario" ></p-inputNumber>
+
+                                    <label for="prontuario-input">Prontuario</label>
+                                </span>
                             </div>
-                            <div class="col-5">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Nombre" formControlName="apellido_2">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-user"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <!-- FIN FILA 1-->
+
+                        <!-- FIN FILA 2-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-6 mt-5">
+                                <span class="p-float-label">
+                                    <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1" > 
+                                    <label for="apellido_1-input">Apellido 1</label>
+                                </span>
+                            </div>
+
+                            <div class="col-12 col-lg-6 mt-5">
+                                <span class="p-float-label">
+                                    <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2" > 
+                                    <label for="apellido_2-input">Apellido 2</label>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- FIN FILA 2-->
+
+                        <!-- FILA 3-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1" > 
+                                    <label for="nombre_1-input">Nombre 1</label>
+                                </span>
+                            </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2" > 
+                                    <label for="nombre_2-input">Nombre 1</label>
+                                </span>
+                            </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3"  > 
+                                    <label for="nombre_3-input">Nombre 3</label>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- FIN FILA 3-->
+
+                        <!-- FILA 4-->
+                        <div class="row ">
+
+                            <div class="col-5 col-lg-3 mt-5">
+                                <span class="p-float-label">
+                                    <p-inputNumber id="dni-input" formControlName="dni" ></p-inputNumber>
+
+                                    <label for="dni-input">DNI</label>
+                                </span>
+                            </div>
+
+                            <div class="col-7 col-lg-3 mt-5">
+                                <span class="p-float-label">
+                                    <input id="sexo_id-input" type="text" pInputText formControlName="sexo_id"  > 
+                                    <label for="sexo_id-input">Sexo</label>
+                                </span>
+                            </div>
+                            <div class="col-12 col-lg-6 mt-5">
+                                <span class="p-float-label">
+                                    <input id="alias-input" type="text" pInputText formControlName="alias" > 
+                                    <label for="alias-input">Alias</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="nombre_1">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="nombre_2">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="nombre_3">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="alias">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="dni">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="sexo_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- FIN FILA 4-->
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="DNI" formControlName="estado_civil_id">
