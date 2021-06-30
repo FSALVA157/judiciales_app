@@ -6,6 +6,12 @@ import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
 import { EstadoCivilService } from '../../../services/estado-civil.service';
 import { EstadoCivilModel } from 'src/app/models/estado_civil.model';
+import { TablasArray } from '../../../common/tablas-array';
+
+interface City {
+  name: string,
+  code: string
+}
 
 @Component({
   selector: 'app-internos-agregar',
@@ -13,10 +19,14 @@ import { EstadoCivilModel } from 'src/app/models/estado_civil.model';
   styles: [
   ]
 })
+
 export class InternosAgregarComponent implements OnInit {
   submitted = false;
   interno: InternoModel = new InternoModel;
   lista_estado_civil: EstadoCivilModel[] = []; //array con los objetos estado-civil
+  drop_estado_civil: any[] = []; //array de columnas para dropdown
+  drop_sexo: any[] = []; //array de columnas para dropdown
+  drop_departamento: any[] = []; //array de columnas para dropdown
   total:number = 0;
 
   constructor(
@@ -25,9 +35,11 @@ export class InternosAgregarComponent implements OnInit {
     private estadoCivilService: EstadoCivilService,
     private router:Router
   ) { 
-
+    
   }
-
+  
+  
+  //FORMULARIO
   public formData = this.fb.group({
     prontuario: ['3110',[Validators.required]],
     apellido_1: ['rojas',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
@@ -93,6 +105,7 @@ export class InternosAgregarComponent implements OnInit {
     tipo_defensor_id: ['2',[Validators.required]],
     abogado: ['Elvio',[Validators.required]]
   });
+  //FIN FORMULARIO
 
   //CREAR INTERNO
   crearInterno(){
@@ -126,27 +139,13 @@ export class InternosAgregarComponent implements OnInit {
   //FIN CREAR INTERNO
 
   
-  //LISTADO COMPLETO DE ESTADO-CIVIL
-  listaEstadoCivil() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.estadoCivilService.getListaEstadoCivilTodos()
-      .subscribe(
-        data => {        
-             
-          this.lista_estado_civil = data;         
-        },
-        err => {
-          console.log(err);
-        }
-      );
-      
-  }
-  //FIN LISTADO COMPLETO DE ESTADO-CIVIL
-
+  
   ngOnInit(): void {
     
-    this.listaEstadoCivil();
+    //this.listaEstadoCivil();
+    this.drop_estado_civil = TablasArray.drop_estado_civil;
+    this.drop_sexo = TablasArray.drop_sexo;
+    this.drop_departamento = TablasArray.drop_departamento;    
 
   }
 

@@ -4,7 +4,7 @@
 
             <div class="card ">
                 <div class="card-body register-card-body">
-                    <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO</p>
+                    <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO </p>
 
                     <form class="p-fluid" autocomplete="off" (ngSubmit)="crearInterno()" [formGroup]="formData">
                         <!-- FILA 1-->
@@ -73,12 +73,8 @@
                                     <label for="dni-input">DNI</label>
                                 </span>
                             </div>
-
-                            <div class="col-7 col-lg-3 mt-5">
-                                <span class="p-float-label">
-                                    <input id="sexo_id-input" type="text" pInputText formControlName="sexo_id"  > 
-                                    <label for="sexo_id-input">Sexo</label>
-                                </span>
+                            <div class="col-5 col-lg-3 mt-5">
+                                <p-dropdown [options]="drop_sexo" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
                             </div>
                             <div class="col-12 col-lg-6 mt-5">
                                 <span class="p-float-label">
@@ -90,30 +86,47 @@
 
                         <!-- FIN FILA 4-->
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="estado_civil_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FILA 5-->
+                        <div class="row ">
+
+                            <div class="col-5 col-lg-3 mt-5">
+                                <p-dropdown [options]="drop_estado_civil" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
+                            </div>
+
+                            <div class="col-7 col-lg-3 mt-5">
+                                <span class="p-float-label">
+                                    <input id="telefono-input" type="text" pInputText formControlName="telefono"  > 
+                                    <label for="telefono-input">telefono</label>
+                                </span>
+                            </div>
+                            <div class="col-12 col-lg-6 mt-5">
+                                <span class="p-float-label">
+                                    <input id="domicilio-input" type="text" pInputText formControlName="domicilio" > 
+                                    <label for="domicilio-input">domicilio</label>
+                                </span>
                             </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="telefono">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                        <!-- FIN FILA 5-->
+
+                        <!-- FILA 6-->
+                        <div class="row ">
+
+                            <div class="col-4 col-lg-3 mt-5">
+                                <p-dropdown [options]="drop_departamento" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="domicilio">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+                            <div class="col-4 col-lg-3 mt-5">
+                                <p-dropdown [options]="drop_estado_civil" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
                             </div>
+                            <div class="col-4 col-lg-3 mt-5">
+                                <p-dropdown [options]="drop_estado_civil" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
+                            </div>
+
                         </div>
+
+                        <!-- FIN FILA 6-->
+
+
                         <div class="input-group mb-3">
                             <input type="email" class="form-control" placeholder="Email" formControlName="departamento_id">
                             <div class="input-group-append">

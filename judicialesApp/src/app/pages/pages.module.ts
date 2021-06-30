@@ -13,6 +13,7 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {DropdownModule} from 'primeng/dropdown';
 import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
 import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
 import { InternosListarComponent } from './internos/listar/internos-listar.component';
@@ -59,7 +60,8 @@ import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.compo
     TableModule,
     ButtonModule,
     InputTextModule,
-    InputNumberModule
+    InputNumberModule,
+    DropdownModule
   ]
 })
 export class PagesModule { }
