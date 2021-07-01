@@ -8,11 +8,6 @@ import { EstadoCivilService } from '../../../services/estado-civil.service';
 import { EstadoCivilModel } from 'src/app/models/estado_civil.model';
 import { TablasArray } from '../../../common/tablas-array';
 
-interface City {
-  name: string,
-  code: string
-}
-
 @Component({
   selector: 'app-internos-agregar',
   templateUrl: './internos-agregar.component.html',
@@ -25,8 +20,10 @@ export class InternosAgregarComponent implements OnInit {
   interno: InternoModel = new InternoModel;
   lista_estado_civil: EstadoCivilModel[] = []; //array con los objetos estado-civil
   drop_estado_civil: any[] = []; //array de columnas para dropdown
+  drop_nacionalidad: any[] = []; //array de columnas para dropdown
   drop_sexo: any[] = []; //array de columnas para dropdown
   drop_departamento: any[] = []; //array de columnas para dropdown
+  drop_zona_residencia: any[] = []; //array de columnas para dropdown
   total:number = 0;
 
   constructor(
@@ -144,8 +141,11 @@ export class InternosAgregarComponent implements OnInit {
     
     //this.listaEstadoCivil();
     this.drop_estado_civil = TablasArray.drop_estado_civil;
+    this.drop_departamento = TablasArray.drop_departamento;  
+    this.drop_nacionalidad = TablasArray.drop_nacionalidad;
     this.drop_sexo = TablasArray.drop_sexo;
-    this.drop_departamento = TablasArray.drop_departamento;    
+    this.drop_zona_residencia = TablasArray.drop_zona_residencia;
+      
 
   }
 
