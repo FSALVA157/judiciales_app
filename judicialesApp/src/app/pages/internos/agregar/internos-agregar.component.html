@@ -154,730 +154,268 @@
 
                         <!-- FIN FILA 7-->
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="departamento_nacimiento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+                        <!-- FILA 8-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="padre-input" type="text" pInputText formControlName="padre" > 
+                                    <label for="padre-input">Padre</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="fecha_nacimiento">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-6 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="madre-input" type="text" pInputText formControlName="madre"  > 
+                                    <label for="madre-input">Madre</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="lugar_nacimiento">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="parientes-input" type="text" pInputText formControlName="parientes" > 
+                                    <label for="parientes-input">Parientes</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="padre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 8-->
+
+                        <!-- FILA 9-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="referente_emergencia-input" type="text" pInputText formControlName="referente_emergencia" > 
+                                    <label for="referente_emergencia-input">Referente Emergencia</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="madre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_nivel_educacion" id="nivel-educacion-input" [virtualScroll]="true" formControlName="nivel_educacion_id"></p-dropdown>
+                                    <label for="nivel-educacion-input">Nivel Educacion</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="parientes">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="departamento_nacimiento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="domicilio">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="departamento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="profesion-input" type="text" pInputText formControlName="profesion" > 
+                                    <label for="profesion-input">Profesion</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="zona_residencia_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 9-->
+
+                        <!-- FILA 10-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_oficio" id="ultimo-oficio-input" [virtualScroll]="true" formControlName="ultimo_oficio_id"></p-dropdown>
+                                    <label for="ultimo-oficio-input">Ultimo Oficio</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nacionalidad_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_religion" id="religion-input" [virtualScroll]="true" formControlName="religion_id"></p-dropdown>
+                                    <label for="religion-input">Religion</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="departamento_nacimiento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="domicilio">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="departamento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="talla-input" type="text" pInputText formControlName="talla" > 
+                                    <label for="talla-input">Talla</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="zona_residencia_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 10-->
+
+                        <!-- FILA 11-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_ojos_color" id="ojos-color-input" [virtualScroll]="true" formControlName="ojos_color_id"></p-dropdown>
+                                    <label for="ojos-color-input">Ojos Color</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nacionalidad_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_ojos_tamanio" id="ojos-tamanio-input" [virtualScroll]="true" formControlName="ojos_tamanio_id"></p-dropdown>
+                                    <label for="ojos-tamanio-input">Ojos Tamanio</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="departamento_nacimiento_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="fecha_nacimiento">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="lugar_nacimiento">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_nariz_tamanio" id="nariz-tamanio-input" [virtualScroll]="true" formControlName="nariz_tamanio_id"></p-dropdown>
+                                    <label for="nariz-tamanio-input">Nariz Tamanio</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="padre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 11-->
+
+                        <!-- FILA 12-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_nariz_forma" id="nariz-forma-input" [virtualScroll]="true" formControlName="nariz_forma_id"></p-dropdown>
+                                    <label for="nariz-forma-input">Nariz Forma</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="madre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_pelo_tipo" id="pelo-tipo-input" [virtualScroll]="true" formControlName="pelo_tipo_id"></p-dropdown>
+                                    <label for="pelo-tipo-input">Pelo Tipo</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="parientes">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="referente_emergencia">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="nivel_educacion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="profesion">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_pelo_color" id="pelo-color-input" [virtualScroll]="true" formControlName="pelo_color_id"></p-dropdown>
+                                    <label for="pelo-color-input">Nariz Tamanio</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="ultimo_oficio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 12-->
+
+                        <!-- FILA 13-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_piel" id="piel-input" [virtualScroll]="true" formControlName="piel_id"></p-dropdown>
+                                    <label for="piel-input">Piel</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="religion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal" > 
+                                    <label for="marca-corporal-input">Marca Corporal</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="talla">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="ojos_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="ojos_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_pabellon" id="pabellon-input" [virtualScroll]="true" formControlName="pabellon_id"></p-dropdown>
+                                    <label for="pabellon-input">Pabellon</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="nariz_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 13-->
+
+                        <!-- FILA 14-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
+                                    <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nariz_forma_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_tipo_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="piel_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
+                                    <label for="reingreso-input">Reingreso</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="marca_corporal">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
+                        <div class="col-12 col-lg-4 mt-5">
+                            <span class="p-float-label">
+                                <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num" > 
+                                <label for="reingreso-num-input">Reingreso Numero</label>
+                            </span>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="unidad_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                        <!-- FIN FILA 14-->
+
+                        <!-- FILA 15-->
+                        <div class="row ">
+
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso" > 
+                                    <label for="fecha-ingreso-input">Fecha Ingreso</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pabellon_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="causa-penal-input" type="text" pInputText formControlName="causa_penal" > 
+                                    <label for="causa-penal-input">Causa Penal</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="padre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="madre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="parientes">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="referente_emergencia">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="nivel_educacion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="profesion">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_tipo_condena" id="tipo-condena-input" [virtualScroll]="true" formControlName="tipo_condena_id"></p-dropdown>
+                                    <label for="tipo-condena-input">Tipo Condena</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="ultimo_oficio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 15-->
+
+                        <!-- FILA 16-->
+                        <div class="row ">
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="expediente-numero-input" type="text" pInputText formControlName="expediente_numero" > 
+                                    <label for="expediente-numero-input">Expediente Numero</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="religion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial" > 
+                                    <label for="prontuario-policial-input">Prontuario Policial</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="talla">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="ojos_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="ojos_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="expediente-policial-input" type="text" pInputText formControlName="expediente_policial" > 
+                                    <label for="expediente-policial-input">Expediente Policial</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="nariz_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 16-->
+
+                        <!-- FILA 17-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_estado_procesal" id="estado-procesal-input" [virtualScroll]="true" formControlName="estado_procesal_id"></p-dropdown>
+                                    <label for="estado-procesal-input">Estado Procesal</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nariz_forma_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="tipo-delito-input" type="text" pInputText formControlName="tipo_delito_id" > 
+                                    <label for="tipo-delito-input">Tipo Delito</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_tipo_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="piel_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
+                                    <label for="jurisdiccion-input">Pabellon</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="marca_corporal">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="unidad_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pabellon_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="padre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="madre">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="parientes">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="referente_emergencia">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="nivel_educacion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="profesion">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- FIN FILA 17-->
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="ultimo_oficio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="religion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="talla">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="ojos_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="ojos_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="nariz_tamanio_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="nariz_forma_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_tipo_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pelo_color_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="piel_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="marca_corporal">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="unidad_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="pabellon_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="establecimiento_procedencia_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="reingreso_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="reingreso_num">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="fecha_ingreso">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="causa_penal">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="tipo_condena_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="expediente_numero">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="prontuario_policial">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="expediente_policial">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="estado_procesal_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="tipo_delito_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <span class="p-float-label">
-                            <p-dropdown [options]="drop_tipo_delito" id="tipo_delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
-                            <label for="tipo_delito-input">Tipo Delito</label>
-                        </span>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="jurisdiccion_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Nombre" formControlName="reincidencia_id">
                             <div class="input-group-append">

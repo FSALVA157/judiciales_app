@@ -18,11 +18,31 @@ import { TablasArray } from '../../../common/tablas-array';
 export class InternosAgregarComponent implements OnInit {
   submitted = false;
   interno: InternoModel = new InternoModel;
-  lista_estado_civil: EstadoCivilModel[] = []; //array con los objetos estado-civil
-  drop_estado_civil: any[] = []; //array de columnas para dropdown
-  drop_nacionalidad: any[] = []; //array de columnas para dropdown
-  drop_sexo: any[] = []; //array de columnas para dropdown
+  //lista_estado_civil: EstadoCivilModel[] = []; //array con los objetos estado-civil
   drop_departamento: any[] = []; //array de columnas para dropdown
+  drop_establecimiento_procedencia: any[] = []; //array de columnas para dropdown
+  drop_estado_civil: any[] = []; //array de columnas para dropdown
+  drop_estado_procesal: any[] = []; //array de columnas para dropdown
+  drop_jurisdiccion: any[] = []; //array de columnas para dropdown
+  drop_juzgado: any[] = []; //array de columnas para dropdown
+  drop_nacionalidad: any[] = []; //array de columnas para dropdown
+  drop_nariz_forma: any[] = []; //array de columnas para dropdown
+  drop_nariz_tamanio: any[] = []; //array de columnas para dropdown
+  drop_nivel_educacion: any[] = []; //array de columnas para dropdown
+  drop_oficio: any[] = []; //array de columnas para dropdown
+  drop_ojos_color: any[] = []; //array de columnas para dropdown
+  drop_ojos_tamanio: any[] = []; //array de columnas para dropdown
+  drop_pabellon: any[] = []; //array de columnas para dropdown
+  drop_pelo_color: any[] = []; //array de columnas para dropdown
+  drop_pelo_tipo: any[] = []; //array de columnas para dropdown
+  drop_piel: any[] = []; //array de columnas para dropdown
+  drop_provincia: any[] = []; //array de columnas para dropdown
+  drop_reincidencia: any[] = []; //array de columnas para dropdown
+  drop_reingreso: any[] = []; //array de columnas para dropdown
+  drop_religion: any[] = []; //array de columnas para dropdown
+  drop_sexo: any[] = []; //array de columnas para dropdown
+  drop_tipo_condena: any[] = []; //array de columnas para dropdown
+  drop_tipo_defensor: any[] = []; //array de columnas para dropdown
   drop_tipo_delito: any[] = []; //array de columnas para dropdown
   drop_zona_residencia: any[] = []; //array de columnas para dropdown
   total:number = 0;
@@ -141,12 +161,32 @@ export class InternosAgregarComponent implements OnInit {
   ngOnInit(): void {
     
     //this.listaEstadoCivil();
+    this.drop_departamento = TablasArray.drop_departamento;
+    this.drop_establecimiento_procedencia = TablasArray.drop_establecimiento_procedencia;
     this.drop_estado_civil = TablasArray.drop_estado_civil;
-    this.drop_departamento = TablasArray.drop_departamento;  
+    this.drop_estado_procesal = TablasArray.drop_estado_procesal;
+    this.drop_jurisdiccion = TablasArray.drop_jurisdiccion;
+    this.drop_juzgado = TablasArray.drop_juzgado;
     this.drop_nacionalidad = TablasArray.drop_nacionalidad;
+    this.drop_nariz_forma = TablasArray.drop_nariz_forma;
+    this.drop_nariz_tamanio = TablasArray.drop_nariz_tamanio;
+    this.drop_nivel_educacion = TablasArray.drop_nivel_educacion;
+    this.drop_oficio = TablasArray.drop_oficio;
+    this.drop_ojos_color = TablasArray.drop_ojos_color;
+    this.drop_ojos_tamanio = TablasArray.drop_ojos_tamanio;
+    this.drop_pabellon = TablasArray.drop_pabellon;
+    this.drop_pelo_color = TablasArray.drop_pelo_tipo;
+    this.drop_piel = TablasArray.drop_piel;
+    this.drop_provincia = TablasArray.drop_provincia;
+    this.drop_reincidencia = TablasArray.drop_reincidencia;
+    this.drop_reingreso = TablasArray.drop_reingreso;
+    this.drop_religion = TablasArray.drop_religion;
     this.drop_sexo = TablasArray.drop_sexo;
-    this.drop_zona_residencia = TablasArray.drop_zona_residencia;
+    this.drop_tipo_condena = TablasArray.drop_tipo_condena;
+    this.drop_tipo_defensor = TablasArray.drop_tipo_defensor;
     this.drop_tipo_delito = TablasArray.drop_tipo_delito;
+    this.drop_zona_residencia = TablasArray.drop_zona_residencia;
+    
       
 
   }
