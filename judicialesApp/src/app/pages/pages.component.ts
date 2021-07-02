@@ -169,8 +169,7 @@ export class PagesComponent implements OnInit {
         err => {
           console.log(err);
         }
-      );
-      
+      );      
   }
   //FIN LISTADO COMPLETO DE JUZGADO
 
