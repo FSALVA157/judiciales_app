@@ -131,7 +131,7 @@
 
                         <!-- FIN FILA 6-->
 
-                        <!-- FILA 5-->
+                        <!-- FILA 7-->
                         <div class="row ">
                             <div class="col-6 col-lg-4 mt-3">
                                 <label>Departamento Nacimiento</label>
@@ -152,7 +152,7 @@
                             </div>
                         </div>
 
-                        <!-- FIN FILA 5-->
+                        <!-- FIN FILA 7-->
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Apellido" formControlName="departamento_nacimiento_id">
@@ -864,6 +864,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        <span class="p-float-label">
+                            <p-dropdown [options]="drop_tipo_delito" id="tipo_delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
+                            <label for="tipo_delito-input">Tipo Delito</label>
+                        </span>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="DNI" formControlName="jurisdiccion_id">

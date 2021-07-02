@@ -16,6 +16,18 @@ import { NivelEducacionModel } from '../models/nivel-educacion.model';
 import { OficioModel } from '../models/oficio.model';
 import { OjosColorModel } from '../models/ojos-color.model';
 import { OjosTamanioModel } from '../models/ojos-tamanio.model';
+import { PabellonModel } from '../models/pabellon.model';
+import { PeloColorModel } from '../models/pelo-color.model';
+import { PeloTipoModel } from '../models/pelo-tipo.model';
+import { PielModel } from '../models/piel.model';
+import { ProvinciaModel } from '../models/provincia.model';
+import { ReincidenciaModel } from '../models/reincidencia.model';
+import { ReingresoModel } from '../models/reingreso.model';
+import { ReligionModel } from '../models/religion.model';
+import { TipoCondenaModel } from '../models/tipo-condena.model';
+import { TipoDefensorModel } from '../models/tipo-defensor.model';
+import { TipoDelitoModel } from '../models/tipo-delito.model';
+import { UnidadModel } from '../models/unidad.model';
 
 @Injectable({
   providedIn: 'root'
@@ -106,12 +118,84 @@ export class TablasEscencialesService {
   }
   //FIN RETORNAR OJOS-TAMANIO TODOS
 
+  //RETORNAR PABELLON TODOS
+  getListaPabellonTodos(){
+    return this.http.get<PabellonModel[]>(`${environment.BASE_URL}/pabellon`);
+  }
+  //FIN RETORNAR PABELLON TODOS
+
+  //RETORNAR PELO-COLOR TODOS
+  getListaPeloColorTodos(){
+    return this.http.get<PeloColorModel[]>(`${environment.BASE_URL}/pelo-color`);
+  }
+  //FIN RETORNAR PELO-COLOR TODOS
+
+  //RETORNAR PELO-TIPO TODOS
+  getListaPeloTipoTodos(){
+    return this.http.get<PeloTipoModel[]>(`${environment.BASE_URL}/pelo-tipo`);
+  }
+  //FIN RETORNAR PELO-TIPO TODOS
+
+  //RETORNAR PIEL TODOS
+  getListaPielTodos(){
+    return this.http.get<PielModel[]>(`${environment.BASE_URL}/piel`);
+  }
+  //FIN RETORNAR PIEL TODOS
+
+  //RETORNAR PROVINCIA TODOS
+  getListaProvinciaTodos(){
+    return this.http.get<ProvinciaModel[]>(`${environment.BASE_URL}/provincia`);
+  }
+  //FIN RETORNAR PROVINCIA TODOS
+
+  //RETORNAR REINCIDENCIA TODOS
+  getListaReincidenciaTodos(){
+    return this.http.get<ReincidenciaModel[]>(`${environment.BASE_URL}/reincidencia`);
+  }
+  //FIN RETORNAR REINCIDENCIA TODOS
+
+  //RETORNAR REINGRESO TODOS
+  getListaReingresoTodos(){
+    return this.http.get<ReingresoModel[]>(`${environment.BASE_URL}/reingreso`);
+  }
+  //FIN RETORNAR REINGRESO TODOS
+
+  //RETORNAR RELIGION TODOS
+  getListaReligionTodos(){
+    return this.http.get<ReligionModel[]>(`${environment.BASE_URL}/religion`);
+  }
+  //FIN RETORNAR RELIGION TODOS
 
   //RETORNAR SEXO TODOS
   getListaSexoTodos(){
     return this.http.get<SexoModel[]>(`${environment.BASE_URL}/sexo`);
   }
   //FIN RETORNAR SEXO TODOS
+
+  //RETORNAR TIPO-CONDENA TODOS
+  getListaTipoCondenaTodos(){
+    return this.http.get<TipoCondenaModel[]>(`${environment.BASE_URL}/tipo-condena`);
+  }
+  //FIN RETORNAR TIPO-CONDENA TODOS
+
+  //RETORNAR TIPO-DEFENSOR TODOS
+  getListaTipoDefensorTodos(){
+    return this.http.get<TipoDefensorModel[]>(`${environment.BASE_URL}/tipo-defensor`);
+  }
+  //FIN RETORNAR TIPO-DEFENSOR TODOS
+
+  //RETORNAR TIPO-DELITO TODOS
+  getListaTipoDelitoTodos(){
+    return this.http.get<TipoDelitoModel[]>(`${environment.BASE_URL}/tipo-delito`);
+  }
+  //FIN RETORNAR TIPO-DELITO TODOS
+
+  //RETORNAR UNIDAD TODOS
+  getListaUnidadTodos(){
+    return this.http.get<UnidadModel[]>(`${environment.BASE_URL}/unidad`);
+  }
+  //FIN RETORNAR UNIDAD TODOS
+  
   
   //RETORNAR ZONA-RESIDENCIA TODOS
   getListaZonaResidenciaTodos(){

@@ -8,6 +8,8 @@ import { SexoModel } from '../models/sexo.model';
 import { DepartamentoModel } from '../models/departamento.model';
 import { ZonaResidenciaModel } from '../models/zona-residencia.model';
 import { NacionalidadModel } from '../models/nacionalidad.model';
+import { EstablecimientoProcedenciaModel } from '../models/establecimiento-procedencia.model';
+import { EstadoProcesalModel } from '../models/estado-procesal.model';
 
 
 @Component({
@@ -19,15 +21,9 @@ import { NacionalidadModel } from '../models/nacionalidad.model';
 export class PagesComponent implements OnInit {
   unidad_nombre: string = "";
 
-  lista_estado_civil: EstadoCivilModel[] = []; //array con los objetos estado-civil
-  lista_nacionalidad: NacionalidadModel[] = []; //array con los objetos 
-  lista_departamento: DepartamentoModel[] = []; //array con los objetos sexo
-  lista_sexo: SexoModel[] = []; //array con los objetos sexo  
-  lista_zona_residencia: ZonaResidenciaModel[] = []; //array con los objetos 
-  
   
   constructor(
-    private tablasEscenciales: TablasEscencialesService
+    private tablasEscencialesService: TablasEscencialesService
 
   ) { }
   
@@ -37,24 +33,69 @@ export class PagesComponent implements OnInit {
     //CREACION DE ARRAYS PARA DROPDOWN
     this.listaEstadoCivil();
     this.listaDepartamento();
+
+
     this.listaNacionalidad();
     this.listaSexo();
+    this.listaTipoDelito();
     this.listaZonaResidencia();
     //FIN CREACION DE ARRAYS PARA DROPDOWN
   }
 
 
+  //LISTADO COMPLETO DE DEPARTAMENTO
+  listaDepartamento() {
+    this.tablasEscencialesService.getListaDepartamentoTodos()
+      .subscribe(
+        data => {        
+              
+          //carga de estados civil para dropdown
+          for (let elemento of data){
+            let objeto= {label: elemento.departamento, value: elemento.id_departamento}
+            TablasArray.drop_departamento.push(objeto)
+
+          }
+           //fin carga  para dropdown
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      
+  }
+  //FIN LISTADO COMPLETO DE DEPARTAMENTO
+
+  //LISTADO COMPLETO DE ESTABLECIMIENTO-PROCEDENCIA
+  listaEstablecimientoProcedencia() {
+    this.tablasEscencialesService.getListaEstablecimientoProcedenciaTodos()
+      .subscribe(
+        data => {        
+              
+          //carga de estados civil para dropdown
+          for (let elemento of data){
+            let objeto= {label: elemento.establecimiento_procedencia, value: elemento.id_establecimiento_procedencia}
+            TablasArray.drop_establecimiento_procedencia.push(objeto)
+
+          }
+           //fin carga  para dropdown
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      
+  }
+  //FIN LISTADO COMPLETO DE ESTABLECIMIENTO-PROCEDENCIA
+
   //LISTADO COMPLETO DE ESTADO-CIVIL
   listaEstadoCivil() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.tablasEscenciales.getListaEstadoCivilTodos()
+    this.tablasEscencialesService.getListaEstadoCivilTodos()
       .subscribe(
         data => {        
              
-          this.lista_estado_civil = data;   
+             
           //carga de estados civil para dropdown
-          for (let estado_civil of this.lista_estado_civil){
+          for (let estado_civil of data){
             let objeto= {label: estado_civil.estado_civil, value: estado_civil.id_estado_civil}
             TablasArray.drop_estado_civil.push(objeto)
 
@@ -69,19 +110,58 @@ export class PagesComponent implements OnInit {
   }
   //FIN LISTADO COMPLETO DE ESTADO-CIVIL
 
-  //LISTADO COMPLETO DE DEPARTAMENTO
-  listaDepartamento() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.tablasEscenciales.getListaDepartamentoTodos()
+   //LISTADO COMPLETO DE ESTADO-PROCESAL
+   listaEstadoProcesal() {
+    this.tablasEscencialesService.getListaEstadoProcesalTodos()
       .subscribe(
         data => {        
-             
-          this.lista_departamento = data;  
+              
           //carga de estados civil para dropdown
-          for (let departamento of this.lista_departamento){
-            let objeto= {label: departamento.departamento, value: departamento.id_departamento}
-            TablasArray.drop_departamento.push(objeto)
+          for (let elemento of data){
+            let objeto= {label: elemento.estado_procesal, value: elemento.id_estado_procesal}
+            TablasArray.drop_estado_procesal.push(objeto)
+
+          }
+           //fin carga  para dropdown
+        },
+        err => {
+          console.log(err);
+        }
+      );      
+  }
+  //FIN LISTADO COMPLETO DE ESTADO-PROCESAL
+
+  //LISTADO COMPLETO DE JURISDICCION
+  listaJurisdiccion() {
+    this.tablasEscencialesService.getListaJurisdiccionTodos()
+      .subscribe(
+        data => {        
+              
+          //carga de estados civil para dropdown
+          for (let elemento of data){
+            let objeto= {label: elemento.jurisdiccion, value: elemento.id_jurisdiccion}
+            TablasArray.drop_jurisdiccion.push(objeto)
+
+          }
+           //fin carga  para dropdown
+        },
+        err => {
+          console.log(err);
+        }
+      );      
+  }
+  //FIN LISTADO COMPLETO DE JURISDICCION
+
+  //LISTADO COMPLETO DE JUZGADO
+  listaJuzgado() {
+    this.tablasEscencialesService.getListaJuzgadoTodos()
+      .subscribe(
+        data => {        
+              
+          //carga de estados civil para dropdown
+          for (let elemento of data){
+            let objeto= {label: elemento.Juzgado, value: elemento.id_juzgado}
+            TablasArray.drop_juzgado.push(objeto)
 
           }
            //fin carga  para dropdown
@@ -92,19 +172,18 @@ export class PagesComponent implements OnInit {
       );
       
   }
-  //FIN LISTADO COMPLETO DE DEPARTAMENTO
+  //FIN LISTADO COMPLETO DE JUZGADO
 
-  //LISTADO COMPLETO DE ZONA-RESIDENCIA
+
+
+  //LISTADO COMPLETO DE NACIONALIDAD
   listaNacionalidad() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.tablasEscenciales.getListaNacionalidadTodos()
+    this.tablasEscencialesService.getListaNacionalidadTodos()
       .subscribe(
         data => {        
              
-          this.lista_nacionalidad = data;  
           //carga de estados civil para dropdown
-          for (let nacionalidad of this.lista_nacionalidad){
+          for (let nacionalidad of data){
             let objeto= {label: nacionalidad.nacionalidad, value: nacionalidad.id_nacionalidad}
             TablasArray.drop_nacionalidad.push(objeto)
 
@@ -117,19 +196,15 @@ export class PagesComponent implements OnInit {
       );
       
   }
-  //FIN LISTADO COMPLETO DE ZONA-RESIDENCIA
+  //FIN LISTADO COMPLETO DE NACIONALIDAD
 
-  //LISTADO COMPLETO DE ESTADO-CIVIL
+  //LISTADO COMPLETO DE SEXO
   listaSexo() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.tablasEscenciales.getListaSexoTodos()
+    this.tablasEscencialesService.getListaSexoTodos()
       .subscribe(
-        data => {        
-             
-          this.lista_sexo = data;  
+        data => {   
           //carga para dropdown
-          for (let sexo of this.lista_sexo){
+          for (let sexo of data){
             let objeto= {label: sexo.sexo, value: sexo.id_sexo}
             TablasArray.drop_sexo.push(objeto)
 
@@ -142,25 +217,43 @@ export class PagesComponent implements OnInit {
       );
       
   }
-  //FIN LISTADO COMPLETO DE ESTADO-CIVIL
+  //FIN LISTADO COMPLETO DE SEXO
 
-  //LISTADO COMPLETO DE ZONA-RESIDENCIA
-  listaZonaResidencia() {
-    //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
-    this.tablasEscenciales.getListaZonaResidenciaTodos()
+  //LISTADO COMPLETO DE TIPO-DELITO
+  listaTipoDelito() {
+    this.tablasEscencialesService.getListaTipoDelitoTodos()
       .subscribe(
         data => {        
              
-          this.lista_zona_residencia = data;  
           //carga de estados civil para dropdown
-          for (let zona_residencia of this.lista_zona_residencia){
+          for (let tipo_delito of data){
+            let objeto= {label: tipo_delito.tipo_delito, value: tipo_delito.id_tipo_delito}
+            TablasArray.drop_tipo_delito.push(objeto)
+
+          }
+           //fin carga  para dropdown
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      
+  }
+  //FIN LISTADO COMPLETO DE TIPO-DELITO
+
+  //LISTADO COMPLETO DE ZONA-RESIDENCIA
+  listaZonaResidencia() {
+    this.tablasEscencialesService.getListaZonaResidenciaTodos()
+      .subscribe(
+        data => {        
+              
+          //carga de estados civil para dropdown
+          for (let zona_residencia of data){
             let objeto= {label: zona_residencia.zona_residencia, value: zona_residencia.id_zona_residencia}
             TablasArray.drop_zona_residencia.push(objeto)
 
           }
            //fin carga  para dropdown
-           console.log("zona residencia", this.lista_zona_residencia);
         },
         err => {
           console.log(err);

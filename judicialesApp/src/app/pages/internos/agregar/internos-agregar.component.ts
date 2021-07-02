@@ -23,6 +23,7 @@ export class InternosAgregarComponent implements OnInit {
   drop_nacionalidad: any[] = []; //array de columnas para dropdown
   drop_sexo: any[] = []; //array de columnas para dropdown
   drop_departamento: any[] = []; //array de columnas para dropdown
+  drop_tipo_delito: any[] = []; //array de columnas para dropdown
   drop_zona_residencia: any[] = []; //array de columnas para dropdown
   total:number = 0;
 
@@ -145,6 +146,7 @@ export class InternosAgregarComponent implements OnInit {
     this.drop_nacionalidad = TablasArray.drop_nacionalidad;
     this.drop_sexo = TablasArray.drop_sexo;
     this.drop_zona_residencia = TablasArray.drop_zona_residencia;
+    this.drop_tipo_delito = TablasArray.drop_tipo_delito;
       
 
   }
