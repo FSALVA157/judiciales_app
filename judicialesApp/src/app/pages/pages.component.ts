@@ -23,32 +23,32 @@ export class PagesComponent implements OnInit {
     this.unidad_nombre = globalConstants.unidad_nombre;
 
     //CREACION DE ARRAYS PARA DROPDOWN
-    this.listaDepartamento();
-    this.listaEstablecimientoProcedencia();
-    this.listaEstadoCivil();
-    this.listaEstadoProcesal();
-    this.listaJurisdiccion();
-    this.listaJuzgado();
-    this.listaNacionalidad();
-    this.listaNarizForma();
-    this.listaNarizTamanio();
-    this.listaNivelEducacion();
-    this.listaOficio();
-    this.listaOjosColor();
-    this.listaOjosTamanio();
-    this.listaPabellon();
-    this.listaPeloColor();
-    this.listaPeloTipo();
-    this.listaPiel();
-    this.listaProvincia();
-    this.listaReincidencia();
-    this.listaReingreso();
-    this.listaReligion();
-    this.listaSexo();
-    this.listaTipoCondena();
-    this.listaTipoDefensor();
-    this.listaTipoDelito();
-    this.listaZonaResidencia();
+    // this.listaDepartamento();
+    // this.listaEstablecimientoProcedencia();
+    // this.listaEstadoCivil();
+    // this.listaEstadoProcesal();
+    // this.listaJurisdiccion();
+    // this.listaJuzgado();
+    // this.listaNacionalidad();
+    // this.listaNarizForma();
+    // this.listaNarizTamanio();
+    // this.listaNivelEducacion();
+    // this.listaOficio();
+    // this.listaOjosColor();
+    // this.listaOjosTamanio();
+    // this.listaPabellon();
+    // this.listaPeloColor();
+    // this.listaPeloTipo();
+    // this.listaPiel();
+    // this.listaProvincia();
+    // this.listaReincidencia();
+    // this.listaReingreso();
+    // this.listaReligion();
+    // this.listaSexo();
+    // this.listaTipoCondena();
+    // this.listaTipoDefensor();
+    // this.listaTipoDelito();
+    // this.listaZonaResidencia();
     //FIN CREACION DE ARRAYS PARA DROPDOWN
     
   }

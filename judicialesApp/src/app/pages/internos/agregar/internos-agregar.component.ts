@@ -175,7 +175,8 @@ export class InternosAgregarComponent implements OnInit {
     this.drop_ojos_color = TablasArray.drop_ojos_color;
     this.drop_ojos_tamanio = TablasArray.drop_ojos_tamanio;
     this.drop_pabellon = TablasArray.drop_pabellon;
-    this.drop_pelo_color = TablasArray.drop_pelo_tipo;
+    this.drop_pelo_color = TablasArray.drop_pelo_color;
+    this.drop_pelo_tipo  = TablasArray.drop_pelo_tipo;
     this.drop_piel = TablasArray.drop_piel;
     this.drop_provincia = TablasArray.drop_provincia;
     this.drop_reincidencia = TablasArray.drop_reincidencia;

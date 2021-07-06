@@ -74,7 +74,11 @@
                                 </span>
                             </div>
                             <div class="col-5 col-lg-3 mt-5">
-                                <p-dropdown [options]="drop_sexo" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_sexo" id="sexo-input" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
+                                    <label for="sexo-input">Sexo</label>
+                                </span>
+
                             </div>
                             <div class="col-12 col-lg-6 mt-5">
                                 <span class="p-float-label">
@@ -90,7 +94,11 @@
                         <div class="row ">
 
                             <div class="col-5 col-lg-3 mt-5">
-                                <p-dropdown [options]="drop_estado_civil" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_estado_civil" id="estado_civil-input" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
+                                    <label for="estado_civil-input">Estado Civil</label>
+                                </span>
+
                             </div>
 
                             <div class="col-7 col-lg-3 mt-5">
@@ -118,13 +126,17 @@
                                     <label for="departamento-input">Departamento</label>
                                 </span>
                             </div>
-                            <div class="col-4  mt-3">
-                                <label>Zona Residencia</label>
-                                <p-dropdown [options]="drop_zona_residencia" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_zona_residencia" id="zona_residencia-input" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
+                                    <label for="zona_residencia-input">Zona Residencia</label>
+                                </span>
                             </div>
-                            <div class="col-4  mt-3">
-                                <label>Nacionalidad</label>
-                                <p-dropdown [options]="drop_nacionalidad" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_nacionalidad" id="nacionalidad-input" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
+                                    <label for="nacionalidad-input">Nacionalidad</label>
+                                </span>
                             </div>
 
                         </div>
@@ -133,9 +145,12 @@
 
                         <!-- FILA 7-->
                         <div class="row ">
-                            <div class="col-6 col-lg-4 mt-3">
-                                <label>Departamento Nacimiento</label>
-                                <p-dropdown [options]="drop_departamento" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
+                            <div class="col-6 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_departamento" id="departamento_nacimiento-input" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
+                                    <label for="departamento_nacimiento-input">Departamento Nacimiento</label>
+                                </span>
+
                             </div>
 
                             <div class="col-6 col-lg-4 mt-5">
@@ -311,27 +326,28 @@
 
                         <!-- FILA 14-->
                         <div class="row ">
-                            <div class="col-4  mt-5">
+                            <div class="col-12  col-lg-4 mt-5">
                                 <span class="p-float-label">
                                     <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
                                     <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
                                 </span>
                             </div>
 
-                            <div class="col-4  mt-5">
+                            <div class="col-12  col-lg-4 mt-5">
                                 <span class="p-float-label">
                                     <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
                                     <label for="reingreso-input">Reingreso</label>
                                 </span>
                             </div>
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num" > 
+                                    <label for="reingreso-num-input">Reingreso Numero</label>
+                                </span>
+                            </div>
                         </div>
 
-                        <div class="col-12 col-lg-4 mt-5">
-                            <span class="p-float-label">
-                                <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num" > 
-                                <label for="reingreso-num-input">Reingreso Numero</label>
-                            </span>
-                        </div>
+
 
                         <!-- FIN FILA 14-->
 
@@ -409,127 +425,146 @@
                             <div class="col-4  mt-5">
                                 <span class="p-float-label">
                                     <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
-                                    <label for="jurisdiccion-input">Pabellon</label>
+                                    <label for="jurisdiccion-input">Jurisdiccion</label>
                                 </span>
                             </div>
                         </div>
 
                         <!-- FIN FILA 17-->
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="reincidencia_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+                        <!-- FILA 18-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_reincidencia" id="reincidencia-input" [virtualScroll]="true" formControlName="reincidencia_id"></p-dropdown>
+                                    <label for="reincidencia-input">Reincidencia</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="reincidencia_num">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="reincidencia_num-input" type="text" pInputText formControlName="reincidencia_num" > 
+                                    <label for="reincidencia_num-input">Reincidencia Numero</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="juzgado_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="detenciones">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_juzgado" id="juzgado-input" [virtualScroll]="true" formControlName="juzgado_id"></p-dropdown>
+                                    <label for="juzgado-input">Juzgado</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="jurisdiccion_provinicia_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 18-->
+
+                        <!-- FILA 19-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="detenciones-input" type="text" pInputText formControlName="detenciones" > 
+                                    <label for="detenciones-input">Detenciones</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="fecha_detencion">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_provincia" id="jurisdiccion_provinicia-input" [virtualScroll]="true" formControlName="jurisdiccion_provinicia_id"></p-dropdown>
+                                    <label for="jurisdiccion_provinicia-input">Jurisdiccion Provinicia</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="condena_juzgado_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="fecha_detencion-input" type="text" pInputText formControlName="fecha_detencion" > 
+                                    <label for="fecha_detencion-input">Fecha Detencion</label>
+                                </span>
                             </div>
+
+
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="total_anios">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+
+                        <!-- FIN FILA 19-->
+
+                        <!-- FILA 20-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_juzgado" id="condena_juzgado_id-input" [virtualScroll]="true" formControlName="condena_juzgado_id"></p-dropdown>
+                                    <label for="condena_juzgado_id-input">Juzgado Condena</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="total_meses">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-3 mt-5">
+                                <span class="p-float-label">
+                                    <input id="total_anios-input" type="text" pInputText formControlName="total_anios" > 
+                                    <label for="total_anios-input">Total Años</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="total_dias">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+
+                            <div class="col-12 col-lg-3 mt-5">
+                                <span class="p-float-label">
+                                    <input id="total_meses-input" type="text" pInputText formControlName="total_meses" > 
+                                    <label for="total_meses-input">Total Meses</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName="computo">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+                            <div class="col-12 col-lg-2 mt-5">
+                                <span class="p-float-label">
+                                        <input id="total_dias-input" type="text" pInputText formControlName="total_dias" > 
+                                        <label for="total_dias-input">Total Dias</label>
+                                    </span>
                             </div>
+
+
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="Email" formControlName="fecha_cumple">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
-                                </div>
+
+                        <!-- FIN FILA 20-->
+
+                        <!-- FILA 21-->
+                        <div class="row ">
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="computo-input" type="text" pInputText formControlName="computo" > 
+                                    <label for="computo-input">Computo</label>
+                                </span>
+                            </div>
+
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="fecha_cumple-input" type="text" pInputText formControlName="fecha_cumple" > 
+                                    <label for="fecha_cumple-input">Fecha Cumple</label>
+                                </span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="DNI" formControlName="tipo_defensor_id">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-address-card"></span>
-                                </div>
+                        <!-- FIN FILA 21-->
+
+                        <!-- FILA 22-->
+                        <div class="row ">
+                            <div class="col-4  mt-5">
+                                <span class="p-float-label">
+                                    <p-dropdown [options]="drop_tipo_defensor" id="tipo_defensor-input" [virtualScroll]="true" formControlName="tipo_defensor_id"></p-dropdown>
+                                    <label for="tipo_defensor-input">Tipo Defensor</label>
+                                </span>
                             </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" formControlName="abogado">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-user"></span>
-                                </div>
+
+                            <div class="col-12 col-lg-4 mt-5">
+                                <span class="p-float-label">
+                                    <input id="abogado-input" type="text" pInputText formControlName="abogado" > 
+                                    <label for="abogado-input">Abogado</label>
+                                </span>
                             </div>
+
                         </div>
+
+                        <!-- FIN FILA 22-->
+
+
+
+
 
                         <!-- <div class="row">
                             <div class="col-12 text-danger">
@@ -552,29 +587,16 @@
 
 
 
-
-                        <div class="row justify-content-center">
-                            <div class="col-12">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                    <label for="agreeTerms">
-                                    Aceptos los <a href="#">terminos</a>
-                                </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
+                        <div class="row mt-4">
                             <!-- /.col -->
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                                <button type="submit" class="btn btn-primary btn-block">Guardar Interno</button>
                             </div>
                             <!-- /.col -->
                         </div>
                     </form>
 
 
-
-                    <a href="login.html" class="text-center">I already have a membership</a>
                 </div>
                 <!-- /.form-box -->
             </div>
