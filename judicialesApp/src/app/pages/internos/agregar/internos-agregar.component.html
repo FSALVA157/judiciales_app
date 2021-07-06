@@ -417,7 +417,7 @@
 
                             <div class="col-12 col-lg-4 mt-5">
                                 <span class="p-float-label">
-                                    <input id="tipo-delito-input" type="text" pInputText formControlName="tipo_delito_id" > 
+                                    <p-dropdown [options]="drop_tipo_delito" id="tipo-delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
                                     <label for="tipo-delito-input">Tipo Delito</label>
                                 </span>
                             </div>
