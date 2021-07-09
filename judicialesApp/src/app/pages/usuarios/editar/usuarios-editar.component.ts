@@ -5,17 +5,17 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-usuarios-editar',
   templateUrl: './usuarios-editar.component.html',
-  styles: [
-  ]
+  styleUrls: ['../../pages.component.css']
 })
 export class UsuariosEditarComponent implements OnInit {
   id:number = 0;
   usuario!: UsuarioModel;
-  //formData!: FormGroup;
+  fotoSubir: File | undefined;//variable para guardar la imagen
 
   submitted = false;
 
@@ -24,6 +24,7 @@ export class UsuariosEditarComponent implements OnInit {
     private usuariosService: UsuariosService,
     private router:Router,
     private routeActivate: ActivatedRoute,
+    private readonly fileUploadService: FileUploadService
   ) { }
 
   //creacion de formulario para html
@@ -47,6 +48,7 @@ export class UsuariosEditarComponent implements OnInit {
                 .subscribe(x => this.formData.patchValue(x));
         
   }
+
 
   //METODO ACTUALIZA EL USUARIO
   actualizarUsuario() {
@@ -79,6 +81,7 @@ export class UsuariosEditarComponent implements OnInit {
       );
   }
   //FIN METODO ACTUALIZA EL USUARIO
+  //-------------------------------
 
   //CONTROL DE CAMPOS
   campoNoValido(campo:string):boolean{
@@ -89,6 +92,7 @@ export class UsuariosEditarComponent implements OnInit {
     return false;
   }
   //FIN CONTROL DE CAMPOS
+  //----------------------
 
   //VERIFICACION DE CONTRASEÑAS COINCIDENTES
   contraseniaValida():boolean{
@@ -102,5 +106,29 @@ export class UsuariosEditarComponent implements OnInit {
     return true;
   }
   //FIN VERIFICACION DE CONTRASEÑAS COINCIDENTES
+  //---------------------------------------------
+
+  //ACTUALIZACION DE FOTO
+  onUpload(foto: File){
+    try {
+      
+       this.fotoSubir = foto;
+       let id: number =  this.id;
+      this.fileUploadService.actualizarFotoUsuario(this.fotoSubir, id).then(respuesta => {
+            if(respuesta.ok){
+            Swal.fire('Actualización Exitosa!!', "La foto del Usuario ha sido cambiada con éxito","success");
+            }else{
+                throw new Error('Error al Actualizar la foto');
+            }
+      }).catch(error => {
+        Swal.fire('Error', error.message, "error"); 
+      });
+        
+    } catch (error) {
+        
+        Swal.fire('Error', error.message, "error");    
+    }
+}
+
 
 }

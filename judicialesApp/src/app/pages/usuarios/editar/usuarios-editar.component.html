@@ -58,6 +58,12 @@
                             </div>
                         </div>
 
+                        <div class="p-field">
+                            <!-- <p-fileUpload name="foto" accept="image/*" (uploadHandler)="onSelect($event.currentFiles[0])"></p-fileUpload> -->
+                            <p-fileUpload name="foto" [customUpload]="true" [multiple]="true" (uploadHandler)="onUpload($event.files[0])"></p-fileUpload>
+                            <!-- <p-fileUpload name="foto" [customUpload]="true" [multiple]="true"></p-fileUpload> -->
+                        </div>
+
                         <div class="row">
                             <div class="col-12 text-danger">
                                 <p *ngIf="campoNoValido('correo')">El Correo es obligatorio y debe ser valido</p>

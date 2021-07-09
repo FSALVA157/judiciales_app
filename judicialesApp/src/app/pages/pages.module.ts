@@ -14,6 +14,7 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {DropdownModule} from 'primeng/dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
 import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
 import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
 import { InternosListarComponent } from './internos/listar/internos-listar.component';
@@ -61,7 +62,8 @@ import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.compo
     ButtonModule,
     InputTextModule,
     InputNumberModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ]
 })
 export class PagesModule { }

@@ -36,7 +36,7 @@
                     </ng-template>
                 </p-table> -->
 
-                <p-table id="htmlData" #dt [value]="lista_usuarios" [columns]="cols" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" selectionMode="multiple" [(selection)]="selectedUsuarios">
+                <p-table id="htmlData" #dt [value]="lista_usuarios" [columns]="cols" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [scrollable]="true" [style]="{width:'100%'}" selectionMode="multiple" [(selection)]="selectedUsuarios">
                     <ng-template pTemplate="caption">
                         <div class="p-d-flex">
                             <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
@@ -46,19 +46,32 @@
 
                         </div>
                     </ng-template>
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col style="width:100px">
+                            <col style="width:200px">
+                            <col style="width:250px">
+                            <col style="width:250px">
+                            <col style="width:250px">
+                            <col style="width:200px">
+                            <col style="width:100px">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header" let-columns>
                         <tr>
-                            <th style="width: 10%">Id</th>
-                            <th style="width: 30%">Correo </th>
-                            <th style="width: 20%">Nombre </th>
-                            <th style="width: 20%">Apellido</th>
-                            <th style="width: 10%">Unidad</th>
-                            <th style="width: 10%">Accion</th>
+                            <th>Id</th>
+                            <th>Foto</th>
+                            <th>Correo </th>
+                            <th>Nombre </th>
+                            <th>Apellido</th>
+                            <th>Unidad</th>
+                            <th>Accion</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-rowData let-usuario>
                         <tr>
                             <td>{{usuario.id_usuario}}</td>
+                            <td><img [src]="baseUrlImg + usuario.foto" [alt]="usuario.img" style="border-radius: 150px;" width="50" class="p-shadow-4" /></td>
                             <td>{{usuario.correo}}</td>
                             <td>{{usuario.nombre}}</td>
                             <td>{{usuario.apellido}}</td>

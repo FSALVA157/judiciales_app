@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { globalConstants } from 'src/app/common/global-constants';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuariosService } from '../../../services/usuarios.service';
+import { environment } from 'src/environments/environment';
 //import * as FileSaver from 'file-saver';
 
 import jsPDF from 'jspdf';//importacion para pdf
 import autoTable from 'jspdf-autotable';//importacion para pdf
 import html2canvas from 'html2canvas';
+
+
+
+const base_url = environment.BASE_URL
 
 @Component({
   selector: 'app-usuarios-listar',
@@ -24,6 +29,7 @@ export class UsuariosListarComponent implements OnInit {
   head: any[]=[];
   data: any[]=[];
   selectedUsuarios: UsuarioModel[] = [];
+  baseUrlImg: string = `${base_url}/usuario/foto?foto_nombre=`;
   
   constructor(private usuariosService: UsuariosService) { }
 

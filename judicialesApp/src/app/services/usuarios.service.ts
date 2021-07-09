@@ -22,6 +22,7 @@ export class UsuariosService {
       correo: data.correo,
       nombre: data.nombre,
       apellido: data.apellido,
+      //foto: "no-imagen.jpg",
       clave: data.clave,
       dni: parseInt(data.dni),
       unidad_id: globalConstants.unidad
