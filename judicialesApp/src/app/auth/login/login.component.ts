@@ -51,7 +51,7 @@ export class LoginComponent {
           Swal.fire({
             title: 'Login correcto',
             text: "Ha ingresado a la aplicacion",
-            icon: 'info',
+            icon: 'success',
             
           });
           //VARIABLE PARA CONTROLAR SI ESTA VALIDADO          

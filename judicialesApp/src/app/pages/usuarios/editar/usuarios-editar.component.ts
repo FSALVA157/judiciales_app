@@ -16,7 +16,7 @@ export class UsuariosEditarComponent implements OnInit {
   id:number = 0;
   usuario!: UsuarioModel;
   fotoSubir: File | undefined;//variable para guardar la imagen
-
+  imagenUrl: string ="";
   submitted = false;
 
   constructor(
@@ -27,7 +27,7 @@ export class UsuariosEditarComponent implements OnInit {
     private readonly fileUploadService: FileUploadService
   ) { }
 
-  //creacion de formulario para html
+  //creacion de formulario de datos para html
   formData = this.fb.group({
     correo: ['', [Validators.required, Validators.email]],
     dni: ['',[Validators.required]],
@@ -37,21 +37,43 @@ export class UsuariosEditarComponent implements OnInit {
     password2: ['',[Validators.required, Validators.minLength(6)]],
     foto: ['',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
   });
+  //... fin creacion de formulario de datos para html
+
+  //creacion de formulario de conrasenias para html
+  formContrasenias = this.fb.group({    
+    clave: ['',[Validators.required, Validators.minLength(6)]],
+    password2: ['',[Validators.required, Validators.minLength(6)]]
+  });
+  //... creacion de formulario de conrasenias para html
+
 
   ngOnInit(): void {
-    //recuperar id del usuario
+    //recuperar id del usuario que biene de la tabla
     this.id = this.routeActivate.snapshot.params['id'];
     
     //busqueda de usuario y carga de datos en el formulario    
     this.usuariosService.getUsuarioXId(this.id)
                 .pipe(first())
-                .subscribe(x => this.formData.patchValue(x));
-        
+                .subscribe(x =>{ this.formData.patchValue(x);
+                  console.log("usuario editar", x);
+                  //METODO LOCAL PARA COLOCAR DATOS DE USUARIO EN VARIABLES GLOBALES
+                  this.extraerDataUsuario(x);
+                });
+                
   }
+
+  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  extraerDataUsuario(data: any) {
+    //voy a desestructurar respuesta
+     const {id_usuario, apellido, correo, dni, foto, nombre, unidad_id} = data;
+     this.usuario = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
+     this.imagenUrl = this.usuario.fotoUrl;                                   
+  }
+  //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
 
 
   //METODO ACTUALIZA EL USUARIO
-  actualizarUsuario() {
+  actualizarUsuario(formularioEnviado: string) {
     this.submitted=true; //establecer que se envio el formulario
     //controlar si el formulario es valido
     if(this.formData.invalid){     
@@ -59,14 +81,14 @@ export class UsuariosEditarComponent implements OnInit {
     }
     //...fin controlar si el formulario es valido
 
-    this.usuariosService.actualizarUsuario(this.id, this.formData.value)
+    this.usuariosService.actualizarDatosUsuario(this.id, this.formData.value)
         .pipe(first())
         .subscribe(
           respuesta => {
             Swal.fire({
               title: 'Actualizar Usuario',
               text: "Usuario actualizado correctamente",
-              icon: 'info',              
+              icon: 'success',              
             });
             //DIRECCIONAMIENTO
             this.router.navigateByUrl("dashboard/listar-usuarios");
@@ -82,6 +104,8 @@ export class UsuariosEditarComponent implements OnInit {
   }
   //FIN METODO ACTUALIZA EL USUARIO
   //-------------------------------
+
+    
 
   //CONTROL DE CAMPOS
   campoNoValido(campo:string):boolean{
@@ -112,8 +136,8 @@ export class UsuariosEditarComponent implements OnInit {
   onUpload(foto: File){
     try {
       
-       this.fotoSubir = foto;
-       let id: number =  this.id;
+      this.fotoSubir = foto;
+      let id: number =  this.id; //this.id es proveniente de la tabla
       this.fileUploadService.actualizarFotoUsuario(this.fotoSubir, id).then(respuesta => {
             if(respuesta.ok){
             Swal.fire('Actualización Exitosa!!', "La foto del Usuario ha sido cambiada con éxito","success");
@@ -128,7 +152,9 @@ export class UsuariosEditarComponent implements OnInit {
         
         Swal.fire('Error', error.message, "error");    
     }
-}
+  }  
+  //FIN ACTUALIZACION DE FOTO
+  //..........................
 
 
 }

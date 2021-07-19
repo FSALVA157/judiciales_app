@@ -23,7 +23,7 @@ export class UsuariosService {
       nombre: data.nombre,
       apellido: data.apellido,
       //foto: "no-imagen.jpg",
-      clave: data.clave,
+      //clave: data.clave,
       dni: parseInt(data.dni),
       unidad_id: globalConstants.unidad
     };
@@ -32,9 +32,9 @@ export class UsuariosService {
   }
   //fin CREAR USUARIO
 
-   //ACTUALIZAR USUARIO
-   actualizarUsuario(id_usuario: number, data: any){
-    console.log("datos de formulario", data);
+   //ACTUALIZAR DATOS USUARIO
+   actualizarDatosUsuario(id_usuario: number, data: any){
+    console.log("datos contrasenia de formulario", data);
     delete data.password2;
     const obj: any = {
       correo: data.correo,
@@ -47,7 +47,26 @@ export class UsuariosService {
     
     return this.http.put(`${environment.BASE_URL}/usuario/${id_usuario}`,obj);    
   }
-  //fin ACTUALIZAR USUARIO
+  //fin ACTUALIZAR DATOS USUARIO
+  //............................
+
+  //ACTUALIZAR CONTRASENIA USUARIO
+  actualizarContraseniaUsuario(id_usuario: number, data: any){
+    console.log("datos de formulario", data);
+    delete data.password2;
+    const obj: any = {
+      // correo: data.correo,
+      // nombre: data.nombre,
+      // apellido: data.apellido,
+      clave: data.clave,
+      // dni: parseInt(data.dni),
+      // unidad_id: globalConstants.unidad
+    };
+    
+    return this.http.put(`${environment.BASE_URL}/usuario/${id_usuario}`,obj);    
+  }
+  //fin ACTUALIZAR CONTRASENIA USUARIO
+  //...................................
   
   //LOGIN
   login(data: any){
@@ -59,6 +78,7 @@ export class UsuariosService {
     return this.http.post(`${environment.BASE_URL}/auth/login`,dataLogin);
   }
   //FIN LOGIN
+  //.........
 
   //RETORNAR USUARIOS POR UNIDAD
   getListaUsuariosXUnidad(id_unidad: number){
@@ -66,6 +86,7 @@ export class UsuariosService {
     return this.http.get<UsuarioModel[]>(`${environment.BASE_URL}/usuario/buscar-por-unidad?id_unidad=${id_unidad}`);
   }
   //FIN RETORNAR USUARIOS POR UNIDAD
+  //................................
 
   //RETORNAR USUARIOS POR ID
   getUsuarioXId(id_usuario: number){
@@ -73,5 +94,6 @@ export class UsuariosService {
     return this.http.get<UsuarioModel>(`${environment.BASE_URL}/usuario/${id_usuario}`);
   }
   //FIN RETORNAR USUARIOS POR ID
+  //............................
 
 }

@@ -2,3 +2,7 @@ button {
     margin: 5px;
     top: 5px;
 }
+
+card {
+    bottom: 5px;
+}
