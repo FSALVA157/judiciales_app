@@ -33,8 +33,8 @@ export class UsuariosEditarComponent implements OnInit {
     dni: ['',[Validators.required]],
     nombre: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
     apellido: ['',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
-    clave: ['',[Validators.required, Validators.minLength(6)]],
-    password2: ['',[Validators.required, Validators.minLength(6)]],
+    clave: ['123456',[Validators.required, Validators.minLength(6)]],
+    password2: ['123456',[Validators.required, Validators.minLength(6)]],
     foto: ['',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
   });
   //... fin creacion de formulario de datos para html

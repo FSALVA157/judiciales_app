@@ -43,7 +43,7 @@ export class UsuariosAgregarComponent {
                               Swal.fire({
                                 title: 'Crear Usuario',
                                 text: "Usuario creado correctamente",
-                                icon: 'info',
+                                icon: 'success',
                                 
                               });
                               //DIRECCIONAMIENTO
