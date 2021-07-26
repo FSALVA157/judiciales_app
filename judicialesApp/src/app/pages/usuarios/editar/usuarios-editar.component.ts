@@ -70,6 +70,7 @@ export class UsuariosEditarComponent implements OnInit {
      this.imagenUrl = this.usuario.fotoUrl;                                   
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  //.................................................
 
 
   //METODO ACTUALIZA EL USUARIO
@@ -79,7 +80,7 @@ export class UsuariosEditarComponent implements OnInit {
     if(this.formData.invalid){     
       return;
     }
-    //...fin controlar si el formulario es valido
+    //fin controlar si el formulario es valido
 
     this.usuariosService.actualizarDatosUsuario(this.id, this.formData.value)
         .pipe(first())
