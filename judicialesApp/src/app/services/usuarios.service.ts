@@ -23,7 +23,7 @@ export class UsuariosService {
       nombre: data.nombre,
       apellido: data.apellido,
       //foto: "no-imagen.jpg",
-      //clave: data.clave,
+      clave: data.clave,
       dni: parseInt(data.dni),
       unidad_id: globalConstants.unidad
     };
@@ -33,17 +33,33 @@ export class UsuariosService {
   //fin CREAR USUARIO
 
    //ACTUALIZAR DATOS USUARIO
-   actualizarDatosUsuario(id_usuario: number, data: any){
+   actualizarDatosUsuario(id_usuario: number, data: any, formularioEnviado:string){
     console.log("datos contrasenia de formulario", data);
+    let obj: any;
     delete data.password2;
-    const obj: any = {
-      correo: data.correo,
-      nombre: data.nombre,
-      apellido: data.apellido,
-      clave: data.clave,
-      dni: parseInt(data.dni),
-      unidad_id: globalConstants.unidad
-    };
+    if(formularioEnviado==='datos') {
+      obj = {
+        correo: data.correo,
+        nombre: data.nombre,
+        apellido: data.apellido,
+        //clave: data.clave,
+        dni: parseInt(data.dni),
+        unidad_id: globalConstants.unidad
+      };
+    }
+    if(formularioEnviado==='contrasenia') {
+      obj = {
+        clave: data.clave,
+      };
+    }
+    // obj = {
+    //   correo: data.correo,
+    //   nombre: data.nombre,
+    //   apellido: data.apellido,
+    //   clave: data.clave,
+    //   dni: parseInt(data.dni),
+    //   unidad_id: globalConstants.unidad
+    // };
     
     return this.http.put(`${environment.BASE_URL}/usuario/${id_usuario}`,obj);    
   }

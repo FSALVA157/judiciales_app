@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <!-- columna 1 -->
+    <!-- columna 1 FOTO -->
     <div class="col-12  col-md-4">
         <!-- card 1 -->
         <div class="card mt-3">
@@ -20,10 +20,10 @@
     </div>
     <!-- fin columna 1 -->
 
-    <!-- columna 2 -->
+    <!-- columna 2 DATOS Y CONTRASEÑAS-->
     <div class="col-12 col-md-6">
 
-        <!-- card 1 -->
+        <!-- card 1 DATOS-->
         <div class="card mt-3">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Editar datos de un Usuario</p>
@@ -95,14 +95,8 @@
                         <div class="col-12 text-danger">
                             <p *ngIf="campoNoValido('apellido')">El Apellido es obligatorio y debe ser valido</p>
                         </div>
-                        <div class="col-12 text-danger">
-                            <p *ngIf="!contraseniaValida()">Las contraseñas deben coincidir</p>
-                        </div>
 
                     </div>
-
-
-
 
                     <div class="row justify-content-center">
                         <div class="col-12">
@@ -127,12 +121,12 @@
         </div>
         <!-- fin /.card 1 -->
 
-        <!-- card 2-->
+        <!-- card 2 CONTRASEÑA -->
         <div class="card mt-3">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Editar contraseña del Usuario</p>
 
-                <form autocomplete="off" (ngSubmit)="actualizarUsuario('contrasenia')" [formGroup]="formData">
+                <form autocomplete="off" (ngSubmit)="actualizarUsuario('contrasenia')" [formGroup]="formContrasenias">
 
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" placeholder="Password" formControlName="clave">
@@ -162,7 +156,11 @@
                     <div class="row mt-2">
                         <!-- /.col -->
                         <div class="col-12">
+<<<<<<< HEAD
                             <button type="submit" class="btn btn-primary btn-block">Guardar contraseña</button>
+=======
+                            <button type="submit" class="btn btn-primary btn-block">Guardar contraseñas</button>
+>>>>>>> 8109042fd6069dcf754f67bb4e89938bbcfab2e4
                         </div>
                     </div>
 

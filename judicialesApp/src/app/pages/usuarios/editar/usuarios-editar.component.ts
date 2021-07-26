@@ -33,8 +33,8 @@ export class UsuariosEditarComponent implements OnInit {
     dni: ['',[Validators.required]],
     nombre: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
     apellido: ['',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
-    clave: ['123456',[Validators.required, Validators.minLength(6)]],
-    password2: ['123456',[Validators.required, Validators.minLength(6)]],
+    // clave: ['123456',[Validators.required, Validators.minLength(6)]],
+    // password2: ['123456',[Validators.required, Validators.minLength(6)]],
     foto: ['',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
   });
   //... fin creacion de formulario de datos para html
@@ -56,7 +56,7 @@ export class UsuariosEditarComponent implements OnInit {
                 .pipe(first())
                 .subscribe(x =>{ this.formData.patchValue(x);
                   console.log("usuario editar", x);
-                  //METODO LOCAL PARA COLOCAR DATOS DE USUARIO EN VARIABLES GLOBALES
+                  //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
                   this.extraerDataUsuario(x);
                 });
                 
@@ -75,14 +75,22 @@ export class UsuariosEditarComponent implements OnInit {
 
   //METODO ACTUALIZA EL USUARIO
   actualizarUsuario(formularioEnviado: string) {
+    let formEnviar= this.fb.group({})
+    if(formularioEnviado==='datos') {
+      formEnviar = this.formData;
+    }
+    if(formularioEnviado==='contrasenia') {
+      formEnviar = this.formContrasenias;
+    }
+
     this.submitted=true; //establecer que se envio el formulario
     //controlar si el formulario es valido
-    if(this.formData.invalid){     
+    if(formEnviar.invalid){     
       return;
     }
     //fin controlar si el formulario es valido
 
-    this.usuariosService.actualizarDatosUsuario(this.id, this.formData.value)
+    this.usuariosService.actualizarDatosUsuario(this.id, formEnviar.value, formularioEnviado)
         .pipe(first())
         .subscribe(
           respuesta => {
@@ -121,9 +129,9 @@ export class UsuariosEditarComponent implements OnInit {
 
   //VERIFICACION DE CONTRASEÑAS COINCIDENTES
   contraseniaValida():boolean{
-    const clave1 = this.formData.get('clave')?.value;
-    const clave2 = this.formData.get('password2')?.value;
-    if((clave1!== clave2 && this.submitted) || (this.formData.get('clave')?.invalid && this.submitted)){
+    const clave1 = this.formContrasenias.get('clave')?.value;
+    const clave2 = this.formContrasenias.get('password2')?.value;
+    if((clave1!== clave2 && this.submitted) || (this.formContrasenias.get('clave')?.invalid && this.submitted)){
 
       return false;
     }
