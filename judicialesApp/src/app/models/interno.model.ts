@@ -1,6 +1,6 @@
 
 export class InternoModel {
-    
+    public id_interno!: number;
     public prontuario!: number;
     public apellido_1!: string;
     public apellido_2!: string;

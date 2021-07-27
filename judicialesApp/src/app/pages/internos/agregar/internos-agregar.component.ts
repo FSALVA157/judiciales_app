@@ -11,8 +11,7 @@ import { TablasArray } from '../../../common/tablas-array';
 @Component({
   selector: 'app-internos-agregar',
   templateUrl: './internos-agregar.component.html',
-  styles: [
-  ]
+  styleUrls: ['../../pages.component.css']
 })
 
 export class InternosAgregarComponent implements OnInit {

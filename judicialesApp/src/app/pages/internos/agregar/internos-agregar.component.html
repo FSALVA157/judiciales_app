@@ -8,106 +8,99 @@
 
                     <form class="p-fluid" autocomplete="off" (ngSubmit)="crearInterno()" [formGroup]="formData">
                         <!-- card 1 datos personales-->
+                        <div class="card mt-3">
+                            <div class="card-body register-card-body">
+                                <p class="login-box-msg">Caracteristicas Personales</p>
 
-                        <!-- FILA 1-->
-                        <div class="row">
-                            <div class="col-12 col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                    <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso" > 
-                                    <label for="fecha-ingreso-input">Fecha Ingreso</label>
-                                </span>
-                            </div>
-                            <div class="col-12  col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                        <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
+                                <!-- FILA 1-->
+                                <div class="row">
+                                    <div class="col-12 col-lg-4">
+                                        <label for="fecha-ingreso-input">Fecha Ingreso</label>
+                                        <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
+                                    </div>
+
+                                    <div class="col-12  col-lg-4">
                                         <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
-                                    </span>
+                                        <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
+
+                                    </div>
+                                </div>
+                                <!-- FILA 1-->
+
+                                <!-- FILA 2-->
+                                <div class="row">
+                                    <div class="col-5 col-lg-3">
+                                        <label for="prontuario-input">Prontuario</label>
+                                        <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
+                                        <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <label for="prontuario-policial-input">Prontuario Policial</label>
+                                        <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
+
+                                    </div>
+
+                                    <div class="col-5 col-lg-3">
+                                        <label for="dni-input">DNI</label>
+                                        <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
+
+                                    </div>
+                                </div>
+                                <!-- FIN FILA 2-->
+
+                                <!-- FIN FILA 3-->
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <label for="apellido_1-input">Apellido 1</label>
+                                        <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1">
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <label for="apellido_2-input">Apellido 2</label>
+                                        <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2">
+
+                                    </div>
+                                </div>
+                                <!-- FIN FILA 3-->
+
+                                <!-- FILA 4-->
+                                <div class="row ">
+                                    <div class="col-12 col-lg-4">
+                                        <label for="nombre_1-input">Nombre 1</label>
+                                        <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <label for="nombre_2-input">Nombre 2</label>
+                                        <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <label for="nombre_3-input">Nombre 3</label>
+                                        <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
+
+                                    </div>
+                                </div>
+                                <!-- FIN FILA 4-->
+
+                                <!-- FILA 5-->
+                                <div class="row ">
+
+                                    <div class="col-12 col-lg-6">
+                                        <label for="alias-input">Alias</label>
+                                        <input id="alias-input" type="text" pInputText formControlName="alias">
+
+                                    </div>
+                                </div>
+                                <!-- FIN FILA 5-->
                             </div>
+                            <!-- /.form-box -->
                         </div>
-                        <!-- FILA 1-->
-
-                        <!-- FILA 2-->
-                        <div class="row">
-                            <div class="col-5 col-lg-3 mt-5">
-                                <span class="p-float-label">
-                                            <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
-                                            <p-inputNumber id="prontuario-input" formControlName="prontuario" ></p-inputNumber>
-
-                                            <label for="prontuario-input">Prontuario</label>
-                                        </span>
-                            </div>
-                            <div class="col-12 col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                            <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial" > 
-                                            <label for="prontuario-policial-input">Prontuario Policial</label>
-                                        </span>
-                            </div>
-
-
-                            <div class="col-5 col-lg-3 mt-5">
-                                <span class="p-float-label">
-                                            <p-inputNumber id="dni-input" formControlName="dni" ></p-inputNumber>
-
-                                            <label for="dni-input">DNI</label>
-                                        </span>
-                            </div>
-                        </div>
-                        <!-- FIN FILA 2-->
-
-                        <!-- FIN FILA 3-->
-                        <div class="row">
-                            <div class="col-12 col-lg-6 mt-5">
-                                <span class="p-float-label">
-                                    <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1" > 
-                                    <label for="apellido_1-input">Apellido 1</label>
-                                </span>
-                            </div>
-
-                            <div class="col-12 col-lg-6 mt-5">
-                                <span class="p-float-label">
-                                    <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2" > 
-                                    <label for="apellido_2-input">Apellido 2</label>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- FIN FILA 3-->
-
-                        <!-- FILA 4-->
-                        <div class="row ">
-                            <div class="col-12 col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                    <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1" > 
-                                    <label for="nombre_1-input">Nombre 1</label>
-                                </span>
-                            </div>
-
-                            <div class="col-12 col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                    <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2" > 
-                                    <label for="nombre_2-input">Nombre 2</label>
-                                </span>
-                            </div>
-
-                            <div class="col-12 col-lg-4 mt-5">
-                                <span class="p-float-label">
-                                    <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3"  > 
-                                    <label for="nombre_3-input">Nombre 3</label>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- FIN FILA 4-->
-
-                        <!-- FILA 5-->
-                        <div class="row ">
-
-                            <div class="col-12 col-lg-6 mt-5">
-                                <span class="p-float-label">
-                                    <input id="alias-input" type="text" pInputText formControlName="alias" > 
-                                    <label for="alias-input">Alias</label>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- FIN FILA 5-->
+                        <!-- fin card 1 datos personales -->
 
 
                         <!-- card 2 caracteristicas personales-->
@@ -117,83 +110,72 @@
 
                                 <!-- FILA 1-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_ojos_color" id="ojos-color-input" [virtualScroll]="true" formControlName="ojos_color_id"></p-dropdown>
-                                    <label for="ojos-color-input">Ojos Color</label>
-                                </span>
+                                    <div class="col-4">
+                                        <label for="ojos-color-input">Ojos Color</label>
+                                        <p-dropdown [options]="drop_ojos_color" id="ojos-color-input" [virtualScroll]="true" formControlName="ojos_color_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_ojos_tamanio" id="ojos-tamanio-input" [virtualScroll]="true" formControlName="ojos_tamanio_id"></p-dropdown>
-                                    <label for="ojos-tamanio-input">Ojos Tamanio</label>
-                                </span>
+                                    <div class="col-4">
+                                        <label for="ojos-tamanio-input">Ojos Tamanio</label>
+                                        <p-dropdown [options]="drop_ojos_tamanio" id="ojos-tamanio-input" [virtualScroll]="true" formControlName="ojos_tamanio_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_nariz_tamanio" id="nariz-tamanio-input" [virtualScroll]="true" formControlName="nariz_tamanio_id"></p-dropdown>
-                                    <label for="nariz-tamanio-input">Nariz Tamanio</label>
-                                </span>
+                                    <div class="col-4  ">
+                                        <label for="nariz-tamanio-input">Nariz Tamanio</label>
+                                        <p-dropdown [options]="drop_nariz_tamanio" id="nariz-tamanio-input" [virtualScroll]="true" formControlName="nariz_tamanio_id"></p-dropdown>
+
                                     </div>
+
                                 </div>
-
                                 <!-- FIN FILA 1-->
 
                                 <!-- FILA 2-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_nariz_forma" id="nariz-forma-input" [virtualScroll]="true" formControlName="nariz_forma_id"></p-dropdown>
-                                    <label for="nariz-forma-input">Nariz Forma</label>
-                                </span>
+                                    <div class="col-4 ">
+                                        <label for="nariz-forma-input">Nariz Forma</label>
+                                        <p-dropdown [options]="drop_nariz_forma" id="nariz-forma-input" [virtualScroll]="true" formControlName="nariz_forma_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_pelo_tipo" id="pelo-tipo-input" [virtualScroll]="true" formControlName="pelo_tipo_id"></p-dropdown>
-                                    <label for="pelo-tipo-input">Pelo Tipo</label>
-                                </span>
+                                    <div class="col-4 ">
+                                        <label for="pelo-tipo-input">Pelo Tipo</label>
+                                        <p-dropdown [options]="drop_pelo_tipo" id="pelo-tipo-input" [virtualScroll]="true" formControlName="pelo_tipo_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_pelo_color" id="pelo-color-input" [virtualScroll]="true" formControlName="pelo_color_id"></p-dropdown>
-                                    <label for="pelo-color-input">Nariz Tamanio</label>
-                                </span>
+                                    <div class="col-4 ">
+                                        <label for="pelo-color-input">Nariz Tamanio</label>
+                                        <p-dropdown [options]="drop_pelo_color" id="pelo-color-input" [virtualScroll]="true" formControlName="pelo_color_id"></p-dropdown>
+
                                     </div>
+
                                 </div>
-
                                 <!-- FIN FILA 2-->
 
-                                <!-- FILA 13-->
+                                <!-- FILA 3-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_piel" id="piel-input" [virtualScroll]="true" formControlName="piel_id"></p-dropdown>
-                                    <label for="piel-input">Piel</label>
-                                </span>
+                                    <div class="col-4 ">
+                                        <label for="piel-input">Piel</label>
+                                        <p-dropdown [options]="drop_piel" id="piel-input" [virtualScroll]="true" formControlName="piel_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal" > 
-                                    <label for="marca-corporal-input">Marca Corporal</label>
-                                </span>
+                                    <div class="col-12 col-lg-4">
+                                        <label for="marca-corporal-input">Marca Corporal</label>
+                                        <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal">
+
                                     </div>
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="talla-input" type="text" pInputText formControlName="talla" > 
-                                            <label for="talla-input">Talla</label>
-                                        </span>
-                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <label for="talla-input">Talla</label>
+                                        <input id="talla-input" type="text" pInputText formControlName="talla">
 
+                                    </div>
 
                                 </div>
-
-                                <!-- FIN FILA 13-->
+                                <!-- FIN FILA 3-->
                             </div>
                             <!-- /.form-box -->
                         </div>
@@ -206,43 +188,38 @@
                                 <p class="login-box-msg">Datos Filiatorios</p>
                                 <!-- FILA 1-->
                                 <div class="row ">
-                                    <div class="col-5 col-lg-3 mt-4">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_sexo" id="sexo-input" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
-                                            <label for="sexo-input">Sexo</label>
-                                        </span>
+                                    <div class="col-5 col-lg-3 ">
+                                        <label for="sexo-input">Sexo</label>
+                                        <p-dropdown [options]="drop_sexo" id="sexo-input" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-5 col-lg-3 mt-4">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_estado_civil" id="estado_civil-input" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
-                                            <label for="estado_civil-input">Estado Civil</label>
-                                        </span>
+                                    <div class="col-5 col-lg-3 ">
+                                        <label for="estado_civil-input">Estado Civil</label>
+                                        <p-dropdown [options]="drop_estado_civil" id="estado_civil-input" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
+
                                     </div>
                                 </div>
                                 <!-- FIN FILA 1-->
 
                                 <!-- FILA 2-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_nacionalidad" id="nacionalidad-input" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
-                                            <label for="nacionalidad-input">Nacionalidad</label>
-                                        </span>
+                                    <div class="col-4 ">
+                                        <label for="nacionalidad-input">Nacionalidad</label>
+                                        <p-dropdown [options]="drop_nacionalidad" id="nacionalidad-input" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-2  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_zona_residencia" id="zona_residencia-input" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
-                                            <label for="zona_residencia-input">Zona Residencia</label>
-                                        </span>
+                                    <div class="col-2 ">
+                                        <label for="zona_residencia-input">Zona Residencia</label>
+                                        <p-dropdown [options]="drop_zona_residencia" id="zona_residencia-input" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-12 col-lg-6 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="domicilio-input" type="text" pInputText formControlName="domicilio" > 
-                                            <label for="domicilio-input">domicilio</label>
-                                        </span>
+                                    <div class="col-12 col-lg-6">
+                                        <label for="domicilio-input">domicilio</label>
+                                        <input id="domicilio-input" type="text" pInputText formControlName="domicilio">
+
                                     </div>
                                 </div>
 
@@ -251,42 +228,38 @@
                                 <!-- FILA 3-->
                                 <div class="row ">
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_departamento" id="departamento-input" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown>
-                                            <label for="departamento-input">Departamento</label>
-                                        </span>
+                                    <div class="col-4 ">
+                                        <label for="departamento-input">Departamento</label>
+                                        <p-dropdown [options]="drop_departamento" id="departamento-input" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-7 col-lg-3 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="telefono-input" type="text" pInputText formControlName="telefono"  > 
-                                            <label for="telefono-input">telefono</label>
-                                        </span>
+                                    <div class="col-7 col-lg-3 ">
+                                        <label for="telefono-input">telefono</label>
+                                        <input id="telefono-input" type="text" pInputText formControlName="telefono">
+
                                     </div>
                                 </div>
                                 <!-- FIN FILA 3-->
 
                                 <!-- FILA 4-->
                                 <div class="row ">
-                                    <div class="col-6 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="fecha_nacimiento-input" type="text" pInputText formControlName="fecha_nacimiento"  > 
-                                            <label for="fecha_nacimiento-input">Fecha Nacimiento</label>
-                                        </span>
-                                    </div>
-                                    <div class="col-6 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_departamento" id="departamento_nacimiento-input" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
-                                            <label for="departamento_nacimiento-input">Departamento Nacimiento</label>
-                                        </span>
+                                    <div class="col-6 col-lg-4 ">
+                                        <label for="fecha_nacimiento-input">Fecha Nacimiento</label>
+                                        <input id="fecha_nacimiento-input" type="text" pInputText formControlName="fecha_nacimiento">
+
                                     </div>
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="lugar_nacimiento-input" type="text" pInputText formControlName="lugar_nacimiento" > 
-                                            <label for="lugar_nacimiento-input">Lugar Nacimiento</label>
-                                        </span>
+                                    <div class="col-6 col-lg-4">
+                                        <label for="departamento_nacimiento-input">Departamento Nacimiento</label>
+                                        <p-dropdown [options]="drop_departamento" id="departamento_nacimiento-input" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <label for="lugar_nacimiento-input">Lugar Nacimiento</label>
+                                        <input id="lugar_nacimiento-input" type="text" pInputText formControlName="lugar_nacimiento">
+
                                     </div>
                                 </div>
 
@@ -295,24 +268,21 @@
 
                                 <!-- FILA 5-->
                                 <div class="row ">
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="padre-input" type="text" pInputText formControlName="padre" > 
-                                            <label for="padre-input">Padre</label>
-                                        </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="padre-input">Padre</label>
+                                        <input id="padre-input" type="text" pInputText formControlName="padre">
+
                                     </div>
 
-                                    <div class="col-6 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="madre-input" type="text" pInputText formControlName="madre"  > 
-                                            <label for="madre-input">Madre</label>
-                                        </span>
+                                    <div class="col-6 col-lg-4">
+                                        <label for="madre-input">Madre</label>
+                                        <input id="madre-input" type="text" pInputText formControlName="madre">
+
                                     </div>
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="parientes-input" type="text" pInputText formControlName="parientes" > 
-                                            <label for="parientes-input">Parientes</label>
-                                        </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="parientes-input">Parientes</label>
+                                        <input id="parientes-input" type="text" pInputText formControlName="parientes">
+
                                     </div>
                                 </div>
 
@@ -320,25 +290,22 @@
 
                                 <!-- FILA 6-->
                                 <div class="row ">
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="referente_emergencia-input" type="text" pInputText formControlName="referente_emergencia" > 
-                                            <label for="referente_emergencia-input">Referente Emergencia</label>
-                                        </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="referente_emergencia-input">Referente Emergencia</label>
+                                        <input id="referente_emergencia-input" type="text" pInputText formControlName="referente_emergencia">
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_nivel_educacion" id="nivel-educacion-input" [virtualScroll]="true" formControlName="nivel_educacion_id"></p-dropdown>
-                                            <label for="nivel-educacion-input">Nivel Educacion</label>
-                                        </span>
+                                    <div class="col-4 ">
+                                        <label for="nivel-educacion-input">Nivel Educacion</label>
+                                        <p-dropdown [options]="drop_nivel_educacion" id="nivel-educacion-input" [virtualScroll]="true" formControlName="nivel_educacion_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                            <input id="profesion-input" type="text" pInputText formControlName="profesion" > 
-                                            <label for="profesion-input">Profesion</label>
-                                        </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="profesion-input">Profesion</label>
+                                        <input id="profesion-input" type="text" pInputText formControlName="profesion">
+
                                     </div>
                                 </div>
 
@@ -346,277 +313,235 @@
 
                                 <!-- FILA 7-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_oficio" id="ultimo-oficio-input" [virtualScroll]="true" formControlName="ultimo_oficio_id"></p-dropdown>
-                                            <label for="ultimo-oficio-input">Ultimo Oficio</label>
-                                        </span>
+                                    <div class="col-4 ">
+                                        <label for="ultimo-oficio-input">Ultimo Oficio</label>
+                                        <p-dropdown [options]="drop_oficio" id="ultimo-oficio-input" [virtualScroll]="true" formControlName="ultimo_oficio_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_religion" id="religion-input" [virtualScroll]="true" formControlName="religion_id"></p-dropdown>
-                                            <label for="religion-input">Religion</label>
-                                        </span>
-                                    </div>
+                                    <div class="col-4">
+                                        <label for="religion-input">Religion</label>
+                                        <p-dropdown [options]="drop_religion" id="religion-input" [virtualScroll]="true" formControlName="religion_id"></p-dropdown>
 
+                                    </div>
 
                                 </div>
-
                                 <!-- FIN FILA 7-->
-
 
                             </div>
                             <!-- /.form-box -->
                         </div>
                         <!-- fin card 3 datos filiatorios -->
 
-                        <!-- card 2 datos procesales-->
+                        <!-- card 4 datos procesales-->
                         <div class="card mt-3">
                             <div class="card-body register-card-body">
                                 <p class="login-box-msg">Datos Procesales</p>
-                                <!-- FILA 10-->
+                                <!-- FILA 1-->
                                 <div class="row ">
+                                    <div class="col-12 col-lg-6 ">
+                                        <label for="causa-penal-input">Causa Penal</label>
+                                        <input id="causa-penal-input" type="text" pInputText formControlName="causa_penal">
 
-
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                            <p-dropdown [options]="drop_pabellon" id="pabellon-input" [virtualScroll]="true" formControlName="pabellon_id"></p-dropdown>
-                                            <label for="pabellon-input">Pabellon</label>
-                                        </span>
                                     </div>
+
+                                    <div class="col-6 ">
+                                        <label for="tipo-condena-input">Tipo Condena</label>
+                                        <p-dropdown [options]="drop_tipo_condena" id="tipo-condena-input" [virtualScroll]="true" formControlName="tipo_condena_id"></p-dropdown>
+
+                                    </div>
+
+
+
                                 </div>
+                                <!-- FIN FILA 1-->
 
-                                <!-- FIN FILA 10-->
-
-
-
-                                <!-- FILA 14-->
+                                <!-- FILA 2-->
                                 <div class="row ">
 
+                                    <div class="col-12 col-lg-3 ">
+                                        <label for="expediente-numero-input">Expediente Numero</label>
+                                        <input id="expediente-numero-input" type="text" pInputText formControlName="expediente_numero">
 
-                                    <div class="col-12  col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
-                                    <label for="reingreso-input">Reingreso</label>
-                                </span>
                                     </div>
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num" > 
-                                    <label for="reingreso-num-input">Reingreso Numero</label>
-                                </span>
+
+                                    <div class="col-12 col-lg-3 ">
+                                        <label for="expediente-policial-input">Expediente Policial</label>
+                                        <input id="expediente-policial-input" type="text" pInputText formControlName="expediente_policial">
+
                                     </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <label for="tipo-delito-input">Tipo Delito</label>
+                                        <p-dropdown [options]="drop_tipo_delito" id="tipo-delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
+
+                                    </div>
+
                                 </div>
+                                <!-- FIN FILA 2-->
 
-
-
-                                <!-- FIN FILA 14-->
-
-                                <!-- FILA 15-->
+                                <!-- FILA 3-->
                                 <div class="row ">
+                                    <div class="col-4 ">
+                                        <label for="estado-procesal-input">Estado Procesal</label>
+                                        <p-dropdown [options]="drop_estado_procesal" id="estado-procesal-input" [virtualScroll]="true" formControlName="estado_procesal_id"></p-dropdown>
 
-
-
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="causa-penal-input" type="text" pInputText formControlName="causa_penal" > 
-                                    <label for="causa-penal-input">Causa Penal</label>
-                                </span>
                                     </div>
 
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_tipo_condena" id="tipo-condena-input" [virtualScroll]="true" formControlName="tipo_condena_id"></p-dropdown>
-                                    <label for="tipo-condena-input">Tipo Condena</label>
-                                </span>
-                                    </div>
-                                </div>
+                                    <div class="col-12  col-lg-4 ">
+                                        <label for="reingreso-input">Reingreso</label>
+                                        <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
 
-                                <!-- FIN FILA 15-->
-
-                                <!-- FILA 16-->
-                                <div class="row ">
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="expediente-numero-input" type="text" pInputText formControlName="expediente_numero" > 
-                                    <label for="expediente-numero-input">Expediente Numero</label>
-                                </span>
                                     </div>
 
+                                    <div class="col-12 col-lg-2 ">
+                                        <label for="reingreso-num-input">Reingreso Numero</label>
+                                        <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num">
 
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="expediente-policial-input" type="text" pInputText formControlName="expediente_policial" > 
-                                    <label for="expediente-policial-input">Expediente Policial</label>
-                                </span>
-                                    </div>
-                                </div>
-
-                                <!-- FIN FILA 16-->
-
-                                <!-- FILA 17-->
-                                <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_estado_procesal" id="estado-procesal-input" [virtualScroll]="true" formControlName="estado_procesal_id"></p-dropdown>
-                                    <label for="estado-procesal-input">Estado Procesal</label>
-                                </span>
-                                    </div>
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_tipo_delito" id="tipo-delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
-                                    <label for="tipo-delito-input">Tipo Delito</label>
-                                </span>
-                                    </div>
-
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
-                                    <label for="jurisdiccion-input">Jurisdiccion</label>
-                                </span>
-                                    </div>
-                                </div>
-
-                                <!-- FIN FILA 17-->
-
-                                <!-- FILA 18-->
-                                <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_reincidencia" id="reincidencia-input" [virtualScroll]="true" formControlName="reincidencia_id"></p-dropdown>
-                                    <label for="reincidencia-input">Reincidencia</label>
-                                </span>
-                                    </div>
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="reincidencia_num-input" type="text" pInputText formControlName="reincidencia_num" > 
-                                    <label for="reincidencia_num-input">Reincidencia Numero</label>
-                                </span>
-                                    </div>
-
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_juzgado" id="juzgado-input" [virtualScroll]="true" formControlName="juzgado_id"></p-dropdown>
-                                    <label for="juzgado-input">Juzgado</label>
-                                </span>
-                                    </div>
-                                </div>
-
-                                <!-- FIN FILA 18-->
-
-                                <!-- FILA 19-->
-                                <div class="row ">
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="detenciones-input" type="text" pInputText formControlName="detenciones" > 
-                                    <label for="detenciones-input">Detenciones</label>
-                                </span>
-                                    </div>
-
-
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_provincia" id="jurisdiccion_provinicia-input" [virtualScroll]="true" formControlName="jurisdiccion_provinicia_id"></p-dropdown>
-                                    <label for="jurisdiccion_provinicia-input">Jurisdiccion Provinicia</label>
-                                </span>
-                                    </div>
-
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="fecha_detencion-input" type="text" pInputText formControlName="fecha_detencion" > 
-                                    <label for="fecha_detencion-input">Fecha Detencion</label>
-                                </span>
                                     </div>
 
 
                                 </div>
+                                <!-- FIN FILA 3-->
 
-                                <!-- FIN FILA 19-->
-
-                                <!-- FILA 20-->
+                                <!-- FILA 4-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_juzgado" id="condena_juzgado_id-input" [virtualScroll]="true" formControlName="condena_juzgado_id"></p-dropdown>
-                                    <label for="condena_juzgado_id-input">Juzgado Condena</label>
-                                </span>
+
+                                    <div class="col-4 ">
+                                        <label for="reincidencia-input">Reincidencia</label>
+                                        <p-dropdown [options]="drop_reincidencia" id="reincidencia-input" [virtualScroll]="true" formControlName="reincidencia_id"></p-dropdown>
+
                                     </div>
 
-                                    <div class="col-12 col-lg-3 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="total_anios-input" type="text" pInputText formControlName="total_anios" > 
-                                    <label for="total_anios-input">Total Años</label>
-                                </span>
+                                    <div class="col-12 col-lg-3 ">
+                                        <label for="reincidencia_num-input">Reincidencia Numero</label>
+                                        <input id="reincidencia_num-input" type="text" pInputText formControlName="reincidencia_num">
+
                                     </div>
 
+                                    <div class="col-5 ">
+                                        <label for="juzgado-input">Juzgado</label>
+                                        <p-dropdown [options]="drop_juzgado" id="juzgado-input" [virtualScroll]="true" formControlName="juzgado_id"></p-dropdown>
 
-                                    <div class="col-12 col-lg-3 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="total_meses-input" type="text" pInputText formControlName="total_meses" > 
-                                    <label for="total_meses-input">Total Meses</label>
-                                </span>
                                     </div>
-                                    <div class="col-12 col-lg-2 mt-5">
-                                        <span class="p-float-label">
-                                        <input id="total_dias-input" type="text" pInputText formControlName="total_dias" > 
+
+                                </div>
+                                <!-- FIN FILA 4-->
+
+                                <!-- FILA 5-->
+                                <div class="row ">
+                                    <div class="col-4">
+                                        <label for="jurisdiccion-input">Jurisdiccion</label>
+                                        <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
+
+                                    </div>
+
+                                    <div class="col-4 ">
+                                        <label for="jurisdiccion_provinicia-input">Jurisdiccion Provinicia</label>
+                                        <p-dropdown [options]="drop_provincia" id="jurisdiccion_provinicia-input" [virtualScroll]="true" formControlName="jurisdiccion_provinicia_id"></p-dropdown>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="fecha_detencion-input">Fecha Detencion</label>
+                                        <input id="fecha_detencion-input" type="text" pInputText formControlName="fecha_detencion">
+
+                                    </div>
+
+                                </div>
+                                <!-- FIN FILA 5-->
+
+                                <!-- FILA 6-->
+                                <div class="row ">
+                                    <div class="col-12 col-lg-6">
+                                        <label for="detenciones-input">Detenciones</label>
+                                        <input id="detenciones-input" type="text" pInputText formControlName="detenciones">
+
+                                    </div>
+
+                                </div>
+                                <!-- FIN FILA 6-->
+
+                                <!-- FILA 7-->
+                                <div class="row ">
+                                    <div class="col-5 ">
+                                        <label for="condena_juzgado_id-input">Juzgado Condena</label>
+                                        <p-dropdown [options]="drop_juzgado" id="condena_juzgado_id-input" [virtualScroll]="true" formControlName="condena_juzgado_id"></p-dropdown>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-2">
+                                        <label for="total_anios-input">Total Años</label>
+                                        <input id="total_anios-input" type="text" pInputText formControlName="total_anios">
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-2">
+                                        <label for="total_meses-input">Total Meses</label>
+                                        <input id="total_meses-input" type="text" pInputText formControlName="total_meses">
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-2 ">
                                         <label for="total_dias-input">Total Dias</label>
-                                    </span>
+                                        <input id="total_dias-input" type="text" pInputText formControlName="total_dias">
+
                                     </div>
 
-
                                 </div>
+                                <!-- FIN FILA 7-->
 
-                                <!-- FIN FILA 20-->
-
-                                <!-- FILA 21-->
+                                <!-- FILA 8-->
                                 <div class="row ">
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="computo-input" type="text" pInputText formControlName="computo" > 
-                                    <label for="computo-input">Computo</label>
-                                </span>
-                                    </div>
 
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="fecha_cumple-input" type="text" pInputText formControlName="fecha_cumple" > 
-                                    <label for="fecha_cumple-input">Fecha Cumple</label>
-                                </span>
-                                    </div>
+
+
                                 </div>
+                                <!-- FIN FILA 8-->
 
-                                <!-- FIN FILA 21-->
-
-                                <!-- FILA 22-->
+                                <!-- FILA 9-->
                                 <div class="row ">
-                                    <div class="col-4  mt-5">
-                                        <span class="p-float-label">
-                                    <p-dropdown [options]="drop_tipo_defensor" id="tipo_defensor-input" [virtualScroll]="true" formControlName="tipo_defensor_id"></p-dropdown>
-                                    <label for="tipo_defensor-input">Tipo Defensor</label>
-                                </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="computo-input">Computo</label>
+                                        <input id="computo-input" type="text" pInputText formControlName="computo">
+
                                     </div>
 
-                                    <div class="col-12 col-lg-4 mt-5">
-                                        <span class="p-float-label">
-                                    <input id="abogado-input" type="text" pInputText formControlName="abogado" > 
-                                    <label for="abogado-input">Abogado</label>
-                                </span>
+                                    <div class="col-12 col-lg-4 ">
+                                        <label for="fecha_cumple-input">Fecha Cumple</label>
+                                        <input id="fecha_cumple-input" type="text" pInputText formControlName="fecha_cumple">
+
+                                    </div>
+                                </div>
+                                <!-- FIN FILA 8-->
+
+                                <!-- FILA 9-->
+                                <div class="row ">
+                                    <div class="col-4">
+                                        <label for="tipo_defensor-input">Tipo Defensor</label>
+                                        <p-dropdown [options]="drop_tipo_defensor" id="tipo_defensor-input" [virtualScroll]="true" formControlName="tipo_defensor_id"></p-dropdown>
+
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <label for="abogado-input">Abogado</label>
+                                        <input id="abogado-input" type="text" pInputText formControlName="abogado">
+
+                                    </div>
+
+                                    <div class="col-4 ">
+                                        <label for="pabellon-input">Pabellon</label>
+                                        <p-dropdown [options]="drop_pabellon" id="pabellon-input" [virtualScroll]="true" formControlName="pabellon_id"></p-dropdown>
+
                                     </div>
 
                                 </div>
-
-                                <!-- FIN FILA 22-->
+                                <!-- FIN FILA 9-->
                             </div>
                             <!-- /.form-box -->
                         </div>
-                        <!-- fin card 1 datos personales -->
+                        <!-- fin card 4 datos procesales -->
 
 
 
