@@ -1,4 +1,4 @@
-<p>internos-editar works!</p>
+<p>internos-editar worksxxx!</p>
 
 <p-tabView>
     <p-tabPanel header="Datos personales" leftIcon="fas fa-user-edit">
@@ -337,6 +337,62 @@
                                 </div>
                                 <!-- fin card 3 datos filiatorios -->
 
+
+
+                                <!-- <div class="row">
+                                    <div class="col-12 text-danger">
+                                        <p *ngIf="campoNoValido('correo')">El Correo es obligatorio y debe ser valido</p>
+                                    </div>
+                                    <div class="col-12 text-danger">
+                                        <p *ngIf="campoNoValido('dni')">El DNI es obligatorio y debe ser valido</p>
+                                    </div>
+                                    <div class="col-12 text-danger">
+                                        <p *ngIf="campoNoValido('nombre')">El Nombre es obligatorio y debe ser valido</p>
+                                    </div>
+                                    <div class="col-12 text-danger">
+                                        <p *ngIf="campoNoValido('apellido')">El Apellido es obligatorio y debe ser valido</p>
+                                    </div>
+                                    <div class="col-12 text-danger">
+                                        <p *ngIf="!contraseniaValida()">Las contraseñas deben coincidir</p>
+                                    </div>
+        
+                                </div> -->
+
+
+
+                                <div class="row mt-4">
+                                    <!-- /.col -->
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <!-- /.form-box -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.register-box -->
+            </div>
+            <!-- /fin columna principal -->
+        </div>
+        <!-- /fin fila principal -->
+    </p-tabPanel>
+    <p-tabPanel header="Datos procesales" leftIcon="fas fa-edit">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="">
+
+                    <div class="card ">
+                        <div class="card-body register-card-body">
+                            <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO </p>
+
+                            <form class="p-fluid" autocomplete="off" (ngSubmit)="actualizarDatosProcesalesInterno()" [formGroup]="formDataProcesales">
+
+
                                 <!-- card 4 datos procesales-->
                                 <div class="card mt-3">
                                     <div class="card-body register-card-body">
@@ -592,9 +648,6 @@
             <!-- /fin columna principal -->
         </div>
         <!-- /fin fila principal -->
-    </p-tabPanel>
-    <p-tabPanel header="Datos procesales" leftIcon="fas fa-edit">
-        Content 2
     </p-tabPanel>
     <p-tabPanel header="Planilla antecedentes" leftIcon="fas fa-file-invoice">
         Content 3

@@ -144,15 +144,55 @@ export class InternosService {
       pelo_color_id: parseInt(data.pelo_color_id),
       piel_id: parseInt(data.piel_id),
       marca_corporal: parseInt(data.marca_corporal),
-      pabellon_id: parseInt(data.pabellon_id),
+      //pabellon_id: parseInt(data.pabellon_id),
       establecimiento_procedencia_id: parseInt(data.establecimiento_procedencia_id),
+      //reingreso_id: parseInt(data.reingreso_id),
+      //reingreso_num: parseInt(data.reingreso_num),
+      fecha_ingreso: data.fecha_ingreso,
+      //causa_penal: data.causa_penal,
+      //tipo_condena_id: parseInt(data.tipo_condena_id),
+      //expediente_numero: data.expediente_numero,
+      prontuario_policial: data.prontuario_policial,
+      //expediente_policial: data.expediente_policial,
+      //estado_procesal_id: parseInt(data.estado_procesal_id),
+      //tipo_delito_id: parseInt(data.tipo_delito_id),
+      //jurisdiccion_id: parseInt(data.jurisdiccion_id),
+      //reincidencia_id: parseInt(data.reincidencia_id),
+      //reincidencia_num: parseInt(data.reincidencia_num),
+      //juzgado_id: parseInt(data.juzgado_id),
+      //detenciones: data.detenciones,
+      //jurisdiccion_provinicia_id: parseInt(data.jurisdiccion_provinicia_id),
+      //fecha_detencion: data.fecha_detencion,
+      //condena_juzgado_id: parseInt(data.condena_juzgado_id),
+      //total_anios: parseInt(data.total_anios),
+      //total_meses: parseInt(data.total_meses),
+      //total_dias: parseInt(data.total_dias),
+      //computo: parseInt(data.computo),
+      //fecha_cumple: data.fecha_cumple,
+      //tipo_defensor_id: parseInt(data.tipo_defensor_id),
+      //abogado: data.abogado,     
+      //unidad_id: globalConstants.unidad
+      };
+    
+    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,obj);    
+  }
+  //fin ACTUALIZAR DATOS INTERNO
+  //............................
+
+  //ACTUALIZAR DATOS PROCESALES INTERNO
+  actualizarDatosProcesalesInterno(id_interno: number, data: any){
+    console.log("datos contrasenia de formulario", data);
+    let obj: any;
+    
+    const interno: any = {
+      //id_interno: 0,
+      
+      pabellon_id: parseInt(data.pabellon_id),
       reingreso_id: parseInt(data.reingreso_id),
       reingreso_num: parseInt(data.reingreso_num),
-      fecha_ingreso: data.fecha_ingreso,
       causa_penal: data.causa_penal,
       tipo_condena_id: parseInt(data.tipo_condena_id),
       expediente_numero: data.expediente_numero,
-      prontuario_policial: data.prontuario_policial,
       expediente_policial: data.expediente_policial,
       estado_procesal_id: parseInt(data.estado_procesal_id),
       tipo_delito_id: parseInt(data.tipo_delito_id),
@@ -171,14 +211,15 @@ export class InternosService {
       fecha_cumple: data.fecha_cumple,
       tipo_defensor_id: parseInt(data.tipo_defensor_id),
       abogado: data.abogado,     
-      unidad_id: globalConstants.unidad
+      //unidad_id: globalConstants.unidad
       };
     
     return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,obj);    
   }
-  //fin ACTUALIZAR DATOS INTERNO
+  //fin ACTUALIZAR DATOS PROCESALES INTERNO
   //............................
 
+  
   //RETORNAR INTERNO POR ID
   getInternoXId(id_interno: number){
     

@@ -11,8 +11,7 @@ import { InternosService } from '../../../services/internos.service';
 @Component({
   selector: 'app-internos-editar',
   templateUrl: './internos-editar.component.html',
-  styles: [
-  ]
+  styleUrls: ['../../pages.component.css']
 })
 export class InternosEditarComponent implements OnInit {
 
@@ -99,23 +98,54 @@ export class InternosEditarComponent implements OnInit {
     piel_id: ['',[Validators.required]],
     marca_corporal: ['',[Validators.required]],
     unidad_id: ['',[Validators.required]],
-    pabellon_id: ['',[Validators.required]],
+    prontuario_policial: ['',[Validators.required]],
     establecimiento_procedencia_id: ['',[Validators.required]],
+    fecha_ingreso: ['',[Validators.required]],
+    //pabellon_id: ['',[Validators.required]],    
+    //reingreso_id: ['',[Validators.required]],
+    //reingreso_num: ['',[Validators.required]],    
+    //causa_penal: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    //tipo_condena_id: ['',[Validators.required]],
+    //expediente_numero: ['',[Validators.required]],    
+    //expediente_policial: ['',[Validators.required]],
+    //estado_procesal_id: ['',[Validators.required]],
+    //tipo_delito_id: ['',[Validators.required]],    
+    //reincidencia_id: ['',[Validators.required]],
+    //reincidencia_num: ['',[Validators.required]],
+    //juzgado_id: ['',[Validators.required]],
+    //detenciones: ['',[Validators.required]],
+    //jurisdiccion_id: ['',[Validators.required]],
+    //jurisdiccion_provinicia_id: ['',[Validators.required]],
+    //fecha_detencion: ['',[Validators.required]],
+    //condena_juzgado_id: ['',[Validators.required]],
+    //total_anios: ['',[Validators.required]],
+    //total_meses: ['',[Validators.required]],
+    //total_dias: ['',[Validators.required]],
+    //computo: ['',[Validators.required]],
+    //fecha_cumple: ['',[Validators.required]],
+    //tipo_defensor_id: ['',[Validators.required]],
+    //abogado: ['',[Validators.required]]
+
+  });
+  //... fin creacion de formulario de datos para html
+
+  //creacion de formulario de datos procesales para html
+  formDataProcesales = this.fb.group({    
+    
+    pabellon_id: ['',[Validators.required]],
     reingreso_id: ['',[Validators.required]],
     reingreso_num: ['',[Validators.required]],
-    fecha_ingreso: ['',[Validators.required]],
     causa_penal: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
     tipo_condena_id: ['',[Validators.required]],
     expediente_numero: ['',[Validators.required]],
-    prontuario_policial: ['',[Validators.required]],
     expediente_policial: ['',[Validators.required]],
     estado_procesal_id: ['',[Validators.required]],
-    tipo_delito_id: ['',[Validators.required]],
-    jurisdiccion_id: ['',[Validators.required]],
+    tipo_delito_id: ['',[Validators.required]],    
     reincidencia_id: ['',[Validators.required]],
     reincidencia_num: ['',[Validators.required]],
     juzgado_id: ['',[Validators.required]],
     detenciones: ['',[Validators.required]],
+    jurisdiccion_id: ['',[Validators.required]],
     jurisdiccion_provinicia_id: ['',[Validators.required]],
     fecha_detencion: ['',[Validators.required]],
     condena_juzgado_id: ['',[Validators.required]],
@@ -127,7 +157,7 @@ export class InternosEditarComponent implements OnInit {
     tipo_defensor_id: ['',[Validators.required]],
     abogado: ['',[Validators.required]]
   });
-  //... fin creacion de formulario de datos para html
+  //... fin creacion de formulario de datos procesales para html
 
 
   ngOnInit(): void {
@@ -143,17 +173,15 @@ export class InternosEditarComponent implements OnInit {
                 .pipe(first())
                 .subscribe(x =>{ 
                   this.formData.patchValue(x);
+                  this.formDataProcesales.patchValue(x);
                   console.log("interno editar", x);
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
                   //this.extraerDataUsuario(x);
                 });
-
-
-    //
   }
 
 
-  //METODO ACTUALIZA EL USUARIO
+  //METODO ACTUALIZA EL INTERNO
   actualizarInterno() {       
 
     this.submitted=true; //establecer que se envio el formulario
@@ -186,7 +214,43 @@ export class InternosEditarComponent implements OnInit {
           }
       );
   }
-  //FIN METODO ACTUALIZA EL USUARIO
+  //FIN METODO ACTUALIZA EL INTERNO
+  //-------------------------------
+
+  //METODO ACTUALIZA DATOS PROCESALES DEL INTERNO
+  actualizarDatosProcesalesInterno() {       
+
+    this.submitted=true; //establecer que se envio el formulario
+    //controlar si el formulario es valido
+    if(this.formDataProcesales.invalid){     
+      console.log("fallo formulario");
+      return;
+
+    }
+    //fin controlar si el formulario es valido
+
+    this.internosService.actualizarDatosProcesalesInterno(this.id, this.formDataProcesales.value)
+        .pipe(first())
+        .subscribe(
+          respuesta => {
+            Swal.fire({
+              title: 'Actualizar Interno',
+              text: "Interno actualizado correctamente",
+              icon: 'success',              
+            });
+            //DIRECCIONAMIENTO
+            //this.router.navigateByUrl("dashboard/listar-usuarios");
+          }, 
+          (err) => {
+            Swal.fire({
+              title: 'Error al actualizar interno',
+              text: err.error.message,
+              icon: 'warning',                              
+            })   
+          }
+      );
+  }
+  //FIN METODO ACTUALIZA DATOS PROCESALES DEL INTERNO
   //-------------------------------
 
 

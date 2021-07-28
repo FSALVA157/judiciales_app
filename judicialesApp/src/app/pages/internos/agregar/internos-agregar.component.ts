@@ -138,7 +138,7 @@ export class InternosAgregarComponent implements OnInit {
                               Swal.fire({
                                 title: 'Crear Interno',
                                 text: "Interno creado correctamente",
-                                icon: 'info',
+                                icon: 'success',
                                 
                               });
                               //DIRECCIONAMIENTO
