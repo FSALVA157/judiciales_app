@@ -12,6 +12,15 @@ label {
     margin-bottom: 1px;
 }
 
+.titulo-fondo-gris {
+    background-color: #3e474e;
+    height: 30px;
+}
+
+.fondo-gris {
+    background-color: #3e474e;
+}
+
 
 /**
 input {

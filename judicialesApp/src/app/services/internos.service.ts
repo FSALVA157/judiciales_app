@@ -174,7 +174,7 @@ export class InternosService {
       //unidad_id: globalConstants.unidad
       };
     
-    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,obj);    
+    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,interno);    
   }
   //fin ACTUALIZAR DATOS INTERNO
   //............................
@@ -214,7 +214,7 @@ export class InternosService {
       //unidad_id: globalConstants.unidad
       };
     
-    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,obj);    
+    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,interno);    
   }
   //fin ACTUALIZAR DATOS PROCESALES INTERNO
   //............................

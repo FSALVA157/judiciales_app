@@ -1,6 +1,5 @@
-<p>internos-editar worksxxx!</p>
-
 <p-tabView>
+    <!-- /PANEL 1 -->
     <p-tabPanel header="Datos personales" leftIcon="fas fa-user-edit">
         <div class="row justify-content-center">
             <div class="col">
@@ -8,109 +7,134 @@
 
                     <div class="card ">
                         <div class="card-body register-card-body">
-                            <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO </p>
 
                             <form class="p-fluid" autocomplete="off" (ngSubmit)="actualizarInterno()" [formGroup]="formData">
+
                                 <!-- card 1 datos personales-->
                                 <div class="card mt-3">
                                     <div class="card-body register-card-body">
-                                        <p class="login-box-msg">Caracteristicas Personales</p>
-
-                                        <!-- FILA 1-->
+                                        <div class="titulo-fondo-gris">
+                                            <p class="login-box-msg ">Datos Personales</p>
+                                        </div>
                                         <div class="row">
-                                            <div class="col-12 col-lg-4">
-                                                <label for="fecha-ingreso-input">Fecha Ingreso</label>
-                                                <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
+                                            <div class="col-4">
+                                                <!-- card foto -->
+                                                <div class="card mt-3">
+                                                    <div class="card-body register-card-body">
+                                                        <p class="login-box-msg titulo-fondo-gris">Editar imagen del Usuario</p>
+                                                        <div class="p-field justify-content-center text-center">
+                                                            <img [src]="imagenUrl" style="border-radius: 600px; " width="200" class="p-shadow-4" />
+                                                        </div>
+                                                        <div class="p-field justify-content-center text-center mt-2">
+                                                            <!-- <p-fileUpload name="foto" accept="image/*" (uploadHandler)="onSelect($event.currentFiles[0])"></p-fileUpload> -->
+                                                            <p-fileUpload name="foto" [customUpload]="true" [multiple]="true"></p-fileUpload>
+                                                            <!-- <p-fileUpload name="foto" [customUpload]="true" [multiple]="true"></p-fileUpload> -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.form-box -->
+                                                </div>
+                                                <!-- fin card foto -->
                                             </div>
+                                            <div class="col-8">
 
-                                            <div class="col-12  col-lg-4">
-                                                <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
-                                                <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
+                                                <!-- FILA 1-->
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-4">
+                                                        <label for="fecha-ingreso-input">Fecha Ingreso</label>
+                                                        <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
+                                                    </div>
 
+                                                    <div class="col-12  col-lg-4">
+                                                        <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
+                                                        <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
+
+                                                    </div>
+                                                </div>
+                                                <!-- FILA 1-->
+
+                                                <!-- FILA 2-->
+                                                <div class="row">
+                                                    <div class="col-5 col-lg-3">
+                                                        <label for="prontuario-input">Prontuario</label>
+                                                        <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
+                                                        <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
+
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-4">
+                                                        <label for="prontuario-policial-input">Prontuario Policial</label>
+                                                        <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
+
+                                                    </div>
+
+                                                    <div class="col-5 col-lg-3">
+                                                        <label for="dni-input">DNI</label>
+                                                        <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
+
+                                                    </div>
+                                                </div>
+                                                <!-- FIN FILA 2-->
+
+                                                <!-- FIN FILA 3-->
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="apellido_1-input">Apellido 1</label>
+                                                        <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1">
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="apellido_2-input">Apellido 2</label>
+                                                        <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2">
+
+                                                    </div>
+                                                </div>
+                                                <!-- FIN FILA 3-->
+
+                                                <!-- FILA 4-->
+                                                <div class="row ">
+                                                    <div class="col-12 col-lg-4">
+                                                        <label for="nombre_1-input">Nombre 1</label>
+                                                        <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
+
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-4">
+                                                        <label for="nombre_2-input">Nombre 2</label>
+                                                        <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
+
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-4">
+                                                        <label for="nombre_3-input">Nombre 3</label>
+                                                        <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
+
+                                                    </div>
+                                                </div>
+                                                <!-- FIN FILA 4-->
+
+                                                <!-- FILA 5-->
+                                                <div class="row ">
+
+                                                    <div class="col-12 col-lg-6">
+                                                        <label for="alias-input">Alias</label>
+                                                        <input id="alias-input" type="text" pInputText formControlName="alias">
+
+                                                    </div>
+                                                </div>
+                                                <!-- FIN FILA 5-->
                                             </div>
+                                            <!-- /.form-box -->
                                         </div>
-                                        <!-- FILA 1-->
-
-                                        <!-- FILA 2-->
-                                        <div class="row">
-                                            <div class="col-5 col-lg-3">
-                                                <label for="prontuario-input">Prontuario</label>
-                                                <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
-                                                <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
-
-                                            </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <label for="prontuario-policial-input">Prontuario Policial</label>
-                                                <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
-
-                                            </div>
-
-                                            <div class="col-5 col-lg-3">
-                                                <label for="dni-input">DNI</label>
-                                                <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
-
-                                            </div>
-                                        </div>
-                                        <!-- FIN FILA 2-->
-
-                                        <!-- FIN FILA 3-->
-                                        <div class="row">
-                                            <div class="col-12 col-lg-6">
-                                                <label for="apellido_1-input">Apellido 1</label>
-                                                <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1">
-                                            </div>
-
-                                            <div class="col-12 col-lg-6">
-                                                <label for="apellido_2-input">Apellido 2</label>
-                                                <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2">
-
-                                            </div>
-                                        </div>
-                                        <!-- FIN FILA 3-->
-
-                                        <!-- FILA 4-->
-                                        <div class="row ">
-                                            <div class="col-12 col-lg-4">
-                                                <label for="nombre_1-input">Nombre 1</label>
-                                                <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
-
-                                            </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <label for="nombre_2-input">Nombre 2</label>
-                                                <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
-
-                                            </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <label for="nombre_3-input">Nombre 3</label>
-                                                <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
-
-                                            </div>
-                                        </div>
-                                        <!-- FIN FILA 4-->
-
-                                        <!-- FILA 5-->
-                                        <div class="row ">
-
-                                            <div class="col-12 col-lg-6">
-                                                <label for="alias-input">Alias</label>
-                                                <input id="alias-input" type="text" pInputText formControlName="alias">
-
-                                            </div>
-                                        </div>
-                                        <!-- FIN FILA 5-->
+                                        <!-- fin card 1 datos personales -->
                                     </div>
-                                    <!-- /.form-box -->
+
                                 </div>
-                                <!-- fin card 1 datos personales -->
 
 
                                 <!-- card 2 caracteristicas personales-->
                                 <div class="card mt-3">
                                     <div class="card-body register-card-body">
-                                        <p class="login-box-msg">Caracteristicas Personales</p>
+                                        <p class="login-box-msg titulo-fondo-gris">Caracteristicas Personales</p>
 
                                         <!-- FILA 1-->
                                         <div class="row ">
@@ -189,7 +213,7 @@
                                 <!-- card 3 datos filiatorios-->
                                 <div class="card mt-3">
                                     <div class="card-body register-card-body">
-                                        <p class="login-box-msg">Datos Filiatorios</p>
+                                        <p class="login-box-msg titulo-fondo-gris">Datos Filiatorios</p>
                                         <!-- FILA 1-->
                                         <div class="row ">
                                             <div class="col-5 col-lg-3 ">
@@ -381,6 +405,9 @@
         </div>
         <!-- /fin fila principal -->
     </p-tabPanel>
+    <!-- /FIN PANEL 1 -->
+
+    <!-- /PANEL 2 -->
     <p-tabPanel header="Datos procesales" leftIcon="fas fa-edit">
         <div class="row justify-content-center">
             <div class="col">
@@ -388,15 +415,13 @@
 
                     <div class="card ">
                         <div class="card-body register-card-body">
-                            <p class="login-box-msg">REGISTRAR UN NUEVO INTERNO </p>
 
                             <form class="p-fluid" autocomplete="off" (ngSubmit)="actualizarDatosProcesalesInterno()" [formGroup]="formDataProcesales">
-
 
                                 <!-- card 4 datos procesales-->
                                 <div class="card mt-3">
                                     <div class="card-body register-card-body">
-                                        <p class="login-box-msg">Datos Procesales</p>
+                                        <p class="login-box-msg titulo-fondo-gris">Datos Procesales</p>
                                         <!-- FILA 1-->
                                         <div class="row ">
                                             <div class="col-12 col-lg-6 ">
@@ -649,7 +674,12 @@
         </div>
         <!-- /fin fila principal -->
     </p-tabPanel>
+    <!-- /FIN PANEL 2 -->
+
+    <!-- /PANEL 3 -->
     <p-tabPanel header="Planilla antecedentes" leftIcon="fas fa-file-invoice">
         Content 3
     </p-tabPanel>
+    <!-- /FIN PANEL 3 -->
+
 </p-tabView>
