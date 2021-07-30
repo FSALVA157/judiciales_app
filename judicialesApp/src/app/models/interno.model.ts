@@ -1,4 +1,8 @@
 
+import { environment } from "src/environments/environment";
+
+const base_url = environment.BASE_URL;
+
 export class InternoModel {
     public id_interno!: number;
     public prontuario!: number;
@@ -65,6 +69,16 @@ export class InternoModel {
     public tipo_defensor_id!: number;
     public abogado!: string;
 
+    public foto?:string
+
+    get fotoUrl(){
+        if(this.foto){
+            
+            return `${base_url}/interno/foto?foto_nombre=${this.foto}`;
+        }else{
+            return `${base_url}/interno/foto?foto_nombre=no-image.jpg`;
+        }
+    }
  
     // public get prontuario() {
     //     return this._prontuario;

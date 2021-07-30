@@ -37,4 +37,29 @@ export class FileUploadService {
              return error
       }
   }
+
+
+  async actualizarFotoInterno(archivo: File, id: number){
+    // const url = `${base_url}/usuarios/foto?id=${id}`;
+    // const formData = new FormData();
+    // formData.append('foto', archivo);
+    // return this.http.post(url, formData);
+      try {
+        const url = `${base_url}/interno/foto?id=${id}`;
+        console.log("ruta", url);
+        const formData = new FormData();
+        formData.append('foto_carga', archivo);
+        const respuesta = await fetch(url,{
+          method: "POST",
+          body: formData
+        });
+        if(!respuesta.ok){
+          throw new Error('Error en la Actualización de la Foto del Interno');
+        }
+        return respuesta;
+                
+      } catch (error) {
+             return error
+      }
+  }
 }

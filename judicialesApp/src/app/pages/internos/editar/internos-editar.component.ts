@@ -16,7 +16,7 @@ import { InternosService } from '../../../services/internos.service';
 export class InternosEditarComponent implements OnInit {
 
   id:number = 0;
-  usuario!: InternoModel;
+  interno!: InternoModel;
   fotoSubir: File | undefined;//variable para guardar la imagen
   imagenUrl: string ="";
   submitted = false;
@@ -176,7 +176,7 @@ export class InternosEditarComponent implements OnInit {
                   this.formDataProcesales.patchValue(x);
                   console.log("interno editar", x);
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
-                  //this.extraerDataUsuario(x);
+                  this.extraerDataUsuario(x);
                 });
   }
 
@@ -251,7 +251,47 @@ export class InternosEditarComponent implements OnInit {
       );
   }
   //FIN METODO ACTUALIZA DATOS PROCESALES DEL INTERNO
-  //-------------------------------
+  //------------------------------------------------
+
+
+  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  extraerDataUsuario(data: any) {
+    //voy a desestructurar respuesta
+     //const {id_usuario, apellido, correo, dni, foto, nombre, unidad_id} = data;
+     //this.usuario = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
+     
+     this.interno = data;
+     console.log(" interno de data", this.interno);  
+     this.imagenUrl = this.interno.fotoUrl;  
+     
+     console.log("imagen de interno", this.interno.fotoUrl);                               
+  }
+  //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  //.................................................
+
+  //ACTUALIZACION DE FOTO
+  onUpload(foto: File){
+    try {
+      
+      this.fotoSubir = foto;
+      let id: number =  this.id; //this.id es proveniente de la tabla
+      this.fileUploadService.actualizarFotoInterno(this.fotoSubir, id).then(respuesta => {
+            if(respuesta.ok){
+            Swal.fire('Actualización Exitosa!!', "La foto del Interno ha sido cambiada con éxito","success");
+            }else{
+                throw new Error('Error al Actualizar la foto');
+            }
+      }).catch(error => {
+        Swal.fire('Error', error.message, "error"); 
+      });
+        
+    } catch (error) {
+        
+        Swal.fire('Error', error.message, "error");    
+    }
+  }  
+  //FIN ACTUALIZACION DE FOTO
+  //..........................
 
 
 
