@@ -71,43 +71,19 @@ export class InternoModel {
 
     public foto?:string
 
-    get fotoUrl(){
+    constructor(){}
+
+    get fotoUrl():string{
+
+       
         if(this.foto){
-            
+            console.log("fotoUrl en interno model",`${base_url}/interno/foto?foto_nombre=${this.foto}`);
             return `${base_url}/interno/foto?foto_nombre=${this.foto}`;
         }else{
+            console.log("fotoUrl en interno model",`${base_url}/interno/foto?foto_nombre=no-image.jpg`);
             return `${base_url}/interno/foto?foto_nombre=no-image.jpg`;
         }
     }
  
-    // public get prontuario() {
-    //     return this._prontuario;
-    // }
-
-    // public set prontuario(prontuario: number) {
-    //     this._prontuario = prontuario;
-    // }
-
-    // public get apellido_1() {
-    //     return this._apellido_1;
-    // }
-
-    // public set apellido_1(apellido_1: string) {
-    //     this._apellido_1 = apellido_1;
-    // }
-
-    // public get age() {
-    //     return this._age;
-    // }
-
-    // public set age(theAge: number) {
-    //     // if (theAge <= 0 || theAge >= 200) {
-    //     //     throw new Error('The age is invalid');
-    //     // }
-    //     this._age = theAge;
-    // }
-
-    // public getFullName(): string {
-    //     return `${this._firstName} ${this._lastName}`;
-    // }
+   
 }

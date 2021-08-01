@@ -17,11 +17,11 @@
                                             <p class="login-box-msg ">Datos Personales</p>
                                         </div>
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-12 col-md-6 col-lg-5">
                                                 <!-- card foto -->
                                                 <div class="card mt-3">
                                                     <div class="card-body register-card-body">
-                                                        <p class="login-box-msg titulo-fondo-gris">Editar imagen del Usuario</p>
+                                                        <p class="login-box-msg titulo-fondo-gris">Editar imagen del Interno</p>
                                                         <div class="p-field justify-content-center text-center">
                                                             <img [src]="imagenUrl" style="border-radius: 600px; " width="200" class="p-shadow-4" />
                                                         </div>
@@ -35,16 +35,16 @@
                                                 </div>
                                                 <!-- fin card foto -->
                                             </div>
-                                            <div class="col-8">
+                                            <div class="col-12 col-md-6 col-lg-7">
 
                                                 <!-- FILA 1-->
                                                 <div class="row">
-                                                    <div class="col-12 col-lg-4">
+                                                    <div class="col-12 col-lg-5">
                                                         <label for="fecha-ingreso-input">Fecha Ingreso</label>
                                                         <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
                                                     </div>
 
-                                                    <div class="col-12  col-lg-4">
+                                                    <div class="col-12  col-lg-7">
                                                         <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
                                                         <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
 
@@ -54,20 +54,20 @@
 
                                                 <!-- FILA 2-->
                                                 <div class="row">
-                                                    <div class="col-5 col-lg-3">
+                                                    <div class="col-5 col-lg-4">
                                                         <label for="prontuario-input">Prontuario</label>
                                                         <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
                                                         <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
 
                                                     </div>
 
-                                                    <div class="col-12 col-lg-4">
+                                                    <div class="col-7 col-lg-5">
                                                         <label for="prontuario-policial-input">Prontuario Policial</label>
                                                         <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
 
                                                     </div>
 
-                                                    <div class="col-5 col-lg-3">
+                                                    <div class="col-6 col-lg-3">
                                                         <label for="dni-input">DNI</label>
                                                         <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
 
@@ -92,19 +92,19 @@
 
                                                 <!-- FILA 4-->
                                                 <div class="row ">
-                                                    <div class="col-12 col-lg-4">
+                                                    <div class="col-12 col-lg-6">
                                                         <label for="nombre_1-input">Nombre 1</label>
                                                         <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
 
                                                     </div>
 
-                                                    <div class="col-12 col-lg-4">
+                                                    <div class="col-12 col-lg-6">
                                                         <label for="nombre_2-input">Nombre 2</label>
                                                         <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
 
                                                     </div>
 
-                                                    <div class="col-12 col-lg-4">
+                                                    <div class="col-12 col-lg-6">
                                                         <label for="nombre_3-input">Nombre 3</label>
                                                         <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
 

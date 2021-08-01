@@ -35,7 +35,7 @@ export class InternosListarComponent implements OnInit {
           this.total = data[1];
           this.lista_internos = data[0];
           //this.lista_internos = data;
-          console.log("lista de internos", this.lista_internos);
+          
           //armado de array de usuarios para exportar el pdf
           //this.lista_usuarios_pdf = this.lista_usuarios;
           // console.log("columnas lista creada para pdf", this.exportColumns);

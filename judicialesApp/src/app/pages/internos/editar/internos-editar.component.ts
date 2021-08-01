@@ -4,9 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { TablasArray } from 'src/app/common/tablas-array';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
+
+const base_url = environment.BASE_URL;
 
 @Component({
   selector: 'app-internos-editar',
@@ -15,8 +18,9 @@ import { InternosService } from '../../../services/internos.service';
 })
 export class InternosEditarComponent implements OnInit {
 
+  
   id:number = 0;
-  interno!: InternoModel;
+  interno: InternoModel= new InternoModel;
   fotoSubir: File | undefined;//variable para guardar la imagen
   imagenUrl: string ="";
   submitted = false;
@@ -174,9 +178,8 @@ export class InternosEditarComponent implements OnInit {
                 .subscribe(x =>{ 
                   this.formData.patchValue(x);
                   this.formDataProcesales.patchValue(x);
-                  console.log("interno editar", x);
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
-                  this.extraerDataUsuario(x);
+                  this.extraerDataInterno(x);
                 });
   }
 
@@ -255,20 +258,24 @@ export class InternosEditarComponent implements OnInit {
 
 
   //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
-  extraerDataUsuario(data: any) {
+  extraerDataInterno(data: any) {
     //voy a desestructurar respuesta
-     //const {id_usuario, apellido, correo, dni, foto, nombre, unidad_id} = data;
-     //this.usuario = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
+          
+     this.interno = data;      
      
-     this.interno = data;
-     console.log(" interno de data", this.interno);  
-     this.imagenUrl = this.interno.fotoUrl;  
-     
-     console.log("imagen de interno", this.interno.fotoUrl);                               
+     //extraer foto de interno
+     if(this.interno.foto){
+      this.imagenUrl = `${base_url}/interno/foto?foto_nombre=${this.interno.foto}`;
+    }else{        
+        this.imagenUrl= `${base_url}/interno/foto?foto_nombre=no-image.jpg`;
+    }
+     //fin extraer foto del interno
+                             
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   //.................................................
 
+  
   //ACTUALIZACION DE FOTO
   onUpload(foto: File){
     try {

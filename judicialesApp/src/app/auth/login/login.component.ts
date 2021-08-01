@@ -61,8 +61,6 @@ export class LoginComponent {
           //METODO LOCAL PARA COLOCAR DATOS DE USUARIO EN VARIABLES GLOBALES
           this.extraerDataUsuario(respuesta);
                    
-          console.log("imagen globales", globalConstants.urlImagen);
-
           //RECORDAR EL CORREO ELECTRONICO EN EL NAVEGADOR
           //localStorage permite guardar en el navegador con el nombre "email" el "correo ingresado"
           if(this.formLogin.get("recuerdame")?.value){
