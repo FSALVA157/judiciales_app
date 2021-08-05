@@ -18,36 +18,39 @@
                     </ng-template>
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
+                            <col style="width:100px">
                             <col style="width:120px">
                             <col style="width:250px">
                             <col style="width:250px">
                             <col style="width:250px">
                             <col style="width:150px">
-                            <col style="width:100px">
+
                         </colgroup>
                     </ng-template>
 
                     <ng-template pTemplate="header" let-columns>
                         <tr>
+                            <th>Ver</th>
                             <th>prontuario</th>
                             <th>apellido </th>
                             <th>Nombre </th>
                             <th>Domicilio</th>
                             <th>Unidad</th>
-                            <th>Accion</th>
+
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-rowData let-interno>
                         <tr>
+                            <td>
+                                <button pButton pRipple icon="fas fa-eye" class="p-button-rounded p-button-primary p-mr-2" routerLink="/dashboard/editar-interno/{{interno.id_interno}}"></button>
+
+                            </td>
                             <td>{{interno.prontuario}}</td>
                             <td>{{interno.apellido_1}}</td>
                             <td>{{interno.nombre_1}}</td>
                             <td>{{interno.domicilio}}</td>
                             <td>{{interno.unidad.unidad}}</td>
-                            <td>
-                                <button pButton pRipple icon="fas fa-eye" class="p-button-rounded p-button-primary p-mr-2" routerLink="/dashboard/editar-interno/{{interno.id_interno}}"></button>
 
-                            </td>
                         </tr>
                     </ng-template>
                 </p-table>
