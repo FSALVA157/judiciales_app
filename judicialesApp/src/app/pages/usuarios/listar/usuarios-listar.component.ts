@@ -42,7 +42,7 @@ export class UsuariosListarComponent implements OnInit {
       { field: 'correo', header: 'Correo' },
       { field: 'nombre', header: 'Nombre' },
       { field: 'apellido', header: 'Apellido' },
-      { field: 'unidad_id', header: 'Unidad' }
+      { field: 'unidad.unidad', header: 'Unidadd' }
     ];
     //FIN inicializacion de cabeceras de columnas
     

@@ -41,44 +41,48 @@
                         <div class="p-d-flex">
                             <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
                             <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
-                            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-secondary p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf_2()" class="p-button-secondary p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
                             <button type="button" pButton pRipple icon="pi pi-filter" class="p-button-info p-ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
 
                         </div>
+
                     </ng-template>
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
                             <col style="width:100px">
-                            <col style="width:200px">
-                            <col style="width:250px">
-                            <col style="width:250px">
-                            <col style="width:250px">
-                            <col style="width:200px">
                             <col style="width:100px">
+                            <col style="width:200px">
+                            <col style="width:250px">
+                            <col style="width:250px">
+                            <col style="width:250px">
+                            <col style="width:200px">
+
                         </colgroup>
                     </ng-template>
                     <ng-template pTemplate="header" let-columns>
                         <tr>
+                            <th>Accion</th>
                             <th>Id</th>
                             <th>Foto</th>
                             <th>Correo </th>
                             <th>Nombre </th>
                             <th>Apellido</th>
                             <th>Unidad</th>
-                            <th>Accion</th>
+
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-rowData let-usuario>
                         <tr>
+                            <td>
+                                <button pButton type="button" routerLink="/dashboard/editar-usuario/{{usuario.id_usuario}}" label="Editar"></button>
+                            </td>
                             <td>{{usuario.id_usuario}}</td>
                             <td><img [src]="baseUrlImg + usuario.foto" [alt]="usuario.img" style="border-radius: 150px;" width="50" class="p-shadow-4" /></td>
                             <td>{{usuario.correo}}</td>
                             <td>{{usuario.nombre}}</td>
                             <td>{{usuario.apellido}}</td>
                             <td>{{usuario.unidad.unidad}}</td>
-                            <td>
-                                <button pButton type="button" routerLink="/dashboard/editar-usuario/{{usuario.id_usuario}}" label="Editar"></button>
-                            </td>
+
                         </tr>
                     </ng-template>
                 </p-table>
