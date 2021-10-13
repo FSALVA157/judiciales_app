@@ -12,6 +12,7 @@ import { InternosListarComponent } from './internos/listar/internos-listar.compo
 import { UsuariosAgregarComponent } from './usuarios/agregar/usuarios-agregar.component';
 import { UsuariosListarComponent } from './usuarios/listar/usuarios-listar.component';
 import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
         component: PagesComponent,
         canActivate: [AuthGuard],
         children: [
+            {path:'', component: DashboardComponent},
             {path:'agregar', component: AgregarComponent},
             {path:'editar', component: EditarComponent},
             {path:'listar', component: ListarComponent},
