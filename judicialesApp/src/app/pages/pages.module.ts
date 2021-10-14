@@ -23,15 +23,28 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
 import { InternosEditarComponent } from './internos/editar/internos-editar.component';
 import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.component';
 
-import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-//import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+// import { FullCalendarModule } from 'primeng/fullcalendar'; // must go before plugins
+// import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+//import interactionPlugin from '@fullcalendar/'; // a plugin!
 //import { AppComponent } from './app.component';
 
+
+// import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+// import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+// import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+
+// FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+//   dayGridPlugin,
+//   interactionPlugin
+// ]);
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
-  //interactionPlugin
+  interactionPlugin
 ]);
+
 
 
 

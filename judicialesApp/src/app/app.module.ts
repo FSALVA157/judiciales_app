@@ -10,15 +10,15 @@ import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http'
 
-import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-//import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
-//import { AppComponent } from './app.component';
+// import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+// import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+// import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+// //import { AppComponent } from './app.component';
 
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,
-  //interactionPlugin
-]);
+// FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+//   dayGridPlugin,
+//   interactionPlugin
+// ]);
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ReactiveFormsModule,
     RouterModule,
     AuthModule,
-    HttpClientModule,
-    FullCalendarModule // register FullCalendar with you app
+    HttpClientModule
+    // FullCalendarModule // register FullCalendar with you app
     
   ],
   providers: [],
