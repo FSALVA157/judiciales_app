@@ -16,14 +16,18 @@
                                 <div class="row">
                                     <div class="col-12 col-lg-4">
                                         <label for="fecha-ingreso-input">Fecha Ingreso</label>
-                                        <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
+                                        <!-- <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso"> -->
+                                        <input formControlName="fecha_ingreso" type="text" class="form-control" placeholder="primer apellido" [class.is-invalid]="">
                                     </div>
 
                                     <div class="col-12  col-lg-4">
-                                        <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
-                                        <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
 
+                                        <label for="">Establecimiento Procedencia</label>
+                                        <select formControlName="establecimiento_procedencia_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let establecimiento_procedencia of drop_establecimiento_procedencia" [value]="establecimiento_procedencia.id_establecimiento_procedencia">{{establecimiento_procedencia.establecimiento_procedencia}}</option> 
+                                        </select>
                                     </div>
+
                                 </div>
                                 <!-- FILA 1-->
 
@@ -111,22 +115,28 @@
                                 <!-- FILA 1-->
                                 <div class="row ">
                                     <div class="col-4">
-                                        <label for="ojos-color-input">Ojos Color</label>
-                                        <p-dropdown [options]="drop_ojos_color" id="ojos-color-input" [virtualScroll]="true" formControlName="ojos_color_id"></p-dropdown>
 
+                                        <label for="">Ojos Color</label>
+                                        <select formControlName="ojos_color_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let ojos_color of drop_ojos_color" [value]="ojos_color.id_ojos_color">{{ojos_color.ojos_color}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-4">
-                                        <label for="ojos-tamanio-input">Ojos Tamanio</label>
-                                        <p-dropdown [options]="drop_ojos_tamanio" id="ojos-tamanio-input" [virtualScroll]="true" formControlName="ojos_tamanio_id"></p-dropdown>
 
+                                        <label for="">Ojos Tamaño</label>
+                                        <select formControlName="ojos_tamanio_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let ojos_tamanio of drop_ojos_tamanio" [value]="ojos_tamanio.id_ojos_tamanio">{{ojos_tamanio.ojos_tamanio}}</option> 
+                                        </select>
                                     </div>
 
-                                    <div class="col-4  ">
-                                        <label for="nariz-tamanio-input">Nariz Tamanio</label>
-                                        <p-dropdown [options]="drop_nariz_tamanio" id="nariz-tamanio-input" [virtualScroll]="true" formControlName="nariz_tamanio_id"></p-dropdown>
-
+                                    <div class="col-4 ">
+                                        <label for="">Pelo Tipo</label>
+                                        <select formControlName="pelo_tipo_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let pelo_tipo of drop_pelo_tipo" [value]="pelo_tipo.id_pelo_tipo">{{pelo_tipo.pelo_tipo}}</option> 
+                                        </select>
                                     </div>
+
 
                                 </div>
                                 <!-- FIN FILA 1-->
@@ -134,22 +144,20 @@
                                 <!-- FILA 2-->
                                 <div class="row ">
                                     <div class="col-4 ">
-                                        <label for="nariz-forma-input">Nariz Forma</label>
-                                        <p-dropdown [options]="drop_nariz_forma" id="nariz-forma-input" [virtualScroll]="true" formControlName="nariz_forma_id"></p-dropdown>
-
+                                        <label for="">Nariz Forma</label>
+                                        <select formControlName="nariz_forma_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let nariz_forma of drop_nariz_forma" [value]="nariz_forma.id_nariz_forma">{{nariz_forma.nariz_forma}}</option> 
+                                        </select>
                                     </div>
 
-                                    <div class="col-4 ">
-                                        <label for="pelo-tipo-input">Pelo Tipo</label>
-                                        <p-dropdown [options]="drop_pelo_tipo" id="pelo-tipo-input" [virtualScroll]="true" formControlName="pelo_tipo_id"></p-dropdown>
 
+                                    <div class="col-4  ">
+                                        <label for="">Nariz Tamaño</label>
+                                        <select formControlName="nariz_tamanio_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let nariz_tamanio of drop_nariz_tamanio" [value]="nariz_tamanio.id_nariz_tamanio">{{nariz_tamanio.nariz_tamanio}}</option> 
+                                        </select>
                                     </div>
 
-                                    <div class="col-4 ">
-                                        <label for="pelo-color-input">Nariz Tamanio</label>
-                                        <p-dropdown [options]="drop_pelo_color" id="pelo-color-input" [virtualScroll]="true" formControlName="pelo_color_id"></p-dropdown>
-
-                                    </div>
 
                                 </div>
                                 <!-- FIN FILA 2-->
@@ -157,14 +165,16 @@
                                 <!-- FILA 3-->
                                 <div class="row ">
                                     <div class="col-4 ">
-                                        <label for="piel-input">Piel</label>
-                                        <p-dropdown [options]="drop_piel" id="piel-input" [virtualScroll]="true" formControlName="piel_id"></p-dropdown>
-
+                                        <label for="">Piel</label>
+                                        <select formControlName="piel_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let piel of drop_piel" [value]="piel.id_piel">{{piel.piel}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <label for="marca-corporal-input">Marca Corporal</label>
                                         <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal">
+
 
                                     </div>
 
@@ -189,15 +199,18 @@
                                 <!-- FILA 1-->
                                 <div class="row ">
                                     <div class="col-5 col-lg-3 ">
-                                        <label for="sexo-input">Sexo</label>
-                                        <p-dropdown [options]="drop_sexo" id="sexo-input" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
+                                        <label for="">Sexo</label>
+                                        <select formControlName="sexo_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let sexo of drop_sexo" [value]="sexo.id_sexo">{{sexo.sexo}}</option> 
+                                        </select>
 
                                     </div>
 
                                     <div class="col-5 col-lg-3 ">
-                                        <label for="estado_civil-input">Estado Civil</label>
-                                        <p-dropdown [options]="drop_estado_civil" id="estado_civil-input" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
-
+                                        <label for="">Estado Civil</label>
+                                        <select formControlName="estado_civil_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let estado_civil of drop_estado_civil" [value]="estado_civil.id_estado_civil">{{estado_civil.estado_civil}}</option> 
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- FIN FILA 1-->
@@ -205,15 +218,17 @@
                                 <!-- FILA 2-->
                                 <div class="row ">
                                     <div class="col-4 ">
-                                        <label for="nacionalidad-input">Nacionalidad</label>
-                                        <p-dropdown [options]="drop_nacionalidad" id="nacionalidad-input" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
-
+                                        <label for="">Nacionalidad</label>
+                                        <select formControlName="nacionalidad_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let nacionalidad of drop_nacionalidad" [value]="nacionalidad.id_nacionalidad">{{nacionalidad.nacionalidad}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-2 ">
-                                        <label for="zona_residencia-input">Zona Residencia</label>
-                                        <p-dropdown [options]="drop_zona_residencia" id="zona_residencia-input" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
-
+                                        <label for="">Zona Residencia</label>
+                                        <select formControlName="zona_residencia_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let zona_residencia of drop_zona_residencia" [value]="zona_residencia.id_zona_residencia">{{zona_residencia.zona_residencia}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-6">
@@ -229,10 +244,14 @@
                                 <div class="row ">
 
                                     <div class="col-4 ">
-                                        <label for="departamento-input">Departamento</label>
-                                        <p-dropdown [options]="drop_departamento" id="departamento-input" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown>
-
+                                        <!-- <label for="departamento-input">Departamento</label>
+                                        <p-dropdown [options]="drop_departamento" id="departamento-input" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown> -->
+                                        <label for="">Departamento</label>
+                                        <select formControlName="departamento_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let departamento of drop_departamento" [value]="departamento.id_departamento">{{departamento.departamento}}</option> 
+                                        </select>
                                     </div>
+
 
                                     <div class="col-7 col-lg-3 ">
                                         <label for="telefono-input">telefono</label>
@@ -251,8 +270,10 @@
                                     </div>
 
                                     <div class="col-6 col-lg-4">
-                                        <label for="departamento_nacimiento-input">Departamento Nacimiento</label>
-                                        <p-dropdown [options]="drop_departamento" id="departamento_nacimiento-input" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
+                                        <label for="">Departamento Nacimiento</label>
+                                        <select formControlName="departamento_nacimiento_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let departamento_nacimiento of drop_departamento" [value]="departamento_nacimiento.id_departamento">{{departamento_nacimiento.departamento}}</option> 
+                                        </select>
 
                                     </div>
 
@@ -297,14 +318,16 @@
                                     </div>
 
                                     <div class="col-4 ">
-                                        <label for="nivel-educacion-input">Nivel Educacion</label>
-                                        <p-dropdown [options]="drop_nivel_educacion" id="nivel-educacion-input" [virtualScroll]="true" formControlName="nivel_educacion_id"></p-dropdown>
-
+                                        <label for="">Nivel Educacion_id</label>
+                                        <select formControlName="nivel_educacion_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let nivel_educacion of drop_nivel_educacion" [value]="nivel_educacion.id_nivel_educacion">{{nivel_educacion.nivel_educacion}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-4 ">
                                         <label for="profesion-input">Profesion</label>
                                         <input id="profesion-input" type="text" pInputText formControlName="profesion">
+
 
                                     </div>
                                 </div>
@@ -314,15 +337,17 @@
                                 <!-- FILA 7-->
                                 <div class="row ">
                                     <div class="col-4 ">
-                                        <label for="ultimo-oficio-input">Ultimo Oficio</label>
-                                        <p-dropdown [options]="drop_oficio" id="ultimo-oficio-input" [virtualScroll]="true" formControlName="ultimo_oficio_id"></p-dropdown>
-
+                                        <label for="">Ultimo Oficio</label>
+                                        <select formControlName="ultimo_oficio_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let ultimo_oficio of drop_oficio" [value]="ultimo_oficio.id_oficio">{{ultimo_oficio.oficio}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-4">
-                                        <label for="religion-input">Religion</label>
-                                        <p-dropdown [options]="drop_religion" id="religion-input" [virtualScroll]="true" formControlName="religion_id"></p-dropdown>
-
+                                        <label for="">Religion</label>
+                                        <select formControlName="religion_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let religion of drop_religion" [value]="religion.id_religion">{{religion.religion}}</option> 
+                                        </select>
                                     </div>
 
                                 </div>
@@ -346,9 +371,10 @@
                                     </div>
 
                                     <div class="col-6 ">
-                                        <label for="tipo-condena-input">Tipo Condena</label>
-                                        <p-dropdown [options]="drop_tipo_condena" id="tipo-condena-input" [virtualScroll]="true" formControlName="tipo_condena_id"></p-dropdown>
-
+                                        <label for="">Tipo Condena</label>
+                                        <select formControlName="tipo_condena_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let tipo_condena of drop_tipo_condena" [value]="tipo_condena.id_tipo_condena">{{tipo_condena.tipo_condena}}</option> 
+                                        </select>
                                     </div>
 
 
@@ -372,9 +398,10 @@
                                     </div>
 
                                     <div class="col-12 col-lg-6">
-                                        <label for="tipo-delito-input">Tipo Delito</label>
-                                        <p-dropdown [options]="drop_tipo_delito" id="tipo-delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
-
+                                        <label for="">Tipo Delito</label>
+                                        <select formControlName="tipo_delito_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let tipo_delito of drop_tipo_delito" [value]="tipo_delito.id_tipo_delito">{{tipo_delito.tipo_delito}}</option> 
+                                        </select>
                                     </div>
 
                                 </div>
@@ -383,15 +410,17 @@
                                 <!-- FILA 3-->
                                 <div class="row ">
                                     <div class="col-4 ">
-                                        <label for="estado-procesal-input">Estado Procesal</label>
-                                        <p-dropdown [options]="drop_estado_procesal" id="estado-procesal-input" [virtualScroll]="true" formControlName="estado_procesal_id"></p-dropdown>
-
+                                        <label for="">Estado Procesal</label>
+                                        <select formControlName="estado_procesal_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let estado_procesal of drop_estado_procesal" [value]="estado_procesal.id_estado_procesal">{{estado_procesal.estado_procesal}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12  col-lg-4 ">
-                                        <label for="reingreso-input">Reingreso</label>
-                                        <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
-
+                                        <label for="">Reingreso</label>
+                                        <select formControlName="reingreso_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let reingreso of drop_reingreso" [value]="reingreso.id_reingreso">{{reingreso.reingreso}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-2 ">
@@ -408,9 +437,10 @@
                                 <div class="row ">
 
                                     <div class="col-4 ">
-                                        <label for="reincidencia-input">Reincidencia</label>
-                                        <p-dropdown [options]="drop_reincidencia" id="reincidencia-input" [virtualScroll]="true" formControlName="reincidencia_id"></p-dropdown>
-
+                                        <label for="">Reincidencia</label>
+                                        <select formControlName="reincidencia_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let reincidencia of drop_reincidencia" [value]="reincidencia.id_reincidencia">{{reincidencia.reincidencia}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-3 ">
@@ -420,8 +450,10 @@
                                     </div>
 
                                     <div class="col-5 ">
-                                        <label for="juzgado-input">Juzgado</label>
-                                        <p-dropdown [options]="drop_juzgado" id="juzgado-input" [virtualScroll]="true" formControlName="juzgado_id"></p-dropdown>
+                                        <label for="">Juzgado</label>
+                                        <select formControlName="juzgado_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let juzgado of drop_juzgado" [value]="juzgado.id_juzgado">{{juzgado.juzgado}}</option> 
+                                        </select>
 
                                     </div>
 
@@ -431,15 +463,17 @@
                                 <!-- FILA 5-->
                                 <div class="row ">
                                     <div class="col-4">
-                                        <label for="jurisdiccion-input">Jurisdiccion</label>
-                                        <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
-
+                                        <label for="">Jurisdiccion</label>
+                                        <select formControlName="jurisdiccion_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let jurisdiccion of drop_jurisdiccion" [value]="jurisdiccion.id_jurisdiccion">{{jurisdiccion.jurisdiccion}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-4 ">
-                                        <label for="jurisdiccion_provinicia-input">Jurisdiccion Provinicia</label>
-                                        <p-dropdown [options]="drop_provincia" id="jurisdiccion_provinicia-input" [virtualScroll]="true" formControlName="jurisdiccion_provinicia_id"></p-dropdown>
-
+                                        <label for="">Jurisdiccion Provincia</label>
+                                        <select formControlName="jurisdiccion_provinicia_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let jurisdiccion_provinicia of drop_provincia" [value]="jurisdiccion_provinicia.id_provincia">{{jurisdiccion_provinicia.provincia}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-4 ">
@@ -465,9 +499,10 @@
                                 <!-- FILA 7-->
                                 <div class="row ">
                                     <div class="col-5 ">
-                                        <label for="condena_juzgado_id-input">Juzgado Condena</label>
-                                        <p-dropdown [options]="drop_juzgado" id="condena_juzgado_id-input" [virtualScroll]="true" formControlName="condena_juzgado_id"></p-dropdown>
-
+                                        <label for="">Juzgado Condena</label>
+                                        <select formControlName="condena_juzgado_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let condena_juzgado of drop_juzgado" [value]="condena_juzgado.id_juzgado">{{condena_juzgado.juzgado}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-2">
@@ -519,9 +554,10 @@
                                 <!-- FILA 9-->
                                 <div class="row ">
                                     <div class="col-4">
-                                        <label for="tipo_defensor-input">Tipo Defensor</label>
-                                        <p-dropdown [options]="drop_tipo_defensor" id="tipo_defensor-input" [virtualScroll]="true" formControlName="tipo_defensor_id"></p-dropdown>
-
+                                        <label for="">Tipo Defensor</label>
+                                        <select formControlName="tipo_defensor_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let tipo_defensor of drop_tipo_defensor" [value]="tipo_defensor.id_tipo_defensor">{{tipo_defensor.tipo_defensor}}</option> 
+                                        </select>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
@@ -531,9 +567,10 @@
                                     </div>
 
                                     <div class="col-4 ">
-                                        <label for="pabellon-input">Pabellon</label>
-                                        <p-dropdown [options]="drop_pabellon" id="pabellon-input" [virtualScroll]="true" formControlName="pabellon_id"></p-dropdown>
-
+                                        <label for="">Pabellon</label>
+                                        <select formControlName="pabellon_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let pabellon of drop_pabellon" [value]="pabellon.id_pabellon">{{pabellon.pabellon}}</option> 
+                                        </select>
                                     </div>
 
                                 </div>

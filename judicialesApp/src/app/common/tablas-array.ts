@@ -2,541 +2,593 @@ export class TablasArray {
     
     public static drop_departamento: any[] = [
         {
-            "value": 1,
-            "label": "capital"
+            "id_departamento": 1,
+            "departamento": "Capital",
+            "provincia_id": 3,
+            "provincia": {
+                "id_provincia": 3,
+                "provincia": "SALTA"
+            }
         },
         {
-            "value": 2,
-            "label": "cafayate"
+            "id_departamento": 2,
+            "departamento": "Cerrillos",
+            "provincia_id": 3,
+            "provincia": {
+                "id_provincia": 3,
+                "provincia": "SALTA"
+            }
         },
         {
-            "value": 3,
-            "label": "cachi"
+            "id_departamento": 3,
+            "departamento": "Anta",
+            "provincia_id": 3,
+            "provincia": {
+                "id_provincia": 3,
+                "provincia": "SALTA"
+            }
         },
         {
-            "value": 4,
-            "label": "cerrillos"
+            "id_departamento": 4,
+            "departamento": "Cachi",
+            "provincia_id": 3,
+            "provincia": {
+                "id_provincia": 3,
+                "provincia": "SALTA"
+            }
         }
     ]; //array de columnas para dropdown
     public static drop_establecimiento_procedencia: any[] = [
         {
-            "value": 1,
-            "label": "Unidad Carcelaria Nº 1"
+            "id_establecimiento_procedencia": 1,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 1"
         },
         {
-            "value": 2,
-            "label": "Unidad Carcelaria Nº 2"
+            "id_establecimiento_procedencia": 2,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 2"
         },
         {
-            "value": 3,
-            "label": "Unidad Carcelaria Nº 3"
+            "id_establecimiento_procedencia": 3,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 3"
         },
         {
-            "value": 4,
-            "label": "Unidad Carcelaria Nº 4"
+            "id_establecimiento_procedencia": 4,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 4"
         },
         {
-            "value": 5,
-            "label": "Unidad Carcelaria Nº 5"
+            "id_establecimiento_procedencia": 5,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 5"
         },
         {
-            "value": 6,
-            "label": "Unidad Carcelaria Nº 6"
-        },
-        {
-            "value": 7,
-            "label": "Unidad Carcelaria Nº 7"
+            "id_establecimiento_procedencia": 6,
+            "establecimiento_procedencia": "Unidad Carcelaria Nº 6"
         }
     ]; //array de columnas para dropdown
+
     public static drop_estado_civil: any[] = [
         {
-            "value": 1,
-            "label": "casado"
+            "id_estado_civil": 1,
+            "estado_civil": "casado"
         },
         {
-            "value": 2,
-            "label": "soltero"
+            "id_estado_civil": 2,
+            "estado_civil": "soltero"
         },
         {
-            "value": 3,
-            "label": "viudo"
+            "id_estado_civil": 3,
+            "estado_civil": "divorciado"
         },
         {
-            "value": 4,
-            "label": "concubino"
+            "id_estado_civil": 4,
+            "estado_civil": "concubinato"
+        },
+        {
+            "id_estado_civil": 5,
+            "estado_civil": "viudo"
         }
     ]; //array de columnas para dropdown
+
     public static drop_estado_procesal: any[] = [
         {
-            "value": 1,
-            "label": "agregado"
+            "id_estado_procesal": 1,
+            "estado_procesal": "agregado"
         },
         {
-            "value": 2,
-            "label": "penado"
+            "id_estado_procesal": 2,
+            "estado_procesal": "penado"
         },
         {
-            "value": 3,
-            "label": "procesado"
+            "id_estado_procesal": 3,
+            "estado_procesal": "procesado"
         },
         {
-            "value": 4,
-            "label": "inimputable"
+            "id_estado_procesal": 4,
+            "estado_procesal": "inimputable"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_jurisdiccion: any[] = [
         {
-            "value": 1,
-            "label": "provincial"
+            "id_jurisdiccion": 1,
+            "jurisdiccion": "federal"
         },
         {
-            "value": 2,
-            "label": "federal"
+            "id_jurisdiccion": 2,
+            "jurisdiccion": "provincial"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_juzgado: any[] = [
         {
-            "value": 1,
-            "label": "camara 1ra en lo criminal"
+            "id_juzgado": 1,
+            "juzgado": "camara 1ra en lo criminal"
         },
         {
-            "value": 2,
-            "label": "camara 2da en lo criminal"
+            "id_juzgado": 2,
+            "juzgado": "camara 2da en lo criminal"
         },
         {
-            "value": 3,
-            "label": "camara 3ra en lo criminal"
+            "id_juzgado": 3,
+            "juzgado": "camara 3ra en lo criminal"
         },
         {
-            "value": 4,
-            "label": "juzgado correccional N°1"
+            "id_juzgado": 4,
+            "juzgado": "juzgado correccional N°1"
         },
         {
-            "value": 5,
-            "label": "juzgado correccional N°2"
+            "id_juzgado": 5,
+            "juzgado": "juzgado correccional N°2"
         },
         {
-            "value": 6,
-            "label": "juzgado correccional N°3"
+            "id_juzgado": 6,
+            "juzgado": "juzgado correccional N°3"
+        },
+        {
+            "id_juzgado": 7,
+            "juzgado": "juzgado correccional N°4"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_nacionalidad: any[] = [
         {
-            "value": 1,
-            "label": "argentina"
+            "id_nacionalidad": 1,
+            "nacionalidad": "argentina"
         },
         {
-            "value": 2,
-            "label": "boliviana"
+            "id_nacionalidad": 2,
+            "nacionalidad": "boliviana"
         },
         {
-            "value": 3,
-            "label": "chilena"
+            "id_nacionalidad": 3,
+            "nacionalidad": "chilena"
         },
         {
-            "value": 4,
-            "label": "brasileña"
+            "id_nacionalidad": 4,
+            "nacionalidad": "brasileña"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_nariz_forma: any[] = [
         {
-            "value": 1,
-            "label": "reprimida"
+            "id_nariz_forma": 1,
+            "nariz_forma": "reprimida"
         },
         {
-            "value": 2,
-            "label": "aguileña"
+            "id_nariz_forma": 2,
+            "nariz_forma": "aguileña"
         },
         {
-            "value": 3,
-            "label": "aplastada"
+            "id_nariz_forma": 3,
+            "nariz_forma": "aplastada"
         },
         {
-            "value": 4,
-            "label": "deprimida"
+            "id_nariz_forma": 4,
+            "nariz_forma": "deprimida"
         },
         {
-            "value": 5,
-            "label": "recta"
+            "id_nariz_forma": 5,
+            "nariz_forma": "recta"
         },
         {
-            "value": 6,
-            "label": "respingada"
+            "id_nariz_forma": 6,
+            "nariz_forma": "respingada"
         },
         {
-            "value": 7,
-            "label": "torcida"
+            "id_nariz_forma": 7,
+            "nariz_forma": "torcida"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_nariz_tamanio: any[] = [
         {
-            "value": 1,
-            "label": "pequeño"
+            "id_nariz_tamanio": 1,
+            "nariz_tamanio": "pequeño"
         },
         {
-            "value": 2,
-            "label": "mediano"
+            "id_nariz_tamanio": 2,
+            "nariz_tamanio": "mediano"
         },
         {
-            "value": 3,
-            "label": "grande"
+            "id_nariz_tamanio": 3,
+            "nariz_tamanio": "grande"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_nivel_educacion: any[] = [
         {
-            "value": 1,
-            "label": "Primario completo"
+            "id_nivel_educacion": 1,
+            "nivel_educacion": "Primario completo"
         },
         {
-            "value": 2,
-            "label": "Primario incompleto"
+            "id_nivel_educacion": 2,
+            "nivel_educacion": "Primario incompleto"
         },
         {
-            "value": 3,
-            "label": "Secundario incompleto"
+            "id_nivel_educacion": 3,
+            "nivel_educacion": "Secundario completo"
         },
         {
-            "value": 4,
-            "label": "Secundario completo"
+            "id_nivel_educacion": 4,
+            "nivel_educacion": "Secundario incompleto"
         },
         {
-            "value": 5,
-            "label": "Terciario completo"
+            "id_nivel_educacion": 5,
+            "nivel_educacion": "Terciario completo"
         },
         {
-            "value": 6,
-            "label": "Terciario incompleto"
+            "id_nivel_educacion": 6,
+            "nivel_educacion": "Terciario incompleto"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_oficio: any[] = [
         {
-            "value": 1,
-            "label": "albañil"
+            "id_oficio": 1,
+            "oficio": "carpintero"
         },
         {
-            "value": 2,
-            "label": "electricista"
+            "id_oficio": 2,
+            "oficio": "albañil"
         },
         {
-            "value": 3,
-            "label": "panadero"
+            "id_oficio": 3,
+            "oficio": "plomero"
         },
         {
-            "value": 4,
-            "label": "carpintero"
+            "id_oficio": 4,
+            "oficio": "electricista"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_ojos_color: any[] = [
         {
-            "value": 1,
-            "label": "azules"
+            "id_ojos_color": 1,
+            "ojos_color": "azules"
         },
         {
-            "value": 2,
-            "label": "grises"
+            "id_ojos_color": 2,
+            "ojos_color": "grises"
         },
         {
-            "value": 3,
-            "label": "marrones"
+            "id_ojos_color": 3,
+            "ojos_color": "marrones"
         },
         {
-            "value": 4,
-            "label": "negros"
+            "id_ojos_color": 4,
+            "ojos_color": "negros"
         },
         {
-            "value": 5,
-            "label": "verdes"
+            "id_ojos_color": 5,
+            "ojos_color": "verdes"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_ojos_tamanio: any[] = [
         {
-            "value": 1,
-            "label": "pequeños"
+            "id_ojos_tamanio": 1,
+            "ojos_tamanio": "pequeños"
         },
         {
-            "value": 2,
-            "label": "medianos"
+            "id_ojos_tamanio": 2,
+            "ojos_tamanio": "medianos"
         },
         {
-            "value": 3,
-            "label": "grandes"
+            "id_ojos_tamanio": 3,
+            "ojos_tamanio": "grandes"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_pabellon: any[] = [
         {
-            "value": 1,
-            "label": "pabellon A"
+            "id_pabellon": 1,
+            "pabellon": "pabellon A"
         },
         {
-            "value": 2,
-            "label": "pabellon B"
+            "id_pabellon": 2,
+            "pabellon": "pabellon B"
         },
         {
-            "value": 3,
-            "label": "pabellon C"
+            "id_pabellon": 3,
+            "pabellon": "pabellon C"
         },
         {
-            "value": 4,
-            "label": "pabellon D"
+            "id_pabellon": 4,
+            "pabellon": "pabellon D"
         },
         {
-            "value": 5,
-            "label": "pabellon E"
+            "id_pabellon": 5,
+            "pabellon": "pabellon E"
         },
         {
-            "value": 6,
-            "label": "pabellon F"
+            "id_pabellon": 6,
+            "pabellon": "pabellon F"
         },
         {
-            "value": 7,
-            "label": "pabellon G"
+            "id_pabellon": 7,
+            "pabellon": "pabellon G"
         },
         {
-            "value": 8,
-            "label": "pabellon H"
+            "id_pabellon": 8,
+            "pabellon": "pabellon H"
         },
         {
-            "value": 9,
-            "label": "pabellon I"
+            "id_pabellon": 9,
+            "pabellon": "pabellon I"
         },
         {
-            "value": 10,
-            "label": "pabellon J"
+            "id_pabellon": 10,
+            "pabellon": "pabellon J"
         },
         {
-            "value": 11,
-            "label": "pabellon K"
+            "id_pabellon": 11,
+            "pabellon": "pabellon K"
         },
         {
-            "value": 12,
-            "label": "pabellon M"
+            "id_pabellon": 12,
+            "pabellon": "pabellon M"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_pelo_color: any[] = [
         {
-            "value": 1,
-            "label": "marron"
+            "id_pelo_color": 1,
+            "pelo_color": "marron"
         },
         {
-            "value": 2,
-            "label": "negro"
+            "id_pelo_color": 2,
+            "pelo_color": "negro"
         },
         {
-            "value": 3,
-            "label": "rubio"
+            "id_pelo_color": 3,
+            "pelo_color": "rubio"
         },
         {
-            "value": 4,
-            "label": "castaño"
+            "id_pelo_color": 4,
+            "pelo_color": "castaño"
         },
         {
-            "value": 5,
-            "label": "canoso"
+            "id_pelo_color": 5,
+            "pelo_color": "canoso"
         },
         {
-            "value": 6,
-            "label": "gris"
+            "id_pelo_color": 6,
+            "pelo_color": "gris"
         },
         {
-            "value": 7,
-            "label": "platinado"
+            "id_pelo_color": 7,
+            "pelo_color": "platinado"
         },
         {
-            "value": 8,
-            "label": "rojizo"
+            "id_pelo_color": 8,
+            "pelo_color": "rojizo"
         }
     ]; //array de columnas para dropdown
+
     public static drop_pelo_tipo: any[] = [
         {
-            "value": 1,
-            "label": "crespo"
+            "id_pelo_tipo": 1,
+            "pelo_tipo": "crespo"
         },
         {
-            "value": 2,
-            "label": "lacio"
+            "id_pelo_tipo": 2,
+            "pelo_tipo": "lasio"
         },
         {
-            "value": 3,
-            "label": "mulato"
+            "id_pelo_tipo": 3,
+            "pelo_tipo": "mulato"
         },
         {
-            "value": 4,
-            "label": "ondulado"
+            "id_pelo_tipo": 4,
+            "pelo_tipo": "ondulado"
         },
         {
-            "value": 5,
-            "label": "calvo"
+            "id_pelo_tipo": 5,
+            "pelo_tipo": "calvo"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_piel: any[] = [
         {
-            "value": 1,
-            "label": "amarilla"
+            "id_piel": 1,
+            "piel": "amarilla"
         },
         {
-            "value": 2,
-            "label": "blanca"
+            "id_piel": 2,
+            "piel": "blanca"
         },
         {
-            "value": 3,
-            "label": "negra"
+            "id_piel": 3,
+            "piel": "negra"
         },
         {
-            "value": 4,
-            "label": "trigueña"
+            "id_piel": 4,
+            "piel": "trigueña"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_provincia: any[] = [
         {
-            "value": 1,
-            "label": "BUENOS AIRES"
+            "id_provincia": 1,
+            "provincia": "BUENOS AIRES"
         },
         {
-            "value": 2,
-            "label": "CATAMARCA"
+            "id_provincia": 2,
+            "provincia": "CATAMARCA"
         },
         {
-            "value": 3,
-            "label": "SALTA"
+            "id_provincia": 3,
+            "provincia": "SALTA"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_reincidencia: any[] = [
         {
-            "value": 1,
-            "label": "primario"
+            "id_reincidencia": 1,
+            "reincidencia": "primario"
         },
         {
-            "value": 2,
-            "label": "reincidente 1ra vez"
+            "id_reincidencia": 2,
+            "reincidencia": "reincidente 1ra vez"
         },
         {
-            "value": 3,
-            "label": "reincidente 2da vez"
+            "id_reincidencia": 3,
+            "reincidencia": "reincidente 2da vez"
         },
         {
-            "value": 4,
-            "label": "reincidente 3ra vez"
+            "id_reincidencia": 4,
+            "reincidencia": "reincidente 3ra vez"
+        },
+        {
+            "id_reincidencia": 5,
+            "reincidencia": "reincidente 4ta vez"
         }
-
     ]; //array de columnas para dropdown 
+
     public static drop_reingreso: any[] = [
         {
-            "value": 1,
-            "label": "primario"
+            "id_reingreso": 1,
+            "reingreso": "primario"
         },
         {
-            "value": 2,
-            "label": "reingreso"
+            "id_reingreso": 2,
+            "reingreso": "reingreso"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_religion: any[] = [
         {
-            "value": 1,
-            "label": "catolico"
+            "id_religion": 1,
+            "religion": "catolico"
         },
         {
-            "value": 2,
-            "label": "evangelico"
+            "id_religion": 2,
+            "religion": "evangelico"
         },
         {
-            "value": 3,
-            "label": "testigo de jehova"
+            "id_religion": 3,
+            "religion": "testigo de jehova"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_sexo: any[] = [
         {
-            "value": 1,
-            "label": "masculino"
+            "id_sexo": 1,
+            "sexo": "masculino"
         },
         {
-            "value": 2,
-            "label": "femenino"
+            "id_sexo": 2,
+            "sexo": "femenino"
         },
         {
-            "value": 3,
-            "label": "homosexual"
+            "id_sexo": 3,
+            "sexo": "homosexual"
         },
         {
-            "value": 4,
-            "label": "transexual"
+            "id_sexo": 4,
+            "sexo": "transexual"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_tipo_condena: any[] = [
         {
-            "value": 1,
-            "label": "medida de seguridad"
+            "id_tipo_condena": 1,
+            "tipo_condena": "medida de seguridad"
         },
         {
-            "value": 2,
-            "label": "prision"
+            "id_tipo_condena": 2,
+            "tipo_condena": "prision"
         },
         {
-            "value": 3,
-            "label": "reclusion"
+            "id_tipo_condena": 3,
+            "tipo_condena": "reclusion"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_tipo_defensor: any[] = [
         {
-            "value": 1,
-            "label": "oficial"
+            "id_tipo_defensor": 1,
+            "tipo_defensor": "oficial"
         },
         {
-            "value": 2,
-            "label": "particular"
+            "id_tipo_defensor": 2,
+            "tipo_defensor": "particular"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_tipo_delito: any[] = [
         {
-            "value": 1,
-            "label": "microtrafico"
+            "id_tipo_delito": 1,
+            "tipo_delito": "microtrafico"
         },
         {
-            "value": 2,
-            "label": "delito contra las personas"
+            "id_tipo_delito": 2,
+            "tipo_delito": "delito contra las personas"
         },
         {
-            "value": 3,
-            "label": "delito contra el honor"
+            "id_tipo_delito": 3,
+            "tipo_delito": "delito contra el honor"
         }
     ]; //array de columnas para dropdown 
+
     public static drop_unidad: any[] = [
         {
-            "value": 1,
-            "label": "U.C.N° 1"
+            "id_unidad": 1,
+            "unidad": "U.C.N° 1"
         },
         {
-            "value": 2,
-            "label": "U.C.N° 2"
+            "id_unidad": 2,
+            "unidad": "U.C.N° 2"
         },
         {
-            "value": 3,
-            "label": "U.C.N° 3"
+            "id_unidad": 3,
+            "unidad": "U.C.N° 3"
         },
         {
-            "value": 4,
-            "label": "U.C.N° 4"
+            "id_unidad": 4,
+            "unidad": "U.C.N° 4"
         },
         {
-            "value": 5,
-            "label": "U.C.N° 5"
+            "id_unidad": 5,
+            "unidad": "U.C.N° 5"
         },
         {
-            "value": 6,
-            "label": "U.C.N° 6"
+            "id_unidad": 6,
+            "unidad": "U.C.N° 6"
         },
         {
-            "value": 7,
-            "label": "U.C.N° 7"
+            "id_unidad": 7,
+            "unidad": "U.C.N° 7"
         }
     ]; //array de columnas para dropdown     
+
     public static drop_zona_residencia: any[] = [
         {
-            "value": 1,
-            "label": "urbana"
+            "id_zona_residencia": 1,
+            "zona_residencia": "urbana"
         },
         {
-            "value": 2,
-            "label": "rural"
+            "id_zona_residencia": 2,
+            "zona_residencia": "rural"
         }
     ]; //array de columnas para dropdown 
      
