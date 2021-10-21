@@ -147,7 +147,7 @@ export class UsuariosEditarComponent implements OnInit {
       
       this.fotoSubir = foto;
       let id: number =  this.id; //this.id es proveniente de la tabla
-      this.fileUploadService.actualizarFotoUsuario(this.fotoSubir, id).then(respuesta => {
+      this.fileUploadService.actualizarFotoUsuario(this.fotoSubir, id).then((respuesta:any) => {
             if(respuesta.ok){
             Swal.fire('Actualización Exitosa!!', "La foto del Usuario ha sido cambiada con éxito","success");
             }else{
@@ -157,7 +157,7 @@ export class UsuariosEditarComponent implements OnInit {
         Swal.fire('Error', error.message, "error"); 
       });
         
-    } catch (error) {
+    } catch (error:any) {
         
         Swal.fire('Error', error.message, "error");    
     }

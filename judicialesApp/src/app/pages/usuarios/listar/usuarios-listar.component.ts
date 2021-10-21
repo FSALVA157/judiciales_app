@@ -31,6 +31,7 @@ export class UsuariosListarComponent implements OnInit {
   selectedUsuarios: UsuarioModel[] = [];
   baseUrlImg: string = `${base_url}/usuario/foto?foto_nombre=`;
   
+  
   constructor(private usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
@@ -76,6 +77,7 @@ export class UsuariosListarComponent implements OnInit {
       .subscribe(
         data => {                    
           this.lista_usuarios = data;
+          console.log("lista usuarios", this.lista_usuarios);
           //armado de array de usuarios para exportar el pdf
           this.lista_usuarios_pdf = this.lista_usuarios;
           console.log("columnas lista creada para pdf", this.exportColumns);
