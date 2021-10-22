@@ -15,9 +15,16 @@
                                 <!-- FILA 1-->
                                 <div class="row">
                                     <div class="col-12 col-lg-4">
-                                        <label for="fecha-ingreso-input">Fecha Ingreso</label>
+                                        <label for="">Fecha Ingreso</label>
                                         <!-- <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso"> -->
-                                        <input formControlName="fecha_ingreso" type="text" class="form-control" placeholder="primer apellido" [class.is-invalid]="">
+                                        <input formControlName="fecha_ingreso" type="text" class="form-control" placeholder="Fecha ingreso" [class.is-invalid]="">
+                                        <small *ngIf="fechaIngresoNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.fecha_ingreso" >
+                                                <div  *ngIf="formData.get('fecha_ingreso')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-12  col-lg-4">
@@ -26,6 +33,13 @@
                                         <select formControlName="establecimiento_procedencia_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let establecimiento_procedencia of drop_establecimiento_procedencia" [value]="establecimiento_procedencia.id_establecimiento_procedencia">{{establecimiento_procedencia.establecimiento_procedencia}}</option> 
                                         </select>
+                                        <small *ngIf="establecimientoProcedenciaNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.establecimiento_procedencia_id" >
+                                                <div  *ngIf="formData.get('establecimiento_procedencia_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                 </div>
@@ -34,21 +48,41 @@
                                 <!-- FILA 2-->
                                 <div class="row">
                                     <div class="col-5 col-lg-3">
-                                        <label for="prontuario-input">Prontuario</label>
-                                        <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
-                                        <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
+                                        <label for="">Prontuario</label>
+                                        <input formControlName="prontuario" type="text" class="form-control" placeholder="Prontuario" [class.is-invalid]="">
+                                        <small *ngIf="prontuarioNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.prontuario" >
+                                                <div  *ngIf="formData.get('prontuario')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
 
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="prontuario-policial-input">Prontuario Policial</label>
-                                        <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
+                                        <label for="">Prontuario Policial</label>
+                                        <input formControlName="prontuario_policial" type="text" class="form-control" placeholder="Prontuario policial" [class.is-invalid]="">
 
+                                        <small *ngIf="prontuarioPolicialNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.prontuario_policial" >
+                                                <div  *ngIf="formData.get('prontuario_policial')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-5 col-lg-3">
-                                        <label for="dni-input">DNI</label>
-                                        <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
+                                        <label for="">DNI</label>
+                                        <input formControlName="dni" type="text" class="form-control" placeholder="Dni" [class.is-invalid]="">
+                                        <small *ngIf="dniNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.dni" >
+                                                <div  *ngIf="formData.get('dni')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
 
                                     </div>
                                 </div>
@@ -57,14 +91,28 @@
                                 <!-- FIN FILA 3-->
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
-                                        <label for="apellido_1-input">Apellido 1</label>
-                                        <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1">
+                                        <label for="">Apellido 1</label>
+                                        <input formControlName="apellido_1" type="text" class="form-control" placeholder="Apellido_1" [class.is-invalid]="">
+                                        <small *ngIf="apellido1NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.apellido_1" >
+                                                <div  *ngIf="formData.get('apellido_1')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
+
                                     </div>
 
                                     <div class="col-12 col-lg-6">
-                                        <label for="apellido_2-input">Apellido 2</label>
-                                        <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2">
-
+                                        <label for="">Apellido 2</label>
+                                        <input formControlName="apellido_2" type="text" class="form-control" placeholder="Apellido_2" [class.is-invalid]="">
+                                        <small *ngIf="apellido2NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.apellido_2" >
+                                                <div  *ngIf="formData.get('apellido_2')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
                                 </div>
                                 <!-- FIN FILA 3-->
@@ -72,21 +120,39 @@
                                 <!-- FILA 4-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-4">
-                                        <label for="nombre_1-input">Nombre 1</label>
-                                        <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
-
+                                        <label for="">Nombre 1</label>
+                                        <input formControlName="nombre_1" type="text" class="form-control" placeholder="Nombre_1" [class.is-invalid]="">
+                                        <small *ngIf="nombre1NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.nombre_1" >
+                                                <div  *ngIf="formData.get('nombre_1')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="nombre_2-input">Nombre 2</label>
-                                        <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
-
+                                        <label for="">Nombre 2</label>
+                                        <input formControlName="nombre_2" type="text" class="form-control" placeholder="Nombre_2" [class.is-invalid]="">
+                                        <small *ngIf="nombre2NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.nombre_2" >
+                                                <div  *ngIf="formData.get('nombre_2')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="nombre_3-input">Nombre 3</label>
-                                        <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
-
+                                        <label for="">Nombre 3</label>
+                                        <input formControlName="nombre_3" type="text" class="form-control" placeholder="Nombre_3" [class.is-invalid]="">
+                                        <small *ngIf="nombre3NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.nombre_3" >
+                                                <div  *ngIf="formData.get('nombre_3')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
                                 </div>
                                 <!-- FIN FILA 4-->
@@ -95,9 +161,15 @@
                                 <div class="row ">
 
                                     <div class="col-12 col-lg-6">
-                                        <label for="alias-input">Alias</label>
-                                        <input id="alias-input" type="text" pInputText formControlName="alias">
-
+                                        <label for="">Alias</label>
+                                        <input formControlName="alias" type="text" class="form-control" placeholder="Alias" [class.is-invalid]="">
+                                        <small *ngIf="aliasNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.alias" >
+                                                <div  *ngIf="formData.get('alias')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
                                 </div>
                                 <!-- FIN FILA 5-->
@@ -120,6 +192,13 @@
                                         <select formControlName="ojos_color_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let ojos_color of drop_ojos_color" [value]="ojos_color.id_ojos_color">{{ojos_color.ojos_color}}</option> 
                                         </select>
+                                        <small *ngIf="ojosColorNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.ojos_color_id" >
+                                                <div  *ngIf="formData.get('ojos_color_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-4">
@@ -128,6 +207,13 @@
                                         <select formControlName="ojos_tamanio_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let ojos_tamanio of drop_ojos_tamanio" [value]="ojos_tamanio.id_ojos_tamanio">{{ojos_tamanio.ojos_tamanio}}</option> 
                                         </select>
+                                        <small *ngIf="ojosTamanioNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.ojos_tamanio_id" >
+                                                <div  *ngIf="formData.get('ojos_tamanio_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-4 ">
@@ -135,6 +221,13 @@
                                         <select formControlName="pelo_tipo_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let pelo_tipo of drop_pelo_tipo" [value]="pelo_tipo.id_pelo_tipo">{{pelo_tipo.pelo_tipo}}</option> 
                                         </select>
+                                        <small *ngIf="peloTipoNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.pelo_tipo_id" >
+                                                <div  *ngIf="formData.get('pelo_tipo_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
 
@@ -148,6 +241,13 @@
                                         <select formControlName="nariz_forma_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let nariz_forma of drop_nariz_forma" [value]="nariz_forma.id_nariz_forma">{{nariz_forma.nariz_forma}}</option> 
                                         </select>
+                                        <small *ngIf="narizFormaNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.nariz_forma_id" >
+                                                <div  *ngIf="formData.get('nariz_forma_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
 
@@ -156,6 +256,13 @@
                                         <select formControlName="nariz_tamanio_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let nariz_tamanio of drop_nariz_tamanio" [value]="nariz_tamanio.id_nariz_tamanio">{{nariz_tamanio.nariz_tamanio}}</option> 
                                         </select>
+                                        <small *ngIf="narizTamanioNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.nariz_tamanio_id" >
+                                                <div  *ngIf="formData.get('nariz_tamanio_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
 
@@ -169,19 +276,37 @@
                                         <select formControlName="piel_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let piel of drop_piel" [value]="piel.id_piel">{{piel.piel}}</option> 
                                         </select>
+                                        <small *ngIf="pielNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.piel_id" >
+                                                <div  *ngIf="formData.get('piel_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="marca-corporal-input">Marca Corporal</label>
-                                        <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal">
-
-
+                                        <label for="">Marca Corporal</label>
+                                        <input formControlName="marca_corporal" type="text" class="form-control" placeholder="Marca corporal" [class.is-invalid]="">
+                                        <small *ngIf="marcaCorporalNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.marca_corporal" >
+                                                <div  *ngIf="formData.get('marca_corporal')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="talla-input">Talla</label>
-                                        <input id="talla-input" type="text" pInputText formControlName="talla">
-
+                                        <label for="">Altura</label>
+                                        <input formControlName="altura" type="text" class="form-control" placeholder="Talla" [class.is-invalid]="">
+                                        <small *ngIf="alturaNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.altura" >
+                                                <div  *ngIf="formData.get('altura')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
                                     </div>
 
                                 </div>
@@ -232,8 +357,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-6">
-                                        <label for="domicilio-input">domicilio</label>
-                                        <input id="domicilio-input" type="text" pInputText formControlName="domicilio">
+                                        <label for="">Domicilio</label>
+                                        <input formControlName="domicilio" type="text" class="form-control" placeholder="Domicilio" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -254,8 +379,8 @@
 
 
                                     <div class="col-7 col-lg-3 ">
-                                        <label for="telefono-input">telefono</label>
-                                        <input id="telefono-input" type="text" pInputText formControlName="telefono">
+                                        <label for="">Telefono</label>
+                                        <input formControlName="telefono" type="text" class="form-control" placeholder="Telefono" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -264,8 +389,8 @@
                                 <!-- FILA 4-->
                                 <div class="row ">
                                     <div class="col-6 col-lg-4 ">
-                                        <label for="fecha_nacimiento-input">Fecha Nacimiento</label>
-                                        <input id="fecha_nacimiento-input" type="text" pInputText formControlName="fecha_nacimiento">
+                                        <label for="">Fecha Nacimiento</label>
+                                        <input formControlName="fecha_nacimiento" type="text" class="form-control" placeholder="Fecha nacimiento" [class.is-invalid]="">
 
                                     </div>
 
@@ -278,8 +403,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="lugar_nacimiento-input">Lugar Nacimiento</label>
-                                        <input id="lugar_nacimiento-input" type="text" pInputText formControlName="lugar_nacimiento">
+                                        <label for="">Lugar Nacimiento</label>
+                                        <input formControlName="lugar_nacimiento" type="text" class="form-control" placeholder="Lugar nacimiento" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -290,19 +415,19 @@
                                 <!-- FILA 5-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="padre-input">Padre</label>
-                                        <input id="padre-input" type="text" pInputText formControlName="padre">
+                                        <label for="">Padre</label>
+                                        <input formControlName="padre" type="text" class="form-control" placeholder="Padre" [class.is-invalid]="">
 
                                     </div>
 
                                     <div class="col-6 col-lg-4">
-                                        <label for="madre-input">Madre</label>
-                                        <input id="madre-input" type="text" pInputText formControlName="madre">
+                                        <label for="">Madre</label>
+                                        <input formControlName="madre" type="text" class="form-control" placeholder="Madre" [class.is-invalid]="">
 
                                     </div>
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="parientes-input">Parientes</label>
-                                        <input id="parientes-input" type="text" pInputText formControlName="parientes">
+                                        <label for="">Parientes</label>
+                                        <input formControlName="parientes" type="text" class="form-control" placeholder="Parientes" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -312,8 +437,8 @@
                                 <!-- FILA 6-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="referente_emergencia-input">Referente Emergencia</label>
-                                        <input id="referente_emergencia-input" type="text" pInputText formControlName="referente_emergencia">
+                                        <label for="">Referente Emergencia</label>
+                                        <input formControlName="referente_emergencia" type="text" class="form-control" placeholder="Referente emergencia" [class.is-invalid]="">
 
                                     </div>
 
@@ -325,9 +450,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="profesion-input">Profesion</label>
-                                        <input id="profesion-input" type="text" pInputText formControlName="profesion">
-
+                                        <label for="">Profesion</label>
+                                        <input formControlName="profesion" type="text" class="form-control" placeholder="Profesion" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -365,8 +489,8 @@
                                 <!-- FILA 1-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-6 ">
-                                        <label for="causa-penal-input">Causa Penal</label>
-                                        <input id="causa-penal-input" type="text" pInputText formControlName="causa_penal">
+                                        <label for="">Causa Penal</label>
+                                        <input formControlName="causa_penal" type="text" class="form-control" placeholder="Causa penal" [class.is-invalid]="">
 
                                     </div>
 
@@ -386,14 +510,14 @@
                                 <div class="row ">
 
                                     <div class="col-12 col-lg-3 ">
-                                        <label for="expediente-numero-input">Expediente Numero</label>
-                                        <input id="expediente-numero-input" type="text" pInputText formControlName="expediente_numero">
+                                        <label for="">Expediente Numero</label>
+                                        <input formControlName="expediente_numero" type="text" class="form-control" placeholder="Expediente numero" [class.is-invalid]="">
 
                                     </div>
 
                                     <div class="col-12 col-lg-3 ">
-                                        <label for="expediente-policial-input">Expediente Policial</label>
-                                        <input id="expediente-policial-input" type="text" pInputText formControlName="expediente_policial">
+                                        <label for="">Expediente Policial</label>
+                                        <input formControlName="expediente_policial" type="text" class="form-control" placeholder="Expediente policial" [class.is-invalid]="">
 
                                     </div>
 
@@ -424,8 +548,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-2 ">
-                                        <label for="reingreso-num-input">Reingreso Numero</label>
-                                        <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num">
+                                        <label for="">Reingreso Numero</label>
+                                        <input formControlName="reingreso_num" type="text" class="form-control" placeholder="Reingreso numero" [class.is-invalid]="">
 
                                     </div>
 
@@ -444,8 +568,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-3 ">
-                                        <label for="reincidencia_num-input">Reincidencia Numero</label>
-                                        <input id="reincidencia_num-input" type="text" pInputText formControlName="reincidencia_num">
+                                        <label for="">Reincidencia Numero</label>
+                                        <input formControlName="reincidencia_num" type="text" class="form-control" placeholder="Reincidencia numero" [class.is-invalid]="">
 
                                     </div>
 
@@ -477,8 +601,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="fecha_detencion-input">Fecha Detencion</label>
-                                        <input id="fecha_detencion-input" type="text" pInputText formControlName="fecha_detencion">
+                                        <label for="">Fecha Detencion</label>
+                                        <input formControlName="fecha_detencion" type="text" class="form-control" placeholder="Fecha detencion" [class.is-invalid]="">
 
                                     </div>
 
@@ -488,8 +612,8 @@
                                 <!-- FILA 6-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-6">
-                                        <label for="detenciones-input">Detenciones</label>
-                                        <input id="detenciones-input" type="text" pInputText formControlName="detenciones">
+                                        <label for="">Detenciones</label>
+                                        <input formControlName="detenciones" type="text" class="form-control" placeholder="Detenciones" [class.is-invalid]="">
 
                                     </div>
 
@@ -506,20 +630,20 @@
                                     </div>
 
                                     <div class="col-12 col-lg-2">
-                                        <label for="total_anios-input">Total Años</label>
-                                        <input id="total_anios-input" type="text" pInputText formControlName="total_anios">
+                                        <label for="">Total Años</label>
+                                        <input formControlName="total_anios" type="text" class="form-control" placeholder="Total años" [class.is-invalid]="">
 
                                     </div>
 
                                     <div class="col-12 col-lg-2">
-                                        <label for="total_meses-input">Total Meses</label>
-                                        <input id="total_meses-input" type="text" pInputText formControlName="total_meses">
+                                        <label for="">Total Meses</label>
+                                        <input formControlName="total_meses" type="text" class="form-control" placeholder="Total meses" [class.is-invalid]="">
 
                                     </div>
 
                                     <div class="col-12 col-lg-2 ">
                                         <label for="total_dias-input">Total Dias</label>
-                                        <input id="total_dias-input" type="text" pInputText formControlName="total_dias">
+                                        <input formControlName="total_dias" type="text" class="form-control" placeholder="Total dias" [class.is-invalid]="">
 
                                     </div>
 
@@ -538,14 +662,14 @@
                                 <!-- FILA 9-->
                                 <div class="row ">
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="computo-input">Computo</label>
-                                        <input id="computo-input" type="text" pInputText formControlName="computo">
+                                        <label for="">Computo</label>
+                                        <input formControlName="computo" type="text" class="form-control" placeholder="Computo" [class.is-invalid]="">
 
                                     </div>
 
                                     <div class="col-12 col-lg-4 ">
-                                        <label for="fecha_cumple-input">Fecha Cumple</label>
-                                        <input id="fecha_cumple-input" type="text" pInputText formControlName="fecha_cumple">
+                                        <label for="">Fecha Cumple</label>
+                                        <input formControlName="fecha_cumple" type="text" class="form-control" placeholder="Fecha cumple" [class.is-invalid]="">
 
                                     </div>
                                 </div>
@@ -561,8 +685,8 @@
                                     </div>
 
                                     <div class="col-12 col-lg-4">
-                                        <label for="abogado-input">Abogado</label>
-                                        <input id="abogado-input" type="text" pInputText formControlName="abogado">
+                                        <label for="">Abogado</label>
+                                        <input formControlName="abogado" type="text" class="form-control" placeholder="Abogado" [class.is-invalid]="">
 
                                     </div>
 
