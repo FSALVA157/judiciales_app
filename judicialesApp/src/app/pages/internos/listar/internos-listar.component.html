@@ -6,7 +6,8 @@
             </div>
             <div class="card-body">
 
-                <p-table id="htmlData" #dt [value]="lista_internos" [columns]="cols" [scrollable]="true" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [scrollable]="true" [style]="{width:'100%'}" selectionMode="multiple">
+                <p-table id="htmlData" #dt [value]="lista_internos" [columns]="colsTablaInternosExport" [scrollable]="true" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [scrollable]="true" [style]="{width:'100%'}" selectionMode="multiple" dataKey="id_interno"
+                    [rowHover]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
                     <ng-template pTemplate="caption">
                         <div class="p-d-flex">
                             <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
@@ -16,13 +17,16 @@
 
                         </div>
                     </ng-template>
+
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
+                            <col style="width:100px">
                             <col style="width:100px">
                             <col style="width:120px">
                             <col style="width:250px">
                             <col style="width:250px">
                             <col style="width:250px">
+                            <col style="width:150px">
                             <col style="width:150px">
 
                         </colgroup>
@@ -30,10 +34,36 @@
 
                     <ng-template pTemplate="header" let-columns>
                         <tr>
+                            <th style="width: 3rem">
+                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            </th>
                             <th>Ver</th>
                             <th>prontuario</th>
-                            <th>apellido </th>
+                            <!-- <th>apellido </th> -->
+                            <th pSortableColumn="apellido_1">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    Primer Apellido
+                                    <p-sortIcon field="apellido_1"></p-sortIcon>
+                                    <p-columnFilter type="text" field="apellido_1" display="menu" class="p-ml-auto"></p-columnFilter>
+                                </div>
+                            </th>
                             <th>Nombre </th>
+                            <!-- <th>Sexo </th> -->
+                            <th pSortableColumn="sexo.sexo">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    Sexo
+                                    <p-sortIcon field="sexo.sexo"></p-sortIcon>
+                                    <p-columnFilter field="sexo.sexo" matchMode="equals" display="menu" class="p-ml-auto">
+                                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                            <p-dropdown ngModel="value" [options]="sexos" (onChange)="filter($event.value)" placeholder="Any">
+                                                <ng-template let-option pTemplate="item">
+                                                    <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+                                                </ng-template>
+                                            </p-dropdown>
+                                        </ng-template>
+                                    </p-columnFilter>
+                                </div>
+                            </th>
                             <th>Domicilio</th>
                             <th>Unidad</th>
 
@@ -42,12 +72,16 @@
                     <ng-template pTemplate="body" let-rowData let-interno>
                         <tr>
                             <td>
+                                <p-tableCheckbox [value]=""></p-tableCheckbox>
+                            </td>
+                            <td>
                                 <button pButton pRipple icon="fas fa-eye" class="p-button-rounded p-button-primary p-mr-2" routerLink="/dashboard/editar-interno/{{interno.id_interno}}"></button>
 
                             </td>
                             <td>{{interno.prontuario}}</td>
                             <td>{{interno.apellido_1}}</td>
                             <td>{{interno.nombre_1}}</td>
+                            <td>{{interno.sexo.sexo}}</td>
                             <td>{{interno.domicilio}}</td>
                             <td>{{interno.unidad.unidad}}</td>
 

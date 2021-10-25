@@ -15,6 +15,7 @@ label {
 .titulo-fondo-gris {
     background-color: #3e474e;
     height: 30px;
+    padding-top: 3px;
 }
 
 .fondo-gris {

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { TablasArray } from 'src/app/common/tablas-array';
 import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
+
+interface IObjectModel{
+  label: string; 
+  value: string;
+}
 
 @Component({
   selector: 'app-internos-listar',
@@ -16,12 +22,54 @@ export class InternosListarComponent implements OnInit {
   lista_internos_pdf: any[]=[]; //array que copia la lista de internos para crear el pdf
   exportColumns: any[] = []; //array de columnas para crear el pdf
 
+  sexos: IObjectModel[]=[];
+
+
+  colsTablaInternosExport: any[]=[]; //array de columnas de la tabla
+
   constructor(
     private internosService: InternosService
   ) { }
 
   ngOnInit(): void {
+    //inicializacion de cabeceras de columnas
+    this.colsTablaInternosExport = [      
+      { field: 'id_interno', header: 'Id' },
+      { field: 'prontuario', header: 'Prontuario' },
+      { field: 'apellido_1', header: 'Primer Apellido' },
+      { field: 'apellido_2', header: 'Segundo Apellido' },
+      { field: 'nombre_1', header: 'Primer Nombre' },
+      { field: 'nombre_2', header: 'Segundo Nombre' },
+      { field: 'nombre_3', header: 'Tercer Nombre' },
+      { field: 'alias', header: 'alias' },
+      { field: 'dni', header: 'DNI' },
+      { field: 'sexo.sexo', header: 'Sexo' },
+      { field: 'estado_civil.estado_civil', header: 'Estado Civil' },
+      // { field: 'destino.destino', header: 'Destino' },
+      // { field: 'departamento.departamento', header: 'Departamento' },
+      // { field: 'division.division', header: 'División' },
+      // { field: 'sector.sector', header: 'Sector' },
+      // { field: 'seccion_guardia', header: 'Guardia' },
+      // { field: 'funcion', header: 'Función' },
+      // { field: 'escalafon.escalafon', header: 'Escalafón' },
+      // { field: 'escala_jerarquica.escala_jerarquica', header: 'Escala' },
+      // { field: 'nivel_educativo.nivel_educativo', header: 'Educación' },
+      // { field: 'nacionalidad', header: 'Nacionalidad' },
+      // { field: 'domicilio', header: 'Domicilio' },
+      // { field: 'provincia.provincia', header: 'Provincia' },
+      // { field: 'departamento_provincial.departamento_provincial', header: 'Dpto Provincial' },
+      // { field: 'municipio.municipio', header: 'Municipio' },
+      // { field: 'ciudad', header: 'Ciudad' },
+    ];
+
     this.listaInternos();
+
+    this.sexos = TablasArray.drop_sexo.map(respuesta => {
+      return {
+        label: respuesta.sexo.toLowerCase(),
+        value: respuesta.sexo,
+       }
+});
 
   }
 

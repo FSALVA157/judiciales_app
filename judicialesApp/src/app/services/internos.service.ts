@@ -137,7 +137,7 @@ export class InternosService {
       profesion: data.profesion,
       ultimo_oficio_id: parseInt(data.ultimo_oficio_id),
       religion_id: parseInt(data.religion_id),
-      talla: data.talla,
+      altura: data.altura,
       ojos_color_id: parseInt(data.ojos_color_id),
       ojos_tamanio_id: parseInt(data.ojos_tamanio_id),
       nariz_tamanio_id: parseInt(data.nariz_tamanio_id),
@@ -145,7 +145,7 @@ export class InternosService {
       pelo_tipo_id: parseInt(data.pelo_tipo_id),
       pelo_color_id: parseInt(data.pelo_color_id),
       piel_id: parseInt(data.piel_id),
-      marca_corporal: parseInt(data.marca_corporal),
+      //marca_corporal: parseInt(data.marca_corporal),
       //pabellon_id: parseInt(data.pabellon_id),
       establecimiento_procedencia_id: parseInt(data.establecimiento_procedencia_id),
       //reingreso_id: parseInt(data.reingreso_id),
@@ -155,6 +155,7 @@ export class InternosService {
       //tipo_condena_id: parseInt(data.tipo_condena_id),
       //expediente_numero: data.expediente_numero,
       prontuario_policial: data.prontuario_policial,
+      pabellon_id: parseInt(data.pabellon_id),
       //expediente_policial: data.expediente_policial,
       //estado_procesal_id: parseInt(data.estado_procesal_id),
       //tipo_delito_id: parseInt(data.tipo_delito_id),
@@ -189,7 +190,7 @@ export class InternosService {
     const interno: any = {
       //id_interno: 0,
       
-      pabellon_id: parseInt(data.pabellon_id),
+      
       reingreso_id: parseInt(data.reingreso_id),
       reingreso_num: parseInt(data.reingreso_num),
       causa_penal: data.causa_penal,

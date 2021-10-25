@@ -40,14 +40,30 @@
                                                 <!-- FILA 1-->
                                                 <div class="row">
                                                     <div class="col-12 col-lg-5">
-                                                        <label for="fecha-ingreso-input">Fecha Ingreso</label>
-                                                        <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso">
+                                                        <label for="">Fecha Ingreso</label>
+                                                        <!-- <input id="fecha-ingreso-input" type="text" pInputText formControlName="fecha_ingreso"> -->
+                                                        <input formControlName="fecha_ingreso" type="text" class="form-control" placeholder="Fecha ingreso" [class.is-invalid]="">
+                                                        <small *ngIf="fechaIngresoNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.fecha_ingreso" >
+                                                                <div  *ngIf="formData.get('fecha_ingreso')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-12  col-lg-7">
-                                                        <label for="establecimiento-procedencia-input">Establecimiento Procedencia</label>
-                                                        <p-dropdown [options]="drop_establecimiento_procedencia" id="establecimiento-procedencia-input" [virtualScroll]="true" formControlName="establecimiento_procedencia_id"></p-dropdown>
-
+                                                        <label for="">Establecimiento Procedencia</label>
+                                                        <select formControlName="establecimiento_procedencia_id" class="form-control" [class.is-invalid]=""> 
+                                                            <option *ngFor="let establecimiento_procedencia of drop_establecimiento_procedencia" [value]="establecimiento_procedencia.id_establecimiento_procedencia">{{establecimiento_procedencia.establecimiento_procedencia}}</option> 
+                                                        </select>
+                                                        <small *ngIf="establecimientoProcedenciaNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.establecimiento_procedencia_id" >
+                                                                <div  *ngIf="formData.get('establecimiento_procedencia_id')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <!-- FILA 1-->
@@ -55,22 +71,40 @@
                                                 <!-- FILA 2-->
                                                 <div class="row">
                                                     <div class="col-5 col-lg-4">
-                                                        <label for="prontuario-input">Prontuario</label>
-                                                        <!-- <input id="prontuario-input" type="text" pInput formControlName="prontuario" >  -->
-                                                        <p-inputNumber id="prontuario-input" formControlName="prontuario"></p-inputNumber>
-
+                                                        <label for="">Prontuario</label>
+                                                        <input formControlName="prontuario" type="text" class="form-control" placeholder="Prontuario" [class.is-invalid]="">
+                                                        <small *ngIf="prontuarioNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.prontuario" >
+                                                                <div  *ngIf="formData.get('prontuario')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-7 col-lg-5">
-                                                        <label for="prontuario-policial-input">Prontuario Policial</label>
-                                                        <input id="prontuario-policial-input" type="text" pInputText formControlName="prontuario_policial">
+                                                        <label for="">Prontuario Policial</label>
+                                                        <input formControlName="prontuario_policial" type="text" class="form-control" placeholder="Prontuario policial" [class.is-invalid]="">
 
+                                                        <small *ngIf="prontuarioPolicialNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.prontuario_policial" >
+                                                                <div  *ngIf="formData.get('prontuario_policial')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-6 col-lg-3">
-                                                        <label for="dni-input">DNI</label>
-                                                        <p-inputNumber id="dni-input" formControlName="dni"></p-inputNumber>
-
+                                                        <label for="">DNI</label>
+                                                        <input formControlName="dni" type="text" class="form-control" placeholder="Dni" [class.is-invalid]="">
+                                                        <small *ngIf="dniNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.dni" >
+                                                                <div  *ngIf="formData.get('dni')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <!-- FIN FILA 2-->
@@ -78,14 +112,27 @@
                                                 <!-- FIN FILA 3-->
                                                 <div class="row">
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="apellido_1-input">Apellido 1</label>
-                                                        <input id="apellido_1-input" type="text" pInputText formControlName="apellido_1">
+                                                        <label for="">Apellido 1</label>
+                                                        <input formControlName="apellido_1" type="text" class="form-control" placeholder="Apellido_1" [class.is-invalid]="">
+                                                        <small *ngIf="apellido1NoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.apellido_1" >
+                                                                <div  *ngIf="formData.get('apellido_1')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="apellido_2-input">Apellido 2</label>
-                                                        <input id="apellido_2-input" type="text" pInputText formControlName="apellido_2">
-
+                                                        <label for="">Apellido 2</label>
+                                                        <input formControlName="apellido_2" type="text" class="form-control" placeholder="Apellido_2" [class.is-invalid]="">
+                                                        <small *ngIf="apellido2NoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.apellido_2" >
+                                                                <div  *ngIf="formData.get('apellido_2')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <!-- FIN FILA 3-->
@@ -93,21 +140,39 @@
                                                 <!-- FILA 4-->
                                                 <div class="row ">
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="nombre_1-input">Nombre 1</label>
-                                                        <input id="nombre_1-input" type="text" pInputText formControlName="nombre_1">
-
+                                                        <label for="">Nombre 1</label>
+                                                        <input formControlName="nombre_1" type="text" class="form-control" placeholder="Nombre_1" [class.is-invalid]="">
+                                                        <small *ngIf="nombre1NoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.nombre_1" >
+                                                                <div  *ngIf="formData.get('nombre_1')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="nombre_2-input">Nombre 2</label>
-                                                        <input id="nombre_2-input" type="text" pInputText formControlName="nombre_2">
-
+                                                        <label for="">Nombre 2</label>
+                                                        <input formControlName="nombre_2" type="text" class="form-control" placeholder="Nombre_2" [class.is-invalid]="">
+                                                        <small *ngIf="nombre2NoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.nombre_2" >
+                                                                <div  *ngIf="formData.get('nombre_2')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
 
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="nombre_3-input">Nombre 3</label>
-                                                        <input id="nombre_3-input" type="text" pInputText formControlName="nombre_3">
-
+                                                        <label for="">Nombre 3</label>
+                                                        <input formControlName="nombre_3" type="text" class="form-control" placeholder="Nombre_3" [class.is-invalid]="">
+                                                        <small *ngIf="nombre3NoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.nombre_3" >
+                                                                <div  *ngIf="formData.get('nombre_3')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <!-- FIN FILA 4-->
@@ -116,9 +181,28 @@
                                                 <div class="row ">
 
                                                     <div class="col-12 col-lg-6">
-                                                        <label for="alias-input">Alias</label>
-                                                        <input id="alias-input" type="text" pInputText formControlName="alias">
-
+                                                        <label for="">Alias</label>
+                                                        <input formControlName="alias" type="text" class="form-control" placeholder="Alias" [class.is-invalid]="">
+                                                        <small *ngIf="aliasNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.alias" >
+                                                                <div  *ngIf="formData.get('alias')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
+                                                    </div>
+                                                    <div class="col-4 ">
+                                                        <label for="">Pabellon</label>
+                                                        <select formControlName="pabellon_id" class="form-control" [class.is-invalid]=""> 
+                                                            <option *ngFor="let pabellon of drop_pabellon" [value]="pabellon.id_pabellon">{{pabellon.pabellon}}</option> 
+                                                        </select>
+                                                        <small *ngIf="pabellonNoValido" class="form-text text-danger">
+                                                            <div *ngFor="let validation of interno_validation_messages.pabellon_id" >
+                                                                <div  *ngIf="formData.get('pabellon_id')?.hasError(validation.type)">
+                                                                    {{validation.message}}
+                                                                </div>
+                                                            </div>
+                                                        </small>
                                                     </div>
                                                 </div>
                                                 <!-- FIN FILA 5-->
@@ -139,21 +223,45 @@
                                         <!-- FILA 1-->
                                         <div class="row ">
                                             <div class="col-4">
-                                                <label for="ojos-color-input">Ojos Color</label>
-                                                <p-dropdown [options]="drop_ojos_color" id="ojos-color-input" [virtualScroll]="true" formControlName="ojos_color_id"></p-dropdown>
-
+                                                <label for="">Ojos Color</label>
+                                                <select formControlName="ojos_color_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let ojos_color of drop_ojos_color" [value]="ojos_color.id_ojos_color">{{ojos_color.ojos_color}}</option> 
+                                                </select>
+                                                <small *ngIf="ojosColorNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.ojos_color_id" >
+                                                        <div  *ngIf="formData.get('ojos_color_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4">
-                                                <label for="ojos-tamanio-input">Ojos Tamanio</label>
-                                                <p-dropdown [options]="drop_ojos_tamanio" id="ojos-tamanio-input" [virtualScroll]="true" formControlName="ojos_tamanio_id"></p-dropdown>
-
+                                                <label for="">Ojos Tamaño</label>
+                                                <select formControlName="ojos_tamanio_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let ojos_tamanio of drop_ojos_tamanio" [value]="ojos_tamanio.id_ojos_tamanio">{{ojos_tamanio.ojos_tamanio}}</option> 
+                                                </select>
+                                                <small *ngIf="ojosTamanioNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.ojos_tamanio_id" >
+                                                        <div  *ngIf="formData.get('ojos_tamanio_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4  ">
-                                                <label for="nariz-tamanio-input">Nariz Tamanio</label>
-                                                <p-dropdown [options]="drop_nariz_tamanio" id="nariz-tamanio-input" [virtualScroll]="true" formControlName="nariz_tamanio_id"></p-dropdown>
-
+                                                <label for="">Pelo Tipo</label>
+                                                <select formControlName="pelo_tipo_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let pelo_tipo of drop_pelo_tipo" [value]="pelo_tipo.id_pelo_tipo">{{pelo_tipo.pelo_tipo}}</option> 
+                                                </select>
+                                                <small *ngIf="peloTipoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.pelo_tipo_id" >
+                                                        <div  *ngIf="formData.get('pelo_tipo_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -162,21 +270,45 @@
                                         <!-- FILA 2-->
                                         <div class="row ">
                                             <div class="col-4 ">
-                                                <label for="nariz-forma-input">Nariz Forma</label>
-                                                <p-dropdown [options]="drop_nariz_forma" id="nariz-forma-input" [virtualScroll]="true" formControlName="nariz_forma_id"></p-dropdown>
-
+                                                <label for="">Nariz Forma</label>
+                                                <select formControlName="nariz_forma_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let nariz_forma of drop_nariz_forma" [value]="nariz_forma.id_nariz_forma">{{nariz_forma.nariz_forma}}</option> 
+                                                </select>
+                                                <small *ngIf="narizFormaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.nariz_forma_id" >
+                                                        <div  *ngIf="formData.get('nariz_forma_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4 ">
-                                                <label for="pelo-tipo-input">Pelo Tipo</label>
-                                                <p-dropdown [options]="drop_pelo_tipo" id="pelo-tipo-input" [virtualScroll]="true" formControlName="pelo_tipo_id"></p-dropdown>
-
+                                                <label for="">Nariz Tamaño</label>
+                                                <select formControlName="nariz_tamanio_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let nariz_tamanio of drop_nariz_tamanio" [value]="nariz_tamanio.id_nariz_tamanio">{{nariz_tamanio.nariz_tamanio}}</option> 
+                                                </select>
+                                                <small *ngIf="narizTamanioNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.nariz_tamanio_id" >
+                                                        <div  *ngIf="formData.get('nariz_tamanio_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4 ">
-                                                <label for="pelo-color-input">Nariz Tamanio</label>
-                                                <p-dropdown [options]="drop_pelo_color" id="pelo-color-input" [virtualScroll]="true" formControlName="pelo_color_id"></p-dropdown>
-
+                                                <label for="">Piel</label>
+                                                <select formControlName="piel_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let piel of drop_piel" [value]="piel.id_piel">{{piel.piel}}</option> 
+                                                </select>
+                                                <small *ngIf="pielNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.piel_id" >
+                                                        <div  *ngIf="formData.get('piel_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -185,21 +317,27 @@
                                         <!-- FILA 3-->
                                         <div class="row ">
                                             <div class="col-4 ">
-                                                <label for="piel-input">Piel</label>
-                                                <p-dropdown [options]="drop_piel" id="piel-input" [virtualScroll]="true" formControlName="piel_id"></p-dropdown>
-
+                                                <label for="">Marca Corporal</label>
+                                                <input formControlName="marca_corporal" type="text" class="form-control" placeholder="Marca corporal" [class.is-invalid]="">
+                                                <small *ngIf="marcaCorporalNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.marca_corporal" >
+                                                        <div  *ngIf="formData.get('marca_corporal')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4">
-                                                <label for="marca-corporal-input">Marca Corporal</label>
-                                                <input id="marca-corporal-input" type="text" pInputText formControlName="marca_corporal">
-
-                                            </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <label for="talla-input">Talla</label>
-                                                <input id="talla-input" type="text" pInputText formControlName="talla">
-
+                                                <label for="">Altura</label>
+                                                <input formControlName="altura" type="text" class="form-control" placeholder="Talla" [class.is-invalid]="">
+                                                <small *ngIf="alturaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.altura" >
+                                                        <div  *ngIf="formData.get('altura')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -217,15 +355,31 @@
                                         <!-- FILA 1-->
                                         <div class="row ">
                                             <div class="col-5 col-lg-3 ">
-                                                <label for="sexo-input">Sexo</label>
-                                                <p-dropdown [options]="drop_sexo" id="sexo-input" [virtualScroll]="true" formControlName="sexo_id"></p-dropdown>
-
+                                                <label for="">Sexo</label>
+                                                <select formControlName="sexo_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let sexo of drop_sexo" [value]="sexo.id_sexo">{{sexo.sexo}}</option> 
+                                                </select>
+                                                <small *ngIf="sexoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.sexo_id" >
+                                                        <div  *ngIf="formData.get('sexo_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-5 col-lg-3 ">
-                                                <label for="estado_civil-input">Estado Civil</label>
-                                                <p-dropdown [options]="drop_estado_civil" id="estado_civil-input" [virtualScroll]="true" formControlName="estado_civil_id"></p-dropdown>
-
+                                                <label for="">Estado Civil</label>
+                                                <select formControlName="estado_civil_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let estado_civil of drop_estado_civil" [value]="estado_civil.id_estado_civil">{{estado_civil.estado_civil}}</option> 
+                                                </select>
+                                                <small *ngIf="estadoCivilNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.estado_civil_id" >
+                                                        <div  *ngIf="formData.get('estado_civil_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
                                         <!-- FIN FILA 1-->
@@ -233,21 +387,43 @@
                                         <!-- FILA 2-->
                                         <div class="row ">
                                             <div class="col-4 ">
-                                                <label for="nacionalidad-input">Nacionalidad</label>
-                                                <p-dropdown [options]="drop_nacionalidad" id="nacionalidad-input" [virtualScroll]="true" formControlName="nacionalidad_id"></p-dropdown>
-
+                                                <label for="">Nacionalidad</label>
+                                                <select formControlName="nacionalidad_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let nacionalidad of drop_nacionalidad" [value]="nacionalidad.id_nacionalidad">{{nacionalidad.nacionalidad}}</option> 
+                                                </select>
+                                                <small *ngIf="nacionalidadNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.nacionalidad_id" >
+                                                        <div  *ngIf="formData.get('nacionalidad_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-2 ">
-                                                <label for="zona_residencia-input">Zona Residencia</label>
-                                                <p-dropdown [options]="drop_zona_residencia" id="zona_residencia-input" [virtualScroll]="true" formControlName="zona_residencia_id"></p-dropdown>
-
+                                                <label for="">Zona Residencia</label>
+                                                <select formControlName="zona_residencia_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let zona_residencia of drop_zona_residencia" [value]="zona_residencia.id_zona_residencia">{{zona_residencia.zona_residencia}}</option> 
+                                                </select>
+                                                <small *ngIf="zonaResidenciaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.zona_residencia_id" >
+                                                        <div  *ngIf="formData.get('zona_residencia_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-6">
-                                                <label for="domicilio-input">domicilio</label>
-                                                <input id="domicilio-input" type="text" pInputText formControlName="domicilio">
-
+                                                <label for="">Domicilio</label>
+                                                <input formControlName="domicilio" type="text" class="form-control" placeholder="Domicilio" [class.is-invalid]="">
+                                                <small *ngIf="domicilioNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.domicilio" >
+                                                        <div  *ngIf="formData.get('domicilio')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
 
@@ -257,15 +433,29 @@
                                         <div class="row ">
 
                                             <div class="col-4 ">
-                                                <label for="departamento-input">Departamento</label>
-                                                <p-dropdown [options]="drop_departamento" id="departamento-input" [virtualScroll]="true" formControlName="departamento_id"></p-dropdown>
-
+                                                <label for="">Departamento</label>
+                                                <select formControlName="departamento_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let departamento of drop_departamento" [value]="departamento.id_departamento">{{departamento.departamento}}</option> 
+                                                </select>
+                                                <small *ngIf="departamentoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.departamento_id" >
+                                                        <div  *ngIf="formData.get('departamento_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-7 col-lg-3 ">
-                                                <label for="telefono-input">telefono</label>
-                                                <input id="telefono-input" type="text" pInputText formControlName="telefono">
-
+                                                <label for="">Telefono</label>
+                                                <input formControlName="telefono" type="text" class="form-control" placeholder="Telefono" [class.is-invalid]="">
+                                                <small *ngIf="telefonoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.telefono" >
+                                                        <div  *ngIf="formData.get('telefono')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
                                         <!-- FIN FILA 3-->
@@ -273,21 +463,41 @@
                                         <!-- FILA 4-->
                                         <div class="row ">
                                             <div class="col-6 col-lg-4 ">
-                                                <label for="fecha_nacimiento-input">Fecha Nacimiento</label>
-                                                <input id="fecha_nacimiento-input" type="text" pInputText formControlName="fecha_nacimiento">
-
+                                                <label for="">Fecha Nacimiento</label>
+                                                <input formControlName="fecha_nacimiento" type="text" class="form-control" placeholder="Fecha nacimiento" [class.is-invalid]="">
+                                                <small *ngIf="fechaNacimientoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.fecha_nacimiento" >
+                                                        <div  *ngIf="formData.get('fecha_nacimiento')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-6 col-lg-4">
-                                                <label for="departamento_nacimiento-input">Departamento Nacimiento</label>
-                                                <p-dropdown [options]="drop_departamento" id="departamento_nacimiento-input" [virtualScroll]="true" formControlName="departamento_nacimiento_id"></p-dropdown>
-
+                                                <label for="">Departamento Nacimiento</label>
+                                                <select formControlName="departamento_nacimiento_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let departamento_nacimiento of drop_departamento" [value]="departamento_nacimiento.id_departamento">{{departamento_nacimiento.departamento}}</option> 
+                                                </select>
+                                                <small *ngIf="departamentoNacimientoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.departamento_nacimiento_id" >
+                                                        <div  *ngIf="formData.get('departamento_nacimiento_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4">
-                                                <label for="lugar_nacimiento-input">Lugar Nacimiento</label>
-                                                <input id="lugar_nacimiento-input" type="text" pInputText formControlName="lugar_nacimiento">
-
+                                                <label for="">Lugar Nacimiento</label>
+                                                <input formControlName="lugar_nacimiento" type="text" class="form-control" placeholder="Lugar nacimiento" [class.is-invalid]="">
+                                                <small *ngIf="lugarNacimientoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.lugar_nacimiento" >
+                                                        <div  *ngIf="formData.get('lugar_nacimiento')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
 
@@ -297,20 +507,38 @@
                                         <!-- FILA 5-->
                                         <div class="row ">
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="padre-input">Padre</label>
-                                                <input id="padre-input" type="text" pInputText formControlName="padre">
-
+                                                <label for="">Padre</label>
+                                                <input formControlName="padre" type="text" class="form-control" placeholder="Padre" [class.is-invalid]="">
+                                                <small *ngIf="padreNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.padre" >
+                                                        <div  *ngIf="formData.get('padre')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-6 col-lg-4">
-                                                <label for="madre-input">Madre</label>
-                                                <input id="madre-input" type="text" pInputText formControlName="madre">
-
+                                                <label for="">Madre</label>
+                                                <input formControlName="madre" type="text" class="form-control" placeholder="Madre" [class.is-invalid]="">
+                                                <small *ngIf="madreNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.madre" >
+                                                        <div  *ngIf="formData.get('madre')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="parientes-input">Parientes</label>
-                                                <input id="parientes-input" type="text" pInputText formControlName="parientes">
-
+                                                <label for="">Parientes</label>
+                                                <input formControlName="parientes" type="text" class="form-control" placeholder="Parientes" [class.is-invalid]="">
+                                                <small *ngIf="parientesNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.parientes" >
+                                                        <div  *ngIf="formData.get('parientes')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
 
@@ -319,21 +547,41 @@
                                         <!-- FILA 6-->
                                         <div class="row ">
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="referente_emergencia-input">Referente Emergencia</label>
-                                                <input id="referente_emergencia-input" type="text" pInputText formControlName="referente_emergencia">
-
+                                                <label for="">Referente Emergencia</label>
+                                                <input formControlName="referente_emergencia" type="text" class="form-control" placeholder="Referente emergencia" [class.is-invalid]="">
+                                                <small *ngIf="referenteEmergenciaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.referente_emergencia" >
+                                                        <div  *ngIf="formData.get('referente_emergencia')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4 ">
-                                                <label for="nivel-educacion-input">Nivel Educacion</label>
-                                                <p-dropdown [options]="drop_nivel_educacion" id="nivel-educacion-input" [virtualScroll]="true" formControlName="nivel_educacion_id"></p-dropdown>
-
+                                                <label for="">Nivel Educacion_id</label>
+                                                <select formControlName="nivel_educacion_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let nivel_educacion of drop_nivel_educacion" [value]="nivel_educacion.id_nivel_educacion">{{nivel_educacion.nivel_educacion}}</option> 
+                                                </select>
+                                                <small *ngIf="nivelEducacionNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.nivel_educacion_id" >
+                                                        <div  *ngIf="formData.get('nivel_educacion_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="profesion-input">Profesion</label>
-                                                <input id="profesion-input" type="text" pInputText formControlName="profesion">
-
+                                                <label for="">Profesion</label>
+                                                <input formControlName="profesion" type="text" class="form-control" placeholder="Profesion" [class.is-invalid]="">
+                                                <small *ngIf="profesionNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.profesion" >
+                                                        <div  *ngIf="formData.get('profesion')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
 
@@ -342,15 +590,31 @@
                                         <!-- FILA 7-->
                                         <div class="row ">
                                             <div class="col-4 ">
-                                                <label for="ultimo-oficio-input">Ultimo Oficio</label>
-                                                <p-dropdown [options]="drop_oficio" id="ultimo-oficio-input" [virtualScroll]="true" formControlName="ultimo_oficio_id"></p-dropdown>
-
+                                                <label for="">Ultimo Oficio</label>
+                                                <select formControlName="ultimo_oficio_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let ultimo_oficio of drop_oficio" [value]="ultimo_oficio.id_oficio">{{ultimo_oficio.oficio}}</option> 
+                                                </select>
+                                                <small *ngIf="ultimoOficioNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.ultimo_oficio_id" >
+                                                        <div  *ngIf="formData.get('ultimo_oficio_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4">
-                                                <label for="religion-input">Religion</label>
-                                                <p-dropdown [options]="drop_religion" id="religion-input" [virtualScroll]="true" formControlName="religion_id"></p-dropdown>
-
+                                                <label for="">Religion</label>
+                                                <select formControlName="religion_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let religion of drop_religion" [value]="religion.id_religion">{{religion.religion}}</option> 
+                                                </select>
+                                                <small *ngIf="religionNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.religion_id" >
+                                                        <div  *ngIf="formData.get('religion_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -425,15 +689,30 @@
                                         <!-- FILA 1-->
                                         <div class="row ">
                                             <div class="col-12 col-lg-6 ">
-                                                <label for="causa-penal-input">Causa Penal</label>
-                                                <input id="causa-penal-input" type="text" pInputText formControlName="causa_penal">
+                                                <label for="">Causa Penal</label>
+                                                <input formControlName="causa_penal" type="text" class="form-control" placeholder="Causa penal" [class.is-invalid]="">
+                                                <small *ngIf="causaPenalNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.causa_penal" >
+                                                        <div  *ngIf="formDataProcesales.get('causa_penal')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
 
                                             </div>
 
                                             <div class="col-6 ">
-                                                <label for="tipo-condena-input">Tipo Condena</label>
-                                                <p-dropdown [options]="drop_tipo_condena" id="tipo-condena-input" [virtualScroll]="true" formControlName="tipo_condena_id"></p-dropdown>
-
+                                                <label for="">Tipo Condena</label>
+                                                <select formControlName="tipo_condena_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let tipo_condena of drop_tipo_condena" [value]="tipo_condena.id_tipo_condena">{{tipo_condena.tipo_condena}}</option> 
+                                                </select>
+                                                <small *ngIf="tipoCondenaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.tipo_condena_id" >
+                                                        <div  *ngIf="formDataProcesales.get('tipo_condena_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
 
@@ -443,23 +722,42 @@
 
                                         <!-- FILA 2-->
                                         <div class="row ">
-
                                             <div class="col-12 col-lg-3 ">
-                                                <label for="expediente-numero-input">Expediente Numero</label>
-                                                <input id="expediente-numero-input" type="text" pInputText formControlName="expediente_numero">
-
+                                                <label for="">Expediente Numero</label>
+                                                <input formControlName="expediente_numero" type="text" class="form-control" placeholder="Expediente numero" [class.is-invalid]="">
+                                                <small *ngIf="expedienteNumeroNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.expediente_numero" >
+                                                        <div  *ngIf="formDataProcesales.get('expediente_numero')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-3 ">
-                                                <label for="expediente-policial-input">Expediente Policial</label>
-                                                <input id="expediente-policial-input" type="text" pInputText formControlName="expediente_policial">
-
+                                                <label for="">Expediente Policial</label>
+                                                <input formControlName="expediente_policial" type="text" class="form-control" placeholder="Expediente policial" [class.is-invalid]="">
+                                                <small *ngIf="expedientePolicialNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.expediente_policial" >
+                                                        <div  *ngIf="formDataProcesales.get('expediente_policial')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-6">
-                                                <label for="tipo-delito-input">Tipo Delito</label>
-                                                <p-dropdown [options]="drop_tipo_delito" id="tipo-delito-input" [virtualScroll]="true" formControlName="tipo_delito_id"></p-dropdown>
-
+                                                <label for="">Tipo Delito</label>
+                                                <select formControlName="tipo_delito_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let tipo_delito of drop_tipo_delito" [value]="tipo_delito.id_tipo_delito">{{tipo_delito.tipo_delito}}</option> 
+                                                </select>
+                                                <small *ngIf="tipoDelitoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.tipo_delito_id" >
+                                                        <div  *ngIf="formDataProcesales.get('tipo_delito_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -468,46 +766,87 @@
                                         <!-- FILA 3-->
                                         <div class="row ">
                                             <div class="col-4 ">
-                                                <label for="estado-procesal-input">Estado Procesal</label>
-                                                <p-dropdown [options]="drop_estado_procesal" id="estado-procesal-input" [virtualScroll]="true" formControlName="estado_procesal_id"></p-dropdown>
-
+                                                <label for="">Estado Procesal</label>
+                                                <select formControlName="estado_procesal_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let estado_procesal of drop_estado_procesal" [value]="estado_procesal.id_estado_procesal">{{estado_procesal.estado_procesal}}</option> 
+                                                </select>
+                                                <small *ngIf="estadoProcesalNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.estado_procesal_id" >
+                                                        <div  *ngIf="formDataProcesales.get('estado_procesal_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12  col-lg-4 ">
-                                                <label for="reingreso-input">Reingreso</label>
-                                                <p-dropdown [options]="drop_reingreso" id="reingreso-input" [virtualScroll]="true" formControlName="reingreso_id"></p-dropdown>
-
+                                                <label for="">Reingreso</label>
+                                                <select formControlName="reingreso_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let reingreso of drop_reingreso" [value]="reingreso.id_reingreso">{{reingreso.reingreso}}</option> 
+                                                </select>
+                                                <small *ngIf="reingresoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.reingreso_id" >
+                                                        <div  *ngIf="formDataProcesales.get('reingreso_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-2 ">
-                                                <label for="reingreso-num-input">Reingreso Numero</label>
-                                                <input id="reingreso-num-input" type="text" pInputText formControlName="reingreso_num">
-
+                                                <label for="">Reingreso Numero</label>
+                                                <input formControlName="reingreso_num" type="text" class="form-control" placeholder="Reingreso numero" [class.is-invalid]="">
+                                                <small *ngIf="reingresoNumNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.reingreso_num" >
+                                                        <div  *ngIf="formDataProcesales.get('reingreso_num')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
-
-
                                         </div>
                                         <!-- FIN FILA 3-->
 
                                         <!-- FILA 4-->
                                         <div class="row ">
-
                                             <div class="col-4 ">
-                                                <label for="reincidencia-input">Reincidencia</label>
-                                                <p-dropdown [options]="drop_reincidencia" id="reincidencia-input" [virtualScroll]="true" formControlName="reincidencia_id"></p-dropdown>
-
+                                                <label for="">Reincidencia</label>
+                                                <select formControlName="reincidencia_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let reincidencia of drop_reincidencia" [value]="reincidencia.id_reincidencia">{{reincidencia.reincidencia}}</option> 
+                                                </select>
+                                                <small *ngIf="reincidenciaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.reincidencia_id" >
+                                                        <div  *ngIf="formDataProcesales.get('reincidencia_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-3 ">
-                                                <label for="reincidencia_num-input">Reincidencia Numero</label>
-                                                <input id="reincidencia_num-input" type="text" pInputText formControlName="reincidencia_num">
-
+                                                <label for="">Reincidencia Numero</label>
+                                                <input formControlName="reincidencia_num" type="text" class="form-control" placeholder="Reincidencia numero" [class.is-invalid]="">
+                                                <small *ngIf="reincidenciaNumNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.reincidencia_num" >
+                                                        <div  *ngIf="formDataProcesales.get('reincidencia_num')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-5 ">
-                                                <label for="juzgado-input">Juzgado</label>
-                                                <p-dropdown [options]="drop_juzgado" id="juzgado-input" [virtualScroll]="true" formControlName="juzgado_id"></p-dropdown>
-
+                                                <label for="">Juzgado</label>
+                                                <select formControlName="juzgado_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let juzgado of drop_juzgado" [value]="juzgado.id_juzgado">{{juzgado.juzgado}}</option> 
+                                                </select>
+                                                <small *ngIf="juzgadoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.juzgado_id" >
+                                                        <div  *ngIf="formDataProcesales.get('juzgado_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -516,21 +855,43 @@
                                         <!-- FILA 5-->
                                         <div class="row ">
                                             <div class="col-4">
-                                                <label for="jurisdiccion-input">Jurisdiccion</label>
-                                                <p-dropdown [options]="drop_jurisdiccion" id="jurisdiccion-input" [virtualScroll]="true" formControlName="jurisdiccion_id"></p-dropdown>
-
+                                                <label for="">Jurisdiccion</label>
+                                                <select formControlName="jurisdiccion_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let jurisdiccion of drop_jurisdiccion" [value]="jurisdiccion.id_jurisdiccion">{{jurisdiccion.jurisdiccion}}</option> 
+                                                </select>
+                                                <small *ngIf="jurisdiccionNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.jurisdiccion_id" >
+                                                        <div  *ngIf="formDataProcesales.get('jurisdiccion_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-4 ">
-                                                <label for="jurisdiccion_provinicia-input">Jurisdiccion Provinicia</label>
-                                                <p-dropdown [options]="drop_provincia" id="jurisdiccion_provinicia-input" [virtualScroll]="true" formControlName="jurisdiccion_provinicia_id"></p-dropdown>
-
+                                                <label for="">Jurisdiccion Provincia</label>
+                                                <select formControlName="jurisdiccion_provinicia_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let jurisdiccion_provinicia of drop_provincia" [value]="jurisdiccion_provinicia.id_provincia">{{jurisdiccion_provinicia.provincia}}</option> 
+                                                </select>
+                                                <small *ngIf="jurisdiccionProviniciaNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.jurisdiccion_provinicia_id" >
+                                                        <div  *ngIf="formDataProcesales.get('jurisdiccion_provinicia_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="fecha_detencion-input">Fecha Detencion</label>
-                                                <input id="fecha_detencion-input" type="text" pInputText formControlName="fecha_detencion">
-
+                                                <label for="">Fecha Detencion</label>
+                                                <input formControlName="fecha_detencion" type="text" class="form-control" placeholder="Fecha detencion" [class.is-invalid]="">
+                                                <small *ngIf="fechaDetencionNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.fecha_detencion" >
+                                                        <div  *ngIf="formDataProcesales.get('fecha_detencion')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -539,9 +900,15 @@
                                         <!-- FILA 6-->
                                         <div class="row ">
                                             <div class="col-12 col-lg-6">
-                                                <label for="detenciones-input">Detenciones</label>
-                                                <input id="detenciones-input" type="text" pInputText formControlName="detenciones">
-
+                                                <label for="">Detenciones</label>
+                                                <input formControlName="detenciones" type="text" class="form-control" placeholder="Detenciones" [class.is-invalid]="">
+                                                <small *ngIf="detencionesNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.detenciones" >
+                                                        <div  *ngIf="formDataProcesales.get('detenciones')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -550,27 +917,53 @@
                                         <!-- FILA 7-->
                                         <div class="row ">
                                             <div class="col-5 ">
-                                                <label for="condena_juzgado_id-input">Juzgado Condena</label>
-                                                <p-dropdown [options]="drop_juzgado" id="condena_juzgado_id-input" [virtualScroll]="true" formControlName="condena_juzgado_id"></p-dropdown>
-
+                                                <label for="">Juzgado Condena</label>
+                                                <select formControlName="condena_juzgado_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let condena_juzgado of drop_juzgado" [value]="condena_juzgado.id_juzgado">{{condena_juzgado.juzgado}}</option> 
+                                                </select>
+                                                <small *ngIf="condenaJuzgadoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.condena_juzgado_id" >
+                                                        <div  *ngIf="formDataProcesales.get('condena_juzgado_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-2">
-                                                <label for="total_anios-input">Total Años</label>
-                                                <input id="total_anios-input" type="text" pInputText formControlName="total_anios">
-
+                                                <label for="">Total Años</label>
+                                                <input formControlName="total_anios" type="text" class="form-control" placeholder="Total años" [class.is-invalid]="">
+                                                <small *ngIf="totalAniosNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.total_anios" >
+                                                        <div  *ngIf="formDataProcesales.get('total_anios')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-2">
-                                                <label for="total_meses-input">Total Meses</label>
-                                                <input id="total_meses-input" type="text" pInputText formControlName="total_meses">
-
+                                                <label for="">Total Meses</label>
+                                                <input formControlName="total_meses" type="text" class="form-control" placeholder="Total meses" [class.is-invalid]="">
+                                                <small *ngIf="totalMesesNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.total_meses" >
+                                                        <div  *ngIf="formDataProcesales.get('total_meses')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-2 ">
-                                                <label for="total_dias-input">Total Dias</label>
-                                                <input id="total_dias-input" type="text" pInputText formControlName="total_dias">
-
+                                                <label for="">Total Dias</label>
+                                                <input formControlName="total_dias" type="text" class="form-control" placeholder="Total dias" [class.is-invalid]="">
+                                                <small *ngIf="totalDiasNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.total_dias" >
+                                                        <div  *ngIf="formDataProcesales.get('total_dias')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                         </div>
@@ -578,25 +971,28 @@
 
                                         <!-- FILA 8-->
                                         <div class="row ">
-
-
-
-
-                                        </div>
-                                        <!-- FIN FILA 8-->
-
-                                        <!-- FILA 9-->
-                                        <div class="row ">
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="computo-input">Computo</label>
-                                                <input id="computo-input" type="text" pInputText formControlName="computo">
-
+                                                <label for="">Computo</label>
+                                                <input formControlName="computo" type="text" class="form-control" placeholder="Computo" [class.is-invalid]="">
+                                                <small *ngIf="computoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.computo" >
+                                                        <div  *ngIf="formDataProcesales.get('computo')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4 ">
-                                                <label for="fecha_cumple-input">Fecha Cumple</label>
-                                                <input id="fecha_cumple-input" type="text" pInputText formControlName="fecha_cumple">
-
+                                                <label for="">Fecha Cumple</label>
+                                                <input formControlName="fecha_cumple" type="text" class="form-control" placeholder="Fecha cumple" [class.is-invalid]="">
+                                                <small *ngIf="fechaCumpleNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.fecha_cumple" >
+                                                        <div  *ngIf="formDataProcesales.get('fecha_cumple')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
                                         </div>
                                         <!-- FIN FILA 8-->
@@ -604,22 +1000,32 @@
                                         <!-- FILA 9-->
                                         <div class="row ">
                                             <div class="col-4">
-                                                <label for="tipo_defensor-input">Tipo Defensor</label>
-                                                <p-dropdown [options]="drop_tipo_defensor" id="tipo_defensor-input" [virtualScroll]="true" formControlName="tipo_defensor_id"></p-dropdown>
-
+                                                <label for="">Tipo Defensor</label>
+                                                <select formControlName="tipo_defensor_id" class="form-control" [class.is-invalid]=""> 
+                                                    <option *ngFor="let tipo_defensor of drop_tipo_defensor" [value]="tipo_defensor.id_tipo_defensor">{{tipo_defensor.tipo_defensor}}</option> 
+                                                </select>
+                                                <small *ngIf="tipoDefensorNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.tipo_defensor_id" >
+                                                        <div  *ngIf="formDataProcesales.get('tipo_defensor_id')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
                                             <div class="col-12 col-lg-4">
-                                                <label for="abogado-input">Abogado</label>
-                                                <input id="abogado-input" type="text" pInputText formControlName="abogado">
-
+                                                <label for="">Abogado</label>
+                                                <input formControlName="abogado" type="text" class="form-control" placeholder="Abogado" [class.is-invalid]="">
+                                                <small *ngIf="abogadoNoValido" class="form-text text-danger">
+                                                    <div *ngFor="let validation of interno_validation_messages.abogado" >
+                                                        <div  *ngIf="formDataProcesales.get('abogado')?.hasError(validation.type)">
+                                                            {{validation.message}}
+                                                        </div>
+                                                    </div>
+                                                </small>
                                             </div>
 
-                                            <div class="col-4 ">
-                                                <label for="pabellon-input">Pabellon</label>
-                                                <p-dropdown [options]="drop_pabellon" id="pabellon-input" [virtualScroll]="true" formControlName="pabellon_id"></p-dropdown>
 
-                                            </div>
 
                                         </div>
                                         <!-- FIN FILA 9-->

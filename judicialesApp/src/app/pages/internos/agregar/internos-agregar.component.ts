@@ -121,7 +121,7 @@ export class InternosAgregarComponent implements OnInit {
     computo: ['1',[Validators.required]],
     fecha_cumple: ['2018-04-12',[Validators.required]],
     tipo_defensor_id: ['2',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
-    abogado: ['Elvio',[Validators.required,Validators.minLength(2), Validators.maxLength(50)]]
+    abogado: ['Elvio',[Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.minLength(2), Validators.maxLength(50)]]
   });
   //FIN FORMULARIO
 
@@ -129,8 +129,8 @@ export class InternosAgregarComponent implements OnInit {
   crearInterno(){
     this.submitted=true;
     if(this.formData.invalid){  
-      console.log("formulario con errores", this.formData.get('prontuario')?.value);   
-      return;
+      Swal.fire('Formulario con errores','Complete correctamente todos los campos del formulario',"warning");
+      return Object.values(this.formData.controls).forEach(control => control.markAsTouched());     
     
     }
     this.internosService.crearInterno(this.formData.value)    
@@ -209,6 +209,7 @@ export class InternosAgregarComponent implements OnInit {
       { type: 'maxlength', message: 'La cantidad máxima de caracteres es 50.' }
     ],
     'apellido_2': [
+      { type: 'required', message: 'El segundo apellio es requerido' },
       { type: 'pattern', message: 'Solo se pueden ingresar letras y espacios.' },
       { type: 'minlength', message: 'La cantidad mínima de caracteres es 2.' },
       { type: 'maxlength', message: 'La cantidad máxima de caracteres es 50.'}
@@ -478,6 +479,7 @@ export class InternosAgregarComponent implements OnInit {
     ],
     'abogado': [
       { type: 'required', message: ' El abogado es requerido.' },
+      { type: 'pattern', message: 'Solo se pueden ingresar letras y espacios.' },
       { type: 'minlength', message: 'La cantidad mínima de caracteres es 2.' },
       { type: 'maxlength', message: 'La cantidad máxima de caracteres es 50.'} 
     ]
@@ -635,7 +637,7 @@ export class InternosAgregarComponent implements OnInit {
   get reingresoNoValido(){
     return this.formData.get('reingreso_id')?.invalid && this.formData.get('reingreso_id')?.touched;
   }  
-  get reingreso_numNoValido(){
+  get reingresoNumNoValido(){
     return this.formData.get('reingreso_num')?.invalid && this.formData.get('reingreso_num')?.touched;
   }  
 
