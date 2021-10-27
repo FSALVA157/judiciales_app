@@ -16,7 +16,7 @@ export class InternosService {
   //RETORNAR USUARIOS POR UNIDAD
   getListaInternosXUnidad(id_unidad: number){
     
-    return this.http.get<InternoModel[]>(`${environment.BASE_URL}/usuario/buscar-por-unidad?id_unidad=${id_unidad}`);
+    return this.http.get<[internos: InternoModel[], total: number]>(`${environment.BASE_URL}/interno/buscar-por-unidad?id_unidad=${id_unidad}`);
   }
   //FIN RETORNAR USUARIOS POR UNIDAD
 

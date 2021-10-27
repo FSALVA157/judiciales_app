@@ -4,6 +4,7 @@ import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
 
 import * as FileSaver from 'file-saver';
+import { globalConstants } from 'src/app/common/global-constants';
 
 interface IObjectModel{
   label: string; 
@@ -78,9 +79,10 @@ export class InternosListarComponent implements OnInit {
 
   //LISTADO COMPLETO DE INTERNOS POR UNIDAD
   listaInternos() {
+    const unidad: number = globalConstants.unidad;
     //const unidad: number = globalConstants.unidad;
     //console.log("unidad del usuario", unidad);
-    this.internosService.getListaInternosTodos()
+    this.internosService.getListaInternosXUnidad(unidad)
       .subscribe(
         data => {                    
           this.total = data[1];
