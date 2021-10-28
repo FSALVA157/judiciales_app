@@ -146,6 +146,10 @@ export class TablasArray {
         {
             "id_juzgado": 7,
             "juzgado": "juzgado correccional N°4"
+        },
+        {
+            "id_juzgado": 8,
+            "juzgado": "juzgado correccional N°5"
         }
     ]; //array de columnas para dropdown 
 
