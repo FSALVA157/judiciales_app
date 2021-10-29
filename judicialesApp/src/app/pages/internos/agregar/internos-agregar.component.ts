@@ -107,12 +107,13 @@ export class InternosAgregarComponent implements OnInit {
     expediente_policial: ['25-897',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
     estado_procesal_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     tipo_delito_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
-    jurisdiccion_id: ['2',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    jurisdiccion1_id: ['2',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    jurisdiccion2_id: ['2',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     reincidencia_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     reincidencia_num: ['1',[Validators.required,Validators.pattern(/^[0-9]*$/)]],
     juzgado_id: ['2',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     detenciones: ['en mas de una vez',[Validators.required,Validators.minLength(2), Validators.maxLength(50)]],
-    jurisdiccion_provinicia_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    jurisdiccion_provincia_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     fecha_detencion: ['2020-04-10',[Validators.required]],
     condena_juzgado_id: ['1',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     total_anios: ['4',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
@@ -421,7 +422,7 @@ export class InternosAgregarComponent implements OnInit {
       { type: 'required', message: 'El tipo de delito es requerido.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
-    'jurisdiccion_id': [
+    'jurisdiccion1_id': [
       { type: 'required', message: 'La jurisdiccion es requerida.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
@@ -442,7 +443,7 @@ export class InternosAgregarComponent implements OnInit {
       { type: 'minlength', message: 'La cantidad mínima de caracteres es 2.' },
       { type: 'maxlength', message: 'La cantidad máxima de caracteres es 50.'} 
     ],
-    'jurisdiccion_provinicia_id': [
+    'jurisdiccion_provincia_id': [
       { type: 'required', message: 'La jurisdiccion provincial es requerida.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
@@ -670,8 +671,8 @@ export class InternosAgregarComponent implements OnInit {
   get tipoDelitoNoValido(){
     return this.formData.get('tipo_delito_id')?.invalid && this.formData.get('tipo_delito_id')?.touched;
   }  
-  get jurisdiccionNoValido(){
-    return this.formData.get('jurisdiccion_id')?.invalid && this.formData.get('jurisdiccion_id')?.touched;
+  get jurisdiccion1NoValido(){
+    return this.formData.get('jurisdiccion1_id')?.invalid && this.formData.get('jurisdiccion1_id')?.touched;
   }  
 
   get reincidenciaNoValido(){    
@@ -689,7 +690,7 @@ export class InternosAgregarComponent implements OnInit {
   get detencionesNoValido(){
     return this.formData.get('detenciones')?.invalid && this.formData.get('detenciones')?.touched;
   }
-  get jurisdiccionProviniciaNoValido(){
+  get jurisdiccionProvinciaNoValido(){
     return this.formData.get('jurisdiccion_provinicia_id')?.invalid && this.formData.get('jurisdiccion_provinicia_id')?.touched;
   }
 

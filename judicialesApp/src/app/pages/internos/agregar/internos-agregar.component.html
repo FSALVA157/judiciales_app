@@ -784,13 +784,27 @@
                                 <!-- FILA 5-->
                                 <div class="row ">
                                     <div class="col-4">
-                                        <label for="">Jurisdiccion</label>
-                                        <select formControlName="jurisdiccion_id" class="form-control" [class.is-invalid]=""> 
+                                        <label for="">Jurisdiccion 1</label>
+                                        <select formControlName="jurisdiccion1_id" class="form-control" [class.is-invalid]=""> 
                                             <option *ngFor="let jurisdiccion of drop_jurisdiccion" [value]="jurisdiccion.id_jurisdiccion">{{jurisdiccion.jurisdiccion}}</option> 
                                         </select>
-                                        <small *ngIf="jurisdiccionNoValido" class="form-text text-danger">
-                                            <div *ngFor="let validation of interno_validation_messages.jurisdiccion_id" >
-                                                <div  *ngIf="formData.get('jurisdiccion_id')?.hasError(validation.type)">
+                                        <small *ngIf="jurisdiccion1NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.jurisdiccion1_id" >
+                                                <div  *ngIf="formData.get('jurisdiccion1_id')?.hasError(validation.type)">
+                                                    {{validation.message}}
+                                                </div>
+                                            </div>
+                                        </small>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label for="">Jurisdiccion 2</label>
+                                        <select formControlName="jurisdiccion2_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let jurisdiccion of drop_jurisdiccion" [value]="jurisdiccion.id_jurisdiccion">{{jurisdiccion.jurisdiccion}}</option> 
+                                        </select>
+                                        <small *ngIf="jurisdiccion1NoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.jurisdiccion1_id" >
+                                                <div  *ngIf="formData.get('jurisdiccion1_id')?.hasError(validation.type)">
                                                     {{validation.message}}
                                                 </div>
                                             </div>
@@ -799,12 +813,12 @@
 
                                     <div class="col-4 ">
                                         <label for="">Jurisdiccion Provincia</label>
-                                        <select formControlName="jurisdiccion_provinicia_id" class="form-control" [class.is-invalid]=""> 
-                                            <option *ngFor="let jurisdiccion_provinicia of drop_provincia" [value]="jurisdiccion_provinicia.id_provincia">{{jurisdiccion_provinicia.provincia}}</option> 
+                                        <select formControlName="jurisdiccion_provincia_id" class="form-control" [class.is-invalid]=""> 
+                                            <option *ngFor="let jurisdiccion_provincia of drop_provincia" [value]="jurisdiccion_provincia.id_provincia">{{jurisdiccion_provincia.provincia}}</option> 
                                         </select>
-                                        <small *ngIf="jurisdiccionProviniciaNoValido" class="form-text text-danger">
-                                            <div *ngFor="let validation of interno_validation_messages.jurisdiccion_provinicia_id" >
-                                                <div  *ngIf="formData.get('jurisdiccion_provinicia_id')?.hasError(validation.type)">
+                                        <small *ngIf="jurisdiccionProvinciaNoValido" class="form-text text-danger">
+                                            <div *ngFor="let validation of interno_validation_messages.jurisdiccion_provincia_id" >
+                                                <div  *ngIf="formData.get('jurisdiccion_provincia_id')?.hasError(validation.type)">
                                                     {{validation.message}}
                                                 </div>
                                             </div>

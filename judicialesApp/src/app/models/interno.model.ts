@@ -53,7 +53,8 @@ export class InternoModel {
     public expediente_policial!: string;
     public estado_procesal_id!: number;
     public tipo_delito_id!: number;
-    public jurisdiccion_id!: number;
+    public jurisdiccion1_id!: number;
+    public jurisdiccion2_id!: number;
     public reincidencia_id!: number;
     public reincidencia_num!: number;
     public juzgado_id!: number;

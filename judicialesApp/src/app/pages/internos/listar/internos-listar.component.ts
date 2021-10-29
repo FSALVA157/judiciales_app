@@ -81,7 +81,7 @@ export class InternosListarComponent implements OnInit {
   listaInternos() {
     const unidad: number = globalConstants.unidad;
     //const unidad: number = globalConstants.unidad;
-    //console.log("unidad del usuario", unidad);
+    console.log("unidad del usuario", unidad);
     this.internosService.getListaInternosXUnidad(unidad)
       .subscribe(
         data => {                    
