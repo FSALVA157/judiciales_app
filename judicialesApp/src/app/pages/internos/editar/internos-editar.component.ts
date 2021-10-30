@@ -266,8 +266,8 @@ export class InternosEditarComponent implements OnInit {
      this.interno = data;      
      
      //extraer foto de interno
-     if(this.interno.foto){
-      this.imagenUrl = `${base_url}/interno/foto?foto_nombre=${this.interno.foto}`;
+     if(this.interno.foto_frente){
+      this.imagenUrl = `${base_url}/interno/foto?foto_nombre=${this.interno.foto_frente}`;
     }else{        
         this.imagenUrl= `${base_url}/interno/foto?foto_nombre=no-image.jpg`;
     }

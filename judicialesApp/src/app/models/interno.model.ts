@@ -71,15 +71,16 @@ export class InternoModel {
     public abogado!: string;
 
     public foto?:string
+    public foto_frente?:string
 
     constructor(){}
 
     get fotoUrl():string{
 
        
-        if(this.foto){
-            console.log("fotoUrl en interno model",`${base_url}/interno/foto?foto_nombre=${this.foto}`);
-            return `${base_url}/interno/foto?foto_nombre=${this.foto}`;
+        if(this.foto_frente){
+            console.log("fotoUrl en interno model",`${base_url}/interno/foto?foto_nombre=${this.foto_frente}`);
+            return `${base_url}/interno/foto?foto_nombre=${this.foto_frente}`;
         }else{
             console.log("fotoUrl en interno model",`${base_url}/interno/foto?foto_nombre=no-image.jpg`);
             return `${base_url}/interno/foto?foto_nombre=no-image.jpg`;
