@@ -575,7 +575,11 @@ export class InternosEditarComponent implements OnInit {
       { type: 'required', message: 'El tipo de delito es requerido.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
-    'jurisdiccion_id': [
+    'jurisdiccion1_id': [
+      { type: 'required', message: 'La jurisdiccion es requerida.'},
+      { type: 'pattern', message: 'El valor ingresado no es un número.' }
+    ],
+    'jurisdiccion2_id': [
       { type: 'required', message: 'La jurisdiccion es requerida.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
@@ -596,7 +600,7 @@ export class InternosEditarComponent implements OnInit {
       { type: 'minlength', message: 'La cantidad mínima de caracteres es 2.' },
       { type: 'maxlength', message: 'La cantidad máxima de caracteres es 50.'} 
     ],
-    'jurisdiccion_provinicia_id': [
+    'jurisdiccion_provincia_id': [
       { type: 'required', message: 'La jurisdiccion provincial es requerida.'},
       { type: 'pattern', message: 'El valor ingresado no es un número.' }
     ],
@@ -828,9 +832,12 @@ export class InternosEditarComponent implements OnInit {
   get tipoDelitoNoValido(){
     return this.formDataProcesales.get('tipo_delito_id')?.invalid && this.formDataProcesales.get('tipo_delito_id')?.touched;
   }  
-  get jurisdiccionNoValido(){
-    return this.formDataProcesales.get('jurisdiccion_id')?.invalid && this.formDataProcesales.get('jurisdiccion_id')?.touched;
-  }  
+  get jurisdiccion1NoValido(){
+    return this.formDataProcesales.get('jurisdiccion1_id')?.invalid && this.formDataProcesales.get('jurisdiccion1_id')?.touched;
+  }
+  get jurisdiccion2NoValido(){
+    return this.formDataProcesales.get('jurisdiccion2_id')?.invalid && this.formDataProcesales.get('jurisdiccion2_id')?.touched;
+  }   
 
   get reincidenciaNoValido(){    
     return this.formDataProcesales.get('reincidencia_id')?.invalid && this.formDataProcesales.get('reincidencia_id')?.touched;
@@ -847,8 +854,8 @@ export class InternosEditarComponent implements OnInit {
   get detencionesNoValido(){
     return this.formDataProcesales.get('detenciones')?.invalid && this.formDataProcesales.get('detenciones')?.touched;
   }
-  get jurisdiccionProviniciaNoValido(){
-    return this.formDataProcesales.get('jurisdiccion_provinicia_id')?.invalid && this.formDataProcesales.get('jurisdiccion_provinicia_id')?.touched;
+  get jurisdiccionProvinciaNoValido(){
+    return this.formDataProcesales.get('jurisdiccion_provincia_id')?.invalid && this.formDataProcesales.get('jurisdiccion_provincia_id')?.touched;
   }
 
   get fechaDetencionNoValido(){
