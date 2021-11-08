@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
+import { PlanillaInternoModel } from '../../../models/planilla-interno.model';
 
 const base_url = environment.BASE_URL;
 
@@ -20,9 +21,11 @@ export class InternosEditarComponent implements OnInit {
 
   
   id:number = 0;
+  prontuario:number = 0;
   interno: InternoModel= new InternoModel;
   fotoSubir: File | undefined;//variable para guardar la imagen
   imagenUrl: string ="";
+  planilla: PlanillaInternoModel= new PlanillaInternoModel;
   submitted = false;
 
   //array para obtener las tablas
@@ -107,31 +110,7 @@ export class InternosEditarComponent implements OnInit {
     establecimiento_procedencia_id: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
     fecha_ingreso: ['',[Validators.required]],
     pabellon_id: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
-    //pabellon_id: ['',[Validators.required]],    
-    //reingreso_id: ['',[Validators.required]],
-    //reingreso_num: ['',[Validators.required]],    
-    //causa_penal: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-    //tipo_condena_id: ['',[Validators.required]],
-    //expediente_numero: ['',[Validators.required]],    
-    //expediente_policial: ['',[Validators.required]],
-    //estado_procesal_id: ['',[Validators.required]],
-    //tipo_delito_id: ['',[Validators.required]],    
-    //reincidencia_id: ['',[Validators.required]],
-    //reincidencia_num: ['',[Validators.required]],
-    //juzgado_id: ['',[Validators.required]],
-    //detenciones: ['',[Validators.required]],
-    //jurisdiccion_id: ['',[Validators.required]],
-    //jurisdiccion_provinicia_id: ['',[Validators.required]],
-    //fecha_detencion: ['',[Validators.required]],
-    //condena_juzgado_id: ['',[Validators.required]],
-    //total_anios: ['',[Validators.required]],
-    //total_meses: ['',[Validators.required]],
-    //total_dias: ['',[Validators.required]],
-    //computo: ['',[Validators.required]],
-    //fecha_cumple: ['',[Validators.required]],
-    //tipo_defensor_id: ['',[Validators.required]],
-    //abogado: ['',[Validators.required]]
-
+    
   });
   //... fin creacion de formulario de datos para html
 
@@ -172,10 +151,11 @@ export class InternosEditarComponent implements OnInit {
     this.obtenerDatosTablas()
 
     //recuperar id del usuario que biene de la tabla
-    this.id = this.routeActivate.snapshot.params['id'];
-    
-    //busqueda de usuario y carga de datos en el formulario    
-    this.internosService.getInternoXId(this.id)
+    //this.id = this.routeActivate.snapshot.params['id'];
+    this.prontuario = this.routeActivate.snapshot.params['prontuario'];
+
+    //busqueda de interno y carga de datos en el formulario    
+    this.internosService.getInternoXProntuario(this.prontuario)
                 .pipe(first())
                 .subscribe(x =>{ 
                   this.formData.patchValue(x);
@@ -183,6 +163,15 @@ export class InternosEditarComponent implements OnInit {
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
                   this.extraerDataInterno(x);
                 });
+    
+    //busqueda de planilla deinterno   
+    this.internosService.getPlanillaXProntuario(this.prontuario)
+                .pipe(first())
+                .subscribe(planillainterno =>{ 
+                  this.planilla= planillainterno;
+                });
+    
+    console.log("planilla", this.planilla);
   }
 
 
@@ -260,7 +249,7 @@ export class InternosEditarComponent implements OnInit {
   //------------------------------------------------
 
 
-  //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  //EXTRAER DATOS DE interno Y CREAR NUEVO MODELO
   extraerDataInterno(data: any) {
     //voy a desestructurar respuesta
           

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { globalConstants } from '../common/global-constants';
 import { InternoModel } from '../models/interno.model';
+import { PlanillaInternoModel } from '../models/planilla-interno.model';
 
 @Injectable({
   providedIn: 'root'
@@ -233,10 +234,18 @@ export class InternosService {
   //FIN RETORNAR INTERNO POR ID
   //............................
 
+  //RETORNAR INTERNO POR PRONTUARIO
+  getInternoXProntuario(prontuario: number){
+    
+    return this.http.get<InternoModel>(`${environment.BASE_URL}/interno/interno?prontuario=${prontuario}`);
+  }
+  //FIN RETORNAR INTERNO POR PRONTUARIO
+  //............................
+
   //RETORNAR PLANILLA DE INTERNO  POR ID
   getPlanillaXProntuario(prontuario: number){
-    
-    return this.http.get<Object>(`${environment.BASE_URL}/interno/planilla?prontuario=${prontuario}`);
+    console.log('planilla en servicio',this.http.get<PlanillaInternoModel>(`${environment.BASE_URL}/interno/planilla?prontuario=${prontuario}`));
+    return this.http.get<PlanillaInternoModel>(`${environment.BASE_URL}/interno/planilla?prontuario=${prontuario}`);
   }
   //FIN RETORNAR PLANILLA DE INTERNO POR ID
   //............................

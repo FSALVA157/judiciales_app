@@ -26,7 +26,7 @@ const routes: Routes = [
             {path:'listar', component: ListarComponent},
             {path:'usuarios', component: UsuariosComponent},
             {path:'agregar-interno', component: InternosAgregarComponent},
-            {path:'editar-interno/:id', component: InternosEditarComponent},
+            {path:'editar-interno/:prontuario', component: InternosEditarComponent},
             {path:'listar-internos', component: InternosListarComponent},
             {path:'agregar-usuario', component: UsuariosAgregarComponent},
             {path:'editar-usuario/:id', component: UsuariosEditarComponent},  
