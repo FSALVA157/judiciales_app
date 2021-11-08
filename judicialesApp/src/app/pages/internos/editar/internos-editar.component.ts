@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { TablasArray } from 'src/app/common/tablas-array';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { environment } from 'src/environments/environment';
@@ -25,7 +25,7 @@ export class InternosEditarComponent implements OnInit {
   interno: InternoModel= new InternoModel;
   fotoSubir: File | undefined;//variable para guardar la imagen
   imagenUrl: string ="";
-  planilla: PlanillaInternoModel= new PlanillaInternoModel;
+  planilla: PlanillaInternoModel = new PlanillaInternoModel;
   submitted = false;
 
   //array para obtener las tablas
@@ -144,6 +144,39 @@ export class InternosEditarComponent implements OnInit {
   });
   //... fin creacion de formulario de datos procesales para html
 
+  //creacion de formulario de datos procesales para html
+  formDataPlanilla = this.fb.group({      
+    
+    status: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    prontuario: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    fecha_hoy: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    estado_procesal: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    nombre_completo: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    nacionalidad: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    fecha_nacimiento: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    lugar_nacimiento: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],    
+    dni: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    prontuario_policial: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    fecha_detencion: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    fecha_ingreso: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+    procedente: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    num_expediente: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    causa: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    tribunal_condena: ['',[Validators.required]],
+    anios_condena: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    meses_condena: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    dias_condena: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    anios_lleva: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    meses_lleva: ['',[Validators.required]],
+    dias_lleva: ['',[Validators.required]],
+    anios_falta: ['',[Validators.required, Validators.pattern(/^[0-9]*$/)]],
+    meses_falta: ['',[Validators.required,  Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(2), Validators.maxLength(50)]],
+    dias_falta: ['',[Validators.required,  Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(2), Validators.maxLength(50)]],
+    fecha_cumple: ['',[Validators.required,  Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(2), Validators.maxLength(50)]],
+    tipificacion_pena: ['',[Validators.required,  Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(2), Validators.maxLength(50)]]
+  });
+  //... fin creacion de formulario de datos procesales para html
+
 
   ngOnInit(): void {
 
@@ -163,20 +196,29 @@ export class InternosEditarComponent implements OnInit {
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
                   this.extraerDataInterno(x);
                 });
+    //FIN busqueda de interno y carga de datos en el formulario.......................
     
     //busqueda de planilla deinterno   
-    this.internosService.getPlanillaXProntuario(this.prontuario)
-                .pipe(first())
-                .subscribe(planillainterno =>{ 
-                  this.planilla= planillainterno;
-                });
+    this.internosService.getPlanillaXProntuario(this.prontuario)      
+                .subscribe(
+                  planillainterno =>{ 
+                    this.planilla = planillainterno;
+                    this.formDataPlanilla.patchValue(planillainterno);
+                  }
+                );    
+    //FIN busqueda de planilla de interno........................
     
-    console.log("planilla", this.planilla);
+  }
+  
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log("planilla", this.planilla); 
   }
 
 
   //METODO ACTUALIZA EL INTERNO
-  actualizarInterno() {       
+  actualizarInterno() {        
 
     this.submitted=true; //establecer que se envio el formulario
     //controlar si el formulario es valido
@@ -213,8 +255,8 @@ export class InternosEditarComponent implements OnInit {
   //-------------------------------
 
   //METODO ACTUALIZA DATOS PROCESALES DEL INTERNO
-  actualizarDatosProcesalesInterno() {       
-
+  actualizarDatosProcesalesInterno() {   
+     
     this.submitted=true; //establecer que se envio el formulario
     //controlar si el formulario es valido
     if(this.formDataProcesales.invalid){     

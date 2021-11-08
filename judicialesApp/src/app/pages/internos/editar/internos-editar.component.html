@@ -1,4 +1,4 @@
-<div class="card card-secondary card-tabs">
+<div class="card card-primary card-tabs">
     <div class="card-header p-0 pt-1">
         <ul class="nav nav-tabs" id="custom-tabs-five-tab" role="tablist">
             <li class="nav-item">
@@ -1051,10 +1051,63 @@
 
             <!-- /PANEL 3 -->
             <div class="tab-pane fade" id="tab-planilla-antecedentes" role="tabpanel" aria-labelledby="tabs-credencial-tab">
-                Content 3
-            </div>
-            <!-- /FIN PANEL 3 -->
+                <div class="row justify-content-center">
+                    <div class="col">
 
+                        <form class="p-fluid" autocomplete="off" [formGroup]="formDataPlanilla">
+
+                            <!-- card 4 datos procesales-->
+                            <div class="card mt-1">
+                                <div class="card-body register-card-body">
+                                    <p class="login-box-msg titulo-fondo-azul">Interno: {{planilla.estado_procesal}} {{planilla.nombre_completo}} - Prontuario: {{planilla.prontuario}}</p>
+
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>DATOS FILIATORIOS:</strong> {{planilla.nacionalidad}} - Nacido el {{planilla.fecha_nacimiento}} - en {{planilla.lugar_nacimiento}}.
+                                            <br> D.N.I. N° {{planilla.dni}} - Prontuario Policial N° {{planilla.prontuario_policial}}.
+                                        </p>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>DETENIDO:</strong> {{planilla.fecha_detencion}} - <strong>INGRESO AL PENAL:</strong>{{planilla.fecha_ingreso}} - Procedente de {{planilla.procedente}}.
+                                        </p>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>CAUSA:</strong> {{planilla.num_expediente}} {{planilla.causa}}
+                                        </p>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>TRIBUNAL QUE CONDENO:</strong> {{planilla.tribunal_condena}}
+                                            <br>
+                                            <strong>CONDENADO A LA PENA DE:</strong> {{planilla.anios_condena}} Años - {{planilla.meses_condena}} Meses - {{planilla.dias_condena}} Dias de Prision Efectiva
+                                        </p>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>LLEVA CUMPLIDO:</strong> {{planilla.anios_lleva}} Años - {{planilla.meses_lleva}} Meses - {{planilla.dias_lleva}} Dias.
+                                            <br>
+                                            <strong>FALTA CUMPLIR:</strong> {{planilla.anios_falta}} Años - {{planilla.meses_falta}} Meses - {{planilla.dias_falta}} Dias.
+                                        </p>
+                                    </div>
+                                    <div class="callout callout-info">
+                                        <p>
+                                            <strong>CUMPLE LA PENA:</strong> El {{planilla.fecha_cumple}}.
+                                            <br>
+                                            <strong>TIPIFICACION DE LA PENA:</strong> {{planilla.tipificacion_pena}}.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- /FIN PANEL 3 -->
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

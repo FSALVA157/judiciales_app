@@ -18,6 +18,12 @@ label {
     padding-top: 3px;
 }
 
+.titulo-fondo-azul {
+    background-color: #2e6086;
+    height: 30px;
+    padding-top: 3px;
+}
+
 .fondo-gris {
     background-color: #3e474e;
 }

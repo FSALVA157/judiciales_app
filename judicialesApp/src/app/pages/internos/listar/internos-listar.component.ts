@@ -86,6 +86,7 @@ export class InternosListarComponent implements OnInit {
       .subscribe(
         data => {                    
           this.total = data[1];
+          console.log(data[0]);
           this.lista_internos = data[0];
           //this.lista_internos = data;
           

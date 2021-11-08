@@ -244,7 +244,7 @@ export class InternosService {
 
   //RETORNAR PLANILLA DE INTERNO  POR ID
   getPlanillaXProntuario(prontuario: number){
-    console.log('planilla en servicio',this.http.get<PlanillaInternoModel>(`${environment.BASE_URL}/interno/planilla?prontuario=${prontuario}`));
+    
     return this.http.get<PlanillaInternoModel>(`${environment.BASE_URL}/interno/planilla?prontuario=${prontuario}`);
   }
   //FIN RETORNAR PLANILLA DE INTERNO POR ID
