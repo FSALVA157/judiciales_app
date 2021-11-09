@@ -199,13 +199,14 @@ export class InternosEditarComponent implements OnInit {
     //FIN busqueda de interno y carga de datos en el formulario.......................
     
     //busqueda de planilla deinterno   
-    this.internosService.getPlanillaXProntuario(this.prontuario)      
-                .subscribe(
-                  planillainterno =>{ 
-                    this.planilla = planillainterno;
-                    this.formDataPlanilla.patchValue(planillainterno);
-                  }
-                );    
+    // this.internosService.getPlanillaXProntuario(this.prontuario)      
+    //             .subscribe(
+    //               planillainterno =>{ 
+    //                 this.planilla = planillainterno;
+    //                 this.formDataPlanilla.patchValue(planillainterno);
+    //               }
+    //             );    
+    this.obtenerPlanillaInterno(this.prontuario);
     //FIN busqueda de planilla de interno........................
     
   }
@@ -230,10 +231,11 @@ export class InternosEditarComponent implements OnInit {
     }
     //fin controlar si el formulario es valido
 
-    this.internosService.actualizarDatosInterno(this.id, this.formData.value)
+    this.internosService.actualizarDatosInterno(this.prontuario, this.formData.value)
         .pipe(first())
         .subscribe(
           respuesta => {
+            this.obtenerPlanillaInterno(this.prontuario);
             Swal.fire({
               title: 'Actualizar Interno',
               text: "Interno actualizado correctamente",
@@ -266,7 +268,7 @@ export class InternosEditarComponent implements OnInit {
     }
     //fin controlar si el formulario es valido
 
-    this.internosService.actualizarDatosProcesalesInterno(this.id, this.formDataProcesales.value)
+    this.internosService.actualizarDatosProcesalesInterno(this.prontuario, this.formDataProcesales.value)
         .pipe(first())
         .subscribe(
           respuesta => {
@@ -275,6 +277,7 @@ export class InternosEditarComponent implements OnInit {
               text: "Interno actualizado correctamente",
               icon: 'success',              
             });
+            this.obtenerPlanillaInterno(this.prontuario);
             //DIRECCIONAMIENTO
             //this.router.navigateByUrl("dashboard/listar-usuarios");
           }, 
@@ -307,6 +310,22 @@ export class InternosEditarComponent implements OnInit {
                              
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
+  //.................................................
+
+  //OBTENER PLANILLA INTERNO
+  obtenerPlanillaInterno(prontuario: number) {
+    //busqueda de planilla deinterno   
+    this.internosService.getPlanillaXProntuario(prontuario)      
+                .subscribe(
+                  planillainterno =>{ 
+                    this.planilla = planillainterno;
+                    this.formDataPlanilla.patchValue(planillainterno);
+                  }
+                );    
+    //FIN busqueda de planilla de interno........................
+                             
+  }
+  //FIN OBTENER PLANILLA INTERNO
   //.................................................
 
   

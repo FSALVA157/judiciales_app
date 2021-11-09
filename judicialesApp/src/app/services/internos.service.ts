@@ -106,7 +106,7 @@ export class InternosService {
   //fin CREAR INTERNO
 
   //ACTUALIZAR DATOS INTERNO
-  actualizarDatosInterno(id_interno: number, data: any){
+  actualizarDatosInterno(prontuario: number, data: any){
     console.log("datos contrasenia de formulario", data);
     let obj: any;
     
@@ -179,13 +179,13 @@ export class InternosService {
       //unidad_id: globalConstants.unidad
       };
     
-    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,interno);    
+    return this.http.put(`${environment.BASE_URL}/interno/${prontuario}`,interno);    
   }
   //fin ACTUALIZAR DATOS INTERNO
   //............................
 
   //ACTUALIZAR DATOS PROCESALES INTERNO
-  actualizarDatosProcesalesInterno(id_interno: number, data: any){
+  actualizarDatosProcesalesInterno(prontuario: number, data: any){
     console.log("datos contrasenia de formulario", data);
     let obj: any;
     
@@ -220,7 +220,7 @@ export class InternosService {
       //unidad_id: globalConstants.unidad
       };
     
-    return this.http.put(`${environment.BASE_URL}/interno/${id_interno}`,interno);    
+    return this.http.put(`${environment.BASE_URL}/interno/${prontuario}`,interno);    
   }
   //fin ACTUALIZAR DATOS PROCESALES INTERNO
   //............................
