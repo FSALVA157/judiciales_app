@@ -23,6 +23,12 @@ import { InternosAgregarComponent } from './internos/agregar/internos-agregar.co
 import { InternosEditarComponent } from './internos/editar/internos-editar.component';
 import { UsuariosEditarComponent } from './usuarios/editar/usuarios-editar.component';
 
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
+
 // import { FullCalendarModule } from 'primeng/fullcalendar'; // must go before plugins
 // import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 //import interactionPlugin from '@fullcalendar/'; // a plugin!
@@ -91,6 +97,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FileUploadModule,
     TabViewModule,
     FullCalendarModule // register FullCalendar with you app
+    
   ]
 })
 export class PagesModule { }

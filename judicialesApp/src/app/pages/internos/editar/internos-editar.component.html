@@ -1049,7 +1049,7 @@
             </div>
             <!-- /FIN PANEL 2 -->
 
-            <!-- /PANEL 3 -->
+            <!-- /PANEL 3 planilla-->
             <div class="tab-pane fade" id="tab-planilla-antecedentes" role="tabpanel" aria-labelledby="tabs-credencial-tab">
                 <div class="row justify-content-center">
                     <div class="col">
@@ -1058,6 +1058,9 @@
 
                             <!-- card 4 datos procesales-->
                             <div class="card mt-1">
+                                <div style="width: 100px;">
+                                    <button pButton type="button" label="Decargar planilla" class="p-button-danger" icon="pi pi-file-pdf" iconPos="left" (click)="generarPdfPlanillaInterno()"></button>
+                                </div>
                                 <div class="card-body register-card-body">
                                     <p class="login-box-msg titulo-fondo-azul">Interno: {{planilla.estado_procesal}} {{planilla.nombre_completo}} - Prontuario: {{planilla.prontuario}}</p>
 

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
 import { PlanillaInternoModel } from '../../../models/planilla-interno.model';
+import { Img, PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
 
 const base_url = environment.BASE_URL;
 
@@ -323,6 +324,35 @@ export class InternosEditarComponent implements OnInit {
                   }
                 );    
     //FIN busqueda de planilla de interno........................
+                             
+  }
+  //FIN OBTENER PLANILLA INTERNO
+  //.................................................
+
+  //OBTENER PLANILLA INTERNO
+  async generarPdfPlanillaInterno() {
+    const pdf = new PdfMakeWrapper();
+    //agrega imagen
+    pdf.add( await new Img('../../../../assets/img/logo_spps2.png').fit([30,30]).alignment('left').build());
+    pdf.add(
+      new Txt('Fecha: '+this.planilla.fecha_hoy).fontSize(11).alignment('right').end      
+    );
+    pdf.add(' ');
+    pdf.add(
+      new Txt('Planilla de Antecedentes').bold().fontSize(12).alignment('center').end
+    );
+    pdf.add(' ');
+    //agrega imagen
+    pdf.add( await new Img(this.imagenUrl).fit([100,100]).alignment('center').build());
+
+    pdf.add(' ');
+
+    pdf.add(
+      new Txt('Interno: '+this.planilla.nombre_completo).fontSize(11).end
+      
+    );   
+      
+    pdf.create().open();
                              
   }
   //FIN OBTENER PLANILLA INTERNO
