@@ -9,7 +9,8 @@ import Swal from 'sweetalert2';
 import { InternoModel } from '../../../models/interno.model';
 import { InternosService } from '../../../services/internos.service';
 import { PlanillaInternoModel } from '../../../models/planilla-interno.model';
-import { Img, PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
+import { Cell, Img, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
+import { globalConstants } from 'src/app/common/global-constants';
 
 const base_url = environment.BASE_URL;
 
@@ -27,6 +28,7 @@ export class InternosEditarComponent implements OnInit {
   fotoSubir: File | undefined;//variable para guardar la imagen
   imagenUrl: string ="";
   planilla: PlanillaInternoModel = new PlanillaInternoModel;
+  nombreCompleto: string = "";
   submitted = false;
 
   //array para obtener las tablas
@@ -65,7 +67,10 @@ export class InternosEditarComponent implements OnInit {
     private router:Router,
     private routeActivate: ActivatedRoute,
     private readonly fileUploadService: FileUploadService
-  ) { }
+  ) { 
+    this.nombreCompleto = ((this.interno.apellido_1! || "") + " " + (this.interno.apellido_2! || "") +" " + (this.interno.nombre_1! || "") +" " + (this.interno.nombre_2! || "") +" " + (this.interno.nombre_3! || ""));
+    
+  }
 
 
   //creacion de formulario de datos para html
@@ -331,28 +336,152 @@ export class InternosEditarComponent implements OnInit {
 
   //OBTENER PLANILLA INTERNO
   async generarPdfPlanillaInterno() {
+    let meses_texto=["Enero", "Febrero","Marzo","Abril","Mayo","Junio", "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+    //fecha completa
+    let fecha_hoy: Date = new Date();
+    let fecha_completa: string;
+    let anio:number= fecha_hoy.getFullYear(); 
+    let mes: number= fecha_hoy.getMonth();
+    let dia: number= fecha_hoy.getDate();
+    fecha_completa = "Salta, " + dia + " de " + meses_texto[mes] + " de " +  anio;
+
     const pdf = new PdfMakeWrapper();
-    //agrega imagen
-    pdf.add( await new Img('../../../../assets/img/logo_spps2.png').fit([30,30]).alignment('left').build());
+    
+    
+    
     pdf.add(
-      new Txt('Fecha: '+this.planilla.fecha_hoy).fontSize(11).alignment('right').end      
+      new Table([
+        [ 
+          new Cell (await new Img('../../../../assets/img/logo-spps-transp-text.png').fit([130,130]).alignment('left').build()).end
+        ],
+        [ 
+          new Txt(globalConstants.unidad_nombre).fontSize(9).alignment('center').end
+          
+        ]
+      ]).widths([130])
+      .layout('noBorders').end
+    );
+    
+    pdf.add(
+      new Txt(fecha_completa).fontSize(11).alignment('right').end
     );
     pdf.add(' ');
+ 
     pdf.add(
-      new Txt('Planilla de Antecedentes').bold().fontSize(12).alignment('center').end
+      new Txt('Planilla de antecedentes').bold().fontSize(13).alignment('center').end
     );
-    pdf.add(' ');
-    //agrega imagen
-    pdf.add( await new Img(this.imagenUrl).fit([100,100]).alignment('center').build());
+
+    pdf.add(' ');  
+
+    pdf.add(
+      new Table([
+        [ 
+          await new Img(this.imagenUrl).fit([100,100]).alignment('center').build(), 
+          
+          new Table([            
+            [ 
+              " Nombre completo: "+ this.planilla.nombre_completo
+            ],
+            
+            [ 
+              " Prontuario: "+ this.planilla.prontuario
+            ],
+            [ 
+              " D.N.I. Nº: "+ this.planilla.dni
+            ],
+            [ 
+              " Prontuario Policial: " +  this.planilla.prontuario_policial
+            ],
+            [ 
+              " Nacionalidad: " +  this.planilla.nacionalidad
+            ],
+            [ 
+              " Fecha y lugar de Nacimiento: " + this.planilla.fecha_nacimiento + " en " + this.planilla.lugar_nacimiento
+            ],
+            [" "]
+
+          ]).layout("lightHorizontalLines").end
+        ]
+      ]).widths([110,390]).layout("noBorders").fontSize(11).end
+    );
 
     pdf.add(' ');
 
     pdf.add(
-      new Txt('Interno: '+this.planilla.nombre_completo).fontSize(11).end
-      
-    );   
-      
+      new Table([
+        [ 
+          new Cell (new Txt('Detenido').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end,
+          new Cell (new Txt('Ingreso al penal').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end,
+          new Cell (new Txt('Procedente de').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end
+        ],
+        [ 
+          new Txt(this.planilla.fecha_detencion.toString()).bold().fontSize(10).alignment('center').end,
+          new Txt(this.planilla.fecha_ingreso.toString()).bold().fontSize(10).alignment('center').end,
+          new Txt(this.planilla.procedente).end,
+          
+        ]
+      ]).widths([170,170,160])
+      .layout('noBorders').end
+    );
+
+    pdf.add(' ');
+
+    pdf.add(
+      new Table([
+        [ 
+          new Cell (new Txt('Causa').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end,
+          
+        ],
+        [ 
+          new Txt(this.planilla.num_expediente + " " + this.planilla.causa).bold().fontSize(10).alignment('center').end,
+          
+          
+        ]
+      ]).widths([500])
+      .layout('noBorders').end
+    );
+
+    pdf.add(' ');  
+    
+    pdf.add(
+      new Table([
+        [ 
+          new Cell (new Txt('Tribunal que condenó').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end,
+          new Cell (new Txt('Condenado a la pena de').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end
+          
+        ],
+        [ 
+          new Txt(this.planilla.tribunal_condena).fontSize(10).alignment('center').end,
+          new Txt(this.planilla.anios_condena + " Años - " + this.planilla.meses_condena + " Meses - " + this.planilla.dias_condena + " Dias de Prision Efectiva").fontSize(10).alignment('center').end
+          
+        ]
+      ]).widths([250,250])
+      .layout('noBorders').end
+    );
+
+    pdf.add(' ');  
+    
+    pdf.add(
+      new Table([
+        [ 
+          new Cell (new Txt('Lleva cumplido').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end,
+          new Cell (new Txt('Falta cumplir').bold().fontSize(11).alignment('center').end).fillColor('#CCCCCC').end
+          
+        ],
+        [ 
+          new Txt(this.planilla.anios_lleva + " Años - " + this.planilla.meses_lleva + " Meses - " + this.planilla.dias_lleva + " Dias").fontSize(10).alignment('center').end,
+          new Txt(this.planilla.anios_falta + " Años - " + this.planilla.meses_falta + " Meses - " + this.planilla.dias_falta + "Dias").fontSize(10).alignment('center').end
+          
+        ]
+      ]).widths([250,250])
+      .layout('noBorders').end
+    );
+
+    
+    
     pdf.create().open();
+      
+     
                              
   }
   //FIN OBTENER PLANILLA INTERNO
