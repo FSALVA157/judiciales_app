@@ -39,13 +39,14 @@ export class FileUploadService {
   }
 
 
-  async actualizarFotoInterno(archivo: File, id: number){
+  async actualizarFotoInterno(archivo: File, prontuario: number){
     // const url = `${base_url}/usuarios/foto?id=${id}`;
     // const formData = new FormData();
     // formData.append('foto', archivo);
     // return this.http.post(url, formData);
       try {
-        const url = `${base_url}/interno/foto?id=${id}`;
+        const url = `${base_url}/interno/foto?prontuario=${prontuario}`;
+        console.log("id", prontuario);
         console.log("ruta", url);
         const formData = new FormData();
         formData.append('foto_carga', archivo);

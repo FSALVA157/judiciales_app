@@ -364,8 +364,8 @@ export class InternosEditarComponent implements OnInit {
     try {
       
       this.fotoSubir = foto;
-      let id: number =  this.id; //this.id es proveniente de la tabla
-      this.fileUploadService.actualizarFotoInterno(this.fotoSubir, id).then((respuesta: any) => {
+      let prontuario: number =  this.prontuario; //this.id es proveniente de la tabla
+      this.fileUploadService.actualizarFotoInterno(this.fotoSubir, prontuario).then((respuesta: any) => {
             if(respuesta.ok){
             Swal.fire('Actualización Exitosa!!', "La foto del Interno ha sido cambiada con éxito","success");
             }else{
