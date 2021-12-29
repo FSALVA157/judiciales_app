@@ -3,6 +3,7 @@ export class globalConstants {
     public static validado: boolean = false;
     public static nombreUsuario: string = "";
     public static emailUsuario: string = "";
+    public static role: number;
     public static unidad: number;
     public static unidad_nombre: string;
     public static menu_en_uso: string;

@@ -23,9 +23,11 @@ export class UsuariosService {
       nombre: data.nombre,
       apellido: data.apellido,
       //foto: "no-imagen.jpg",
+      role: parseInt(data.role),
       clave: data.clave,
       dni: parseInt(data.dni),
-      unidad_id: globalConstants.unidad
+      //unidad_id: globalConstants.unidad
+      unidad_id: parseInt(data.unidad_id),
     };
     
     return this.http.post(`${environment.BASE_URL}/usuario`,obj);    
@@ -110,6 +112,14 @@ export class UsuariosService {
     return this.http.get<UsuarioModel>(`${environment.BASE_URL}/usuario/${id_usuario}`);
   }
   //FIN RETORNAR USUARIOS POR ID
+  //............................
+
+  //RETORNAR USUARIOS TODOS
+  getListaUsuarios(){
+    
+    return this.http.get<UsuarioModel[]>(`${environment.BASE_URL}/usuario/`);
+  }
+  //FIN RETORNAR USUARIOS TODOS
   //............................
 
 }

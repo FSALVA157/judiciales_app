@@ -69,11 +69,25 @@ export class UsuariosListarComponent implements OnInit {
     
   }
 
-  //LISTADO COMPLETO DE USUARIOS POR UNIDAD
+  //LISTADO COMPLETO DE USUARIOS TODOS O POR UNIDAD
   listaUsuarios() {
     const unidad: number = globalConstants.unidad;
-    console.log("unidad del usuario", unidad);
-    this.usuariosService.getListaUsuariosXUnidad(unidad)
+    const rol_usuario: number = globalConstants.role;
+    if(rol_usuario==2){
+      this.usuariosService.getListaUsuarios()
+      .subscribe(
+        data => {                    
+          this.lista_usuarios = data;
+          //armado de array de usuarios para exportar el pdf
+          this.lista_usuarios_pdf = this.lista_usuarios;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+    else{
+      this.usuariosService.getListaUsuariosXUnidad(unidad)
       .subscribe(
         data => {                    
           this.lista_usuarios = data;
@@ -87,8 +101,10 @@ export class UsuariosListarComponent implements OnInit {
           console.log(err);
         }
       );
+    }
+    
   }
-  //FIN LISTADO COMPLETO DE INTERNOS
+  //FIN LISTADO COMPLETO DE USUARIOS TODOS O POR UNIDAD
 
   //EXPORTAR TABLA A PDF
   exportPdf() {

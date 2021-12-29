@@ -40,6 +40,7 @@ export class LoginComponent {
      globalConstants.emailUsuario = user.correo;
      globalConstants.unidad = unidad_id;
      globalConstants.unidad_nombre= data.unidad.unidad;
+     globalConstants.role= data.role;
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   
