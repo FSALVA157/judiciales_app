@@ -42,13 +42,13 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <label for="">Organismo</label>
+
                             <select formControlName="unidad_id" class="form-control" [class.is-invalid]=""> 
                                 <option *ngFor="let unidad of unidades" [value]="unidad.id_unidad">{{unidad.unidad}}</option> 
                             </select>
                         </div>
                         <div class="input-group mb-3">
-                            <label for="">Rol</label>
+
                             <select formControlName="role" class="form-control" [class.is-invalid]=""> 
                                 <option *ngFor="let rol of roles" [value]="rol.code">{{rol.role_name}}</option> 
                             </select>

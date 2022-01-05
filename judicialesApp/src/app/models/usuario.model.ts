@@ -22,7 +22,6 @@ export class UsuarioModel{
 
     get fotoUrl(){
         if(this.foto){
-            
             return `${base_url}/usuario/foto?foto_nombre=${this.foto}`;
         }else{
             return `${base_url}/usuario/foto?foto_nombre=no-image.jpg`;

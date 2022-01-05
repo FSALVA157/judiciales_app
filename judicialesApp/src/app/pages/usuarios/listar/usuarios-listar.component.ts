@@ -30,7 +30,7 @@ export class UsuariosListarComponent implements OnInit {
   data: any[]=[];
   selectedUsuarios: UsuarioModel[] = [];
   baseUrlImg: string = `${base_url}/usuario/foto?foto_nombre=`;
-  
+  noImagen: string = './assets/img/no-image.jpg';
   
   constructor(private usuariosService: UsuariosService) { }
 
@@ -91,7 +91,6 @@ export class UsuariosListarComponent implements OnInit {
       .subscribe(
         data => {                    
           this.lista_usuarios = data;
-          console.log("lista usuarios", this.lista_usuarios);
           //armado de array de usuarios para exportar el pdf
           this.lista_usuarios_pdf = this.lista_usuarios;
           console.log("columnas lista creada para pdf", this.exportColumns);

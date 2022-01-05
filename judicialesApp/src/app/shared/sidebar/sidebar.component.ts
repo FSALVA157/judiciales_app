@@ -21,6 +21,7 @@ export class SidebarComponent  implements OnInit {
   ) { 
     this.menu = this.sidebarService.menu;
     this.imagenUrl = globalConstants.urlImagen;
+    console.log("imagen sidebar",this.imagenUrl);
     // if(globalConstants.urlImagen){
     //   //this.imagenUrl = `${environment.BASE_URL}/usuario/foto?foto_nombre=${globalConstants.urlImagen}`;
     //   this.imagenUrl = globalConstants.urlImagen;

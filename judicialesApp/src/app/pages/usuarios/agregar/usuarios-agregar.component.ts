@@ -41,14 +41,14 @@ export class UsuariosAgregarComponent {
   }
 
   public formData = this.fb.group({
-    correo: ['sexitos@gmail.com', [Validators.required, Validators.email]],
+    correo: ['xxxx@gmail.com', [Validators.required, Validators.email]],
     dni: ['32505424',[Validators.required]],
     nombre: ['pedro',[Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
     apellido: ['diaz',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
     unidad_id: ['1',[Validators.required]],
     role: ['1',[Validators.required]],
-    clave: ['123456',[Validators.required, Validators.minLength(6)]],
-    password2: ['123456',[Validators.required, Validators.minLength(6)]],
+    clave: ['',[Validators.required, Validators.minLength(6)]],
+    password2: ['',[Validators.required, Validators.minLength(6)]],
     foto: ['no-image.jpg',[Validators.required, Validators.minLength(2),Validators.maxLength(50)]],
   });
 

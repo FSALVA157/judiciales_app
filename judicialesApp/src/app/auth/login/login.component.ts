@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioModel } from '../../models/usuario.model';
 import { globalConstants } from 'src/app/common/global-constants';
+import { environment } from 'src/environments/environment';
+
+const base_url = environment.BASE_URL
 
 @Component({
   selector: 'app-login',
@@ -34,8 +37,15 @@ export class LoginComponent {
   extraerDataUsuario(data: any) {
     //voy a desestructurar respuesta
      const {id_usuario, apellido, correo, dni, foto, nombre, unidad_id} = data;
-     const user: UsuarioModel = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
-     globalConstants.urlImagen = user.fotoUrl;                                   
+     //const user: UsuarioModel = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
+     const user: UsuarioModel = data;
+     if(user.foto){
+      globalConstants.urlImagen = `${base_url}/usuario/foto?foto_nombre=${user.foto}`;
+     }else{
+      globalConstants.urlImagen = `${base_url}/usuario/foto?foto_nombre=no-image.jpg`;
+     }
+     console.log("foto login", user.fotoUrl);
+     //globalConstants.urlImagen = user.fotoUrl;                                   
      globalConstants.nombreUsuario = user.nombre + " " + user.apellido;
      globalConstants.emailUsuario = user.correo;
      globalConstants.unidad = unidad_id;

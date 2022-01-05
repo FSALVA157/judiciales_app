@@ -18,7 +18,7 @@ export class SidebarService {
     //   ]
     // },
     {
-      titulo:"Usuarios2",
+      titulo:"Usuarios",
       icono: "fas fa-user-friends",
       submenu: [
         {titulo: "Agregar", url: "/dashboard/agregar-usuario"},

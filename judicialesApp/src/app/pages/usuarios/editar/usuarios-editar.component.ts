@@ -6,6 +6,9 @@ import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { environment } from 'src/environments/environment';
+
+const base_url = environment.BASE_URL;
 
 @Component({
   selector: 'app-usuarios-editar',
@@ -55,7 +58,6 @@ export class UsuariosEditarComponent implements OnInit {
     this.usuariosService.getUsuarioXId(this.id)
                 .pipe(first())
                 .subscribe(x =>{ this.formData.patchValue(x);
-                  console.log("usuario editar", x);
                   //METODO LOCAL PARA COLOCAR DATOS DE USUARIO DEVUELTO EN VARIABLES
                   this.extraerDataUsuario(x);
                 });
@@ -64,10 +66,17 @@ export class UsuariosEditarComponent implements OnInit {
 
   //EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   extraerDataUsuario(data: any) {
-    //voy a desestructurar respuesta
-     const {id_usuario, apellido, correo, dni, foto, nombre, unidad_id} = data;
-     this.usuario = new UsuarioModel(id_usuario,correo,"", dni,nombre,apellido,unidad_id,foto);
-     this.imagenUrl = this.usuario.fotoUrl;                                   
+
+     this.usuario = data;
+     //extraer foto de usuario     
+     if(this.usuario.foto){
+      this.imagenUrl = `${base_url}/usuario/foto?foto_nombre=${this.usuario.foto}`;
+      
+    }else{        
+        this.imagenUrl= "./assets/img/no-image.jpg";
+    }
+    
+     //fin extraer foto del usuario                                
   }
   //FIN EXTRAER DATOS DE USUARIO Y CREAR NUEVO MODELO
   //.................................................
